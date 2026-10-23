@@ -1,0 +1,320 @@
+{
+  "maps": {
+    "Town": {
+      "size": [
+        64,
+        48
+      ],
+      "points": {
+        "spawn": [
+          36,
+          23
+        ],
+        "inn_door_approach": [
+          18,
+          22
+        ],
+        "fishery_door_approach": [
+          33,
+          22
+        ],
+        "harbor_departure": [
+          56,
+          23
+        ]
+      }
+    },
+    "Harbor": {
+      "size": [
+        64,
+        48
+      ],
+      "points": {
+        "spawn": [
+          24,
+          23
+        ],
+        "fishing": [
+          37,
+          20
+        ],
+        "boat": [
+          43,
+          23
+        ]
+      }
+    },
+    "Icefjord": {
+      "size": [
+        72,
+        56
+      ],
+      "points": {
+        "spawn": [
+          35,
+          34
+        ],
+        "fishing": [
+          39,
+          34
+        ],
+        "return_approach": [
+          9,
+          29
+        ]
+      }
+    },
+    "Tundra": {
+      "size": [
+        64,
+        48
+      ],
+      "points": {
+        "spawn": [
+          29,
+          43
+        ],
+        "fishing": [
+          41,
+          23
+        ],
+        "lookout": [
+          25,
+          4
+        ]
+      }
+    },
+    "Guesthouse": {
+      "size": [
+        24,
+        18
+      ],
+      "points": {
+        "spawn": [
+          12,
+          14
+        ],
+        "bed_approach": [
+          4,
+          9
+        ]
+      }
+    },
+    "Fishery": {
+      "size": [
+        24,
+        18
+      ],
+      "points": {
+        "spawn": [
+          12,
+          14
+        ],
+        "counter_approach": [
+          8,
+          7
+        ]
+      }
+    },
+    "WinterCamp": {
+      "size": [
+        64,
+        48
+      ],
+      "points": {
+        "spawn": [
+          2,
+          24
+        ],
+        "station_approach": [
+          31,
+          25
+        ],
+        "shelter_approach": [
+          19,
+          37
+        ],
+        "mountain_link_approach": [
+          49,
+          23
+        ]
+      }
+    },
+    "ResearchStation": {
+      "size": [
+        24,
+        18
+      ],
+      "points": {
+        "spawn": [
+          12,
+          14
+        ],
+        "bed_approach": [
+          4,
+          9
+        ],
+        "desk_approach": [
+          17,
+          8
+        ]
+      }
+    },
+    "Airstrip": {
+      "size": [
+        64,
+        40
+      ],
+      "points": {
+        "spawn": [
+          25,
+          26
+        ],
+        "boarding_approach": [
+          27,
+          30
+        ],
+        "terminal_approach": [
+          34,
+          27
+        ],
+        "town_exit": [
+          26,
+          38
+        ]
+      }
+    },
+    "HarborReady": {
+      "size": [
+        64,
+        48
+      ],
+      "points": {
+        "spawn": [
+          24,
+          23
+        ],
+        "fishing": [
+          37,
+          20
+        ],
+        "boat": [
+          43,
+          23
+        ]
+      }
+    },
+    "SledTrail": {
+      "size": [
+        64,
+        48
+      ],
+      "points": {
+        "spawn": [
+          12,
+          42
+        ],
+        "junction": [
+          25,
+          24
+        ],
+        "station_approach": [
+          28,
+          27
+        ],
+        "glacier_departure": [
+          32,
+          2
+        ],
+        "camp_departure": [
+          61,
+          24
+        ]
+      }
+    },
+    "Glacier": {
+      "size": [
+        64,
+        48
+      ],
+      "points": {
+        "spawn": [
+          32,
+          44
+        ],
+        "lookout": [
+          31,
+          27
+        ],
+        "sample_approach": [
+          11,
+          28
+        ]
+      }
+    },
+    "CommunityHouse": {
+      "size": [
+        24,
+        18
+      ],
+      "points": {
+        "spawn": [
+          12,
+          14
+        ],
+        "board_approach": [
+          5,
+          6
+        ],
+        "kitchen_approach": [
+          20,
+          8
+        ]
+      }
+    }
+  },
+  "fish": [
+    {
+      "id": "ArcticPassage_PolarCod",
+      "difficulty": 25,
+      "price": 85,
+      "seasons": "winter spring"
+    },
+    {
+      "id": "ArcticPassage_AtlanticCod",
+      "difficulty": 40,
+      "price": 120,
+      "seasons": "summer fall"
+    },
+    {
+      "id": "ArcticPassage_Capelin",
+      "difficulty": 20,
+      "price": 65,
+      "seasons": "spring summer"
+    },
+    {
+      "id": "ArcticPassage_ArcticChar",
+      "difficulty": 55,
+      "price": 185,
+      "seasons": "summer fall"
+    },
+    {
+      "id": "ArcticPassage_Halibut",
+      "difficulty": 80,
+      "price": 340,
+      "seasons": "spring summer fall winter"
+    },
+    {
+      "id": "ArcticPassage_Wolffish",
+      "difficulty": 65,
+      "price": 215,
+      "seasons": "spring summer fall"
+    },
+    {
+      "id": "ArcticPassage_GoldenRedfish",
+      "difficulty": 60,
+      "price": 170,
+      "seasons": "summer fall"
+    }
+  ]
+}

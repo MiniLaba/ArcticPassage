@@ -1,0 +1,8 @@
+{
+  "spring": "600 ArcticPassage_Fishery 5 12 2/800 ArcticPassage_Harbor 20 25 2/1200 ArcticPassage_Fishery 9 10 2/1600 ArcticPassage_Town 35 24 2/1900 ArcticPassage_Fishery 5 12 2",
+  "summer": "600 ArcticPassage_Fishery 5 12 2/800 ArcticPassage_Harbor 20 25 2/1200 ArcticPassage_Fishery 9 10 2/1600 ArcticPassage_Town 35 24 2/1900 ArcticPassage_Fishery 5 12 2",
+  "fall": "600 ArcticPassage_Fishery 5 12 2/800 ArcticPassage_Harbor 20 25 2/1200 ArcticPassage_Fishery 9 10 2/1600 ArcticPassage_Town 35 24 2/1900 ArcticPassage_Fishery 5 12 2",
+  "winter": "600 ArcticPassage_Fishery 5 12 2/900 ArcticPassage_Town 24 24 2/1300 ArcticPassage_Harbor 20 23 2/1700 ArcticPassage_Fishery 5 12 2",
+  "rain": "600 ArcticPassage_Fishery 5 12 2/1000 ArcticPassage_Fishery 5 10 2/1700 ArcticPassage_Fishery 5 12 2",
+  "rain2": "600 ArcticPassage_Fishery 5 12 2/1000 ArcticPassage_Fishery 5 10 2/1700 ArcticPassage_Fishery 5 12 2"
+}

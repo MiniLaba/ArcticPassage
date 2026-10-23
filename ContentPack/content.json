@@ -1,0 +1,2720 @@
+{
+  "Format": "2.4.0",
+  "DynamicTokens": [
+    {
+      "Name": "MapSeason",
+      "Value": "spring"
+    },
+    {
+      "Name": "MapSeason",
+      "Value": "spring",
+      "When": {
+        "Season": "spring"
+      }
+    },
+    {
+      "Name": "MapSeason",
+      "Value": "summer",
+      "When": {
+        "Season": "summer"
+      }
+    },
+    {
+      "Name": "MapSeason",
+      "Value": "fall",
+      "When": {
+        "Season": "fall"
+      }
+    },
+    {
+      "Name": "MapSeason",
+      "Value": "winter",
+      "When": {
+        "Season": "winter"
+      }
+    },
+    {
+      "Name": "HarborTrapType",
+      "Value": "shrimp"
+    },
+    {
+      "Name": "HarborTrapType",
+      "Value": "crab",
+      "When": {
+        "Season": "winter"
+      }
+    }
+  ],
+  "Changes": [
+    {
+      "LogName": "Data/AudioChanges",
+      "Action": "EditData",
+      "Target": "Data/AudioChanges",
+      "Entries": {
+        "ArcticPassage_CoastalWind": {
+          "Id": "ArcticPassage_CoastalWind",
+          "FilePaths": [
+            "{{AbsoluteFilePath: assets/audio/CoastalWind.wav}}"
+          ],
+          "Category": "Ambient",
+          "Looped": true,
+          "UseReverb": false,
+          "StreamedVorbis": false
+        },
+        "ArcticPassage_TundraWind": {
+          "Id": "ArcticPassage_TundraWind",
+          "FilePaths": [
+            "{{AbsoluteFilePath: assets/audio/TundraWind.wav}}"
+          ],
+          "Category": "Ambient",
+          "Looped": true,
+          "UseReverb": false,
+          "StreamedVorbis": false
+        },
+        "ArcticPassage_IndoorWind": {
+          "Id": "ArcticPassage_IndoorWind",
+          "FilePaths": [
+            "{{AbsoluteFilePath: assets/audio/IndoorWind.wav}}"
+          ],
+          "Category": "Ambient",
+          "Looped": true,
+          "UseReverb": false,
+          "StreamedVorbis": false
+        },
+        "ArcticPassage_LumenhavenTheme": {
+          "Id": "ArcticPassage_LumenhavenTheme",
+          "FilePaths": [
+            "{{AbsoluteFilePath: assets/audio/LumenhavenTheme.ogg}}"
+          ],
+          "Category": "Music",
+          "Looped": true,
+          "UseReverb": false,
+          "StreamedVorbis": true
+        },
+        "ArcticPassage_IcefjordTheme": {
+          "Id": "ArcticPassage_IcefjordTheme",
+          "FilePaths": [
+            "{{AbsoluteFilePath: assets/audio/IcefjordTheme.ogg}}"
+          ],
+          "Category": "Music",
+          "Looped": true,
+          "UseReverb": false,
+          "StreamedVorbis": true
+        },
+        "ArcticPassage_PolarNightTheme": {
+          "Id": "ArcticPassage_PolarNightTheme",
+          "FilePaths": [
+            "{{AbsoluteFilePath: assets/audio/PolarNightTheme.ogg}}"
+          ],
+          "Category": "Music",
+          "Looped": true,
+          "UseReverb": false,
+          "StreamedVorbis": true
+        }
+      }
+    },
+    {
+      "LogName": "Data/LocationContexts",
+      "Action": "EditData",
+      "Target": "Data/LocationContexts",
+      "Entries": {
+        "ArcticPassage_CoastClimate": {
+          "PlayRandomAmbientSounds": false,
+          "DayAmbience": "ArcticPassage_CoastalWind",
+          "NightAmbience": "ArcticPassage_CoastalWind",
+          "Music": [],
+          "AllowRainTotem": false,
+          "WeatherConditions": [
+            {
+              "Id": "WinterSnow",
+              "Condition": "SEASON winter, RANDOM 0.45",
+              "Weather": "Snow"
+            },
+            {
+              "Id": "SpringSnow",
+              "Condition": "SEASON spring, RANDOM 0.30",
+              "Weather": "Snow"
+            },
+            {
+              "Id": "AutumnSnow",
+              "Condition": "SEASON fall, RANDOM 0.20",
+              "Weather": "Snow"
+            },
+            {
+              "Id": "SummerRain",
+              "Condition": "SEASON summer, RANDOM 0.25",
+              "Weather": "Rain"
+            },
+            {
+              "Id": "AutumnRain",
+              "Condition": "SEASON fall, RANDOM 0.15",
+              "Weather": "Rain"
+            },
+            {
+              "Id": "Clear",
+              "Condition": null,
+              "Weather": "Sun"
+            }
+          ]
+        },
+        "ArcticPassage_TundraClimate": {
+          "PlayRandomAmbientSounds": false,
+          "DayAmbience": "ArcticPassage_TundraWind",
+          "NightAmbience": "ArcticPassage_TundraWind",
+          "Music": [],
+          "AllowRainTotem": false,
+          "WeatherConditions": [
+            {
+              "Id": "WinterSnow",
+              "Condition": "SEASON winter, RANDOM 0.45",
+              "Weather": "Snow"
+            },
+            {
+              "Id": "SpringSnow",
+              "Condition": "SEASON spring, RANDOM 0.30",
+              "Weather": "Snow"
+            },
+            {
+              "Id": "AutumnSnow",
+              "Condition": "SEASON fall, RANDOM 0.20",
+              "Weather": "Snow"
+            },
+            {
+              "Id": "SummerRain",
+              "Condition": "SEASON summer, RANDOM 0.25",
+              "Weather": "Rain"
+            },
+            {
+              "Id": "AutumnRain",
+              "Condition": "SEASON fall, RANDOM 0.15",
+              "Weather": "Rain"
+            },
+            {
+              "Id": "Clear",
+              "Condition": null,
+              "Weather": "Sun"
+            }
+          ],
+          "CopyWeatherFromLocation": "ArcticPassage_CoastClimate"
+        }
+      }
+    },
+    {
+      "LogName": "Maps/ArcticPassage_Town",
+      "Action": "Load",
+      "Target": "Maps/ArcticPassage_Town",
+      "FromFile": "assets/maps/Town_{{MapSeason}}.tmx"
+    },
+    {
+      "LogName": "Maps/ArcticPassage_Harbor",
+      "Action": "Load",
+      "Target": "Maps/ArcticPassage_Harbor",
+      "FromFile": "assets/maps/Harbor_{{MapSeason}}.tmx",
+      "When": {
+        "HasFlag |contains=ArcticPassage_Shed": false
+      }
+    },
+    {
+      "LogName": "Maps/ArcticPassage_Icefjord",
+      "Action": "Load",
+      "Target": "Maps/ArcticPassage_Icefjord",
+      "FromFile": "assets/maps/Icefjord_{{MapSeason}}.tmx"
+    },
+    {
+      "LogName": "Maps/ArcticPassage_Tundra",
+      "Action": "Load",
+      "Target": "Maps/ArcticPassage_Tundra",
+      "FromFile": "assets/maps/Tundra_{{MapSeason}}.tmx"
+    },
+    {
+      "LogName": "Maps/ArcticPassage_Guesthouse",
+      "Action": "Load",
+      "Target": "Maps/ArcticPassage_Guesthouse",
+      "FromFile": "assets/maps/Guesthouse_{{MapSeason}}.tmx"
+    },
+    {
+      "LogName": "Maps/ArcticPassage_Fishery",
+      "Action": "Load",
+      "Target": "Maps/ArcticPassage_Fishery",
+      "FromFile": "assets/maps/Fishery_{{MapSeason}}.tmx"
+    },
+    {
+      "LogName": "Maps/ArcticPassage_WinterCamp",
+      "Action": "Load",
+      "Target": "Maps/ArcticPassage_WinterCamp",
+      "FromFile": "assets/maps/WinterCamp_{{MapSeason}}.tmx"
+    },
+    {
+      "LogName": "Maps/ArcticPassage_ResearchStation",
+      "Action": "Load",
+      "Target": "Maps/ArcticPassage_ResearchStation",
+      "FromFile": "assets/maps/ResearchStation_{{MapSeason}}.tmx"
+    },
+    {
+      "LogName": "Mods/WhiteBay.ArcticPassage/Fish",
+      "Action": "Load",
+      "Target": "Mods/WhiteBay.ArcticPassage/Fish",
+      "FromFile": "assets/items/fish.png"
+    },
+    {
+      "LogName": "Data/Objects",
+      "Action": "EditData",
+      "Target": "Data/Objects",
+      "Entries": {
+        "ArcticPassage_PolarCod": {
+          "Name": "Polar cod",
+          "DisplayName": "{{i18n:fish.PolarCod.name}}",
+          "Description": "{{i18n:fish.PolarCod.description}}",
+          "Type": "Fish",
+          "Category": -4,
+          "Price": 85,
+          "Texture": "Mods/WhiteBay.ArcticPassage/Seafood",
+          "SpriteIndex": 0,
+          "Edibility": 12,
+          "ExcludeFromRandomSale": true,
+          "ContextTags": [
+            "fish_arcticpassage",
+            "fish_ocean",
+            "arcticpassage_rod_fish"
+          ]
+        },
+        "ArcticPassage_AtlanticCod": {
+          "Name": "Atlantic cod",
+          "DisplayName": "{{i18n:fish.AtlanticCod.name}}",
+          "Description": "{{i18n:fish.AtlanticCod.description}}",
+          "Type": "Fish",
+          "Category": -4,
+          "Price": 120,
+          "Texture": "Mods/WhiteBay.ArcticPassage/Seafood",
+          "SpriteIndex": 1,
+          "Edibility": 12,
+          "ExcludeFromRandomSale": true,
+          "ContextTags": [
+            "fish_arcticpassage",
+            "fish_ocean",
+            "arcticpassage_rod_fish"
+          ]
+        },
+        "ArcticPassage_Capelin": {
+          "Name": "Capelin",
+          "DisplayName": "{{i18n:fish.Capelin.name}}",
+          "Description": "{{i18n:fish.Capelin.description}}",
+          "Type": "Fish",
+          "Category": -4,
+          "Price": 65,
+          "Texture": "Mods/WhiteBay.ArcticPassage/Seafood",
+          "SpriteIndex": 2,
+          "Edibility": 12,
+          "ExcludeFromRandomSale": true,
+          "ContextTags": [
+            "fish_arcticpassage",
+            "fish_ocean",
+            "arcticpassage_rod_fish"
+          ]
+        },
+        "ArcticPassage_ArcticChar": {
+          "Name": "Arctic char",
+          "DisplayName": "{{i18n:fish.ArcticChar.name}}",
+          "Description": "{{i18n:fish.ArcticChar.description}}",
+          "Type": "Fish",
+          "Category": -4,
+          "Price": 185,
+          "Texture": "Mods/WhiteBay.ArcticPassage/Seafood",
+          "SpriteIndex": 3,
+          "Edibility": 12,
+          "ExcludeFromRandomSale": true,
+          "ContextTags": [
+            "fish_arcticpassage",
+            "fish_river",
+            "arcticpassage_rod_fish"
+          ]
+        },
+        "ArcticPassage_Halibut": {
+          "Name": "Greenland halibut",
+          "DisplayName": "{{i18n:fish.Halibut.name}}",
+          "Description": "{{i18n:fish.Halibut.description}}",
+          "Type": "Fish",
+          "Category": -4,
+          "Price": 340,
+          "Texture": "Mods/WhiteBay.ArcticPassage/Seafood",
+          "SpriteIndex": 4,
+          "Edibility": 12,
+          "ExcludeFromRandomSale": true,
+          "ContextTags": [
+            "fish_arcticpassage",
+            "fish_ocean",
+            "arcticpassage_rod_fish"
+          ]
+        },
+        "ArcticPassage_Wolffish": {
+          "Name": "Atlantic wolffish",
+          "DisplayName": "{{i18n:fish.Wolffish.name}}",
+          "Description": "{{i18n:fish.Wolffish.description}}",
+          "Type": "Fish",
+          "Category": -4,
+          "Price": 215,
+          "Texture": "Mods/WhiteBay.ArcticPassage/Seafood",
+          "SpriteIndex": 5,
+          "Edibility": 12,
+          "ExcludeFromRandomSale": true,
+          "ContextTags": [
+            "fish_arcticpassage",
+            "fish_ocean",
+            "arcticpassage_rod_fish"
+          ]
+        },
+        "ArcticPassage_GoldenRedfish": {
+          "Name": "Golden redfish",
+          "DisplayName": "{{i18n:fish.GoldenRedfish.name}}",
+          "Description": "{{i18n:fish.GoldenRedfish.description}}",
+          "Type": "Fish",
+          "Category": -4,
+          "Price": 170,
+          "Texture": "Mods/WhiteBay.ArcticPassage/Seafood",
+          "SpriteIndex": 6,
+          "Edibility": 12,
+          "ExcludeFromRandomSale": true,
+          "ContextTags": [
+            "fish_arcticpassage",
+            "fish_ocean",
+            "arcticpassage_rod_fish"
+          ]
+        },
+        "ArcticPassage_Receipt": {
+          "Name": "Lumenhaven receipt",
+          "DisplayName": "{{i18n:receipt.name}}",
+          "Description": "{{i18n:receipt.desc}}",
+          "Type": "Basic",
+          "Category": 0,
+          "Price": 0,
+          "Texture": "Mods/WhiteBay.ArcticPassage/Fish",
+          "SpriteIndex": 6,
+          "Edibility": -300,
+          "ExcludeFromShippingCollection": true,
+          "ExcludeFromRandomSale": true,
+          "CanBeGivenAsGift": false
+        },
+        "ArcticPassage_DriedAtlanticCod": {
+          "Name": "Air-dried Atlantic cod",
+          "DisplayName": "{{i18n:product.AtlanticCod.name}}",
+          "Description": "{{i18n:product.AtlanticCod.description}}",
+          "Type": "Basic",
+          "Category": -26,
+          "Price": 168,
+          "Texture": "Mods/WhiteBay.ArcticPassage/ProcessedFish",
+          "SpriteIndex": 0,
+          "Edibility": 15,
+          "ExcludeFromRandomSale": true,
+          "ContextTags": [
+            "arcticpassage_fish_product"
+          ]
+        },
+        "ArcticPassage_DriedCapelin": {
+          "Name": "Air-dried capelin",
+          "DisplayName": "{{i18n:product.Capelin.name}}",
+          "Description": "{{i18n:product.Capelin.description}}",
+          "Type": "Basic",
+          "Category": -26,
+          "Price": 91,
+          "Texture": "Mods/WhiteBay.ArcticPassage/ProcessedFish",
+          "SpriteIndex": 1,
+          "Edibility": 15,
+          "ExcludeFromRandomSale": true,
+          "ContextTags": [
+            "arcticpassage_fish_product"
+          ]
+        },
+        "ArcticPassage_DriedPolarCod": {
+          "Name": "Air-dried polar cod",
+          "DisplayName": "{{i18n:product.PolarCod.name}}",
+          "Description": "{{i18n:product.PolarCod.description}}",
+          "Type": "Basic",
+          "Category": -26,
+          "Price": 119,
+          "Texture": "Mods/WhiteBay.ArcticPassage/ProcessedFish",
+          "SpriteIndex": 2,
+          "Edibility": 15,
+          "ExcludeFromRandomSale": true,
+          "ContextTags": [
+            "arcticpassage_fish_product"
+          ]
+        },
+        "ArcticPassage_RegularReceipt": {
+          "Name": "Regular receipt",
+          "DisplayName": "{{i18n:order.Regular.name}}",
+          "Description": "{{i18n:order.Regular.desc}}",
+          "Type": "Basic",
+          "Category": 0,
+          "Price": 0,
+          "Texture": "Mods/WhiteBay.ArcticPassage/Fish",
+          "SpriteIndex": 6,
+          "Edibility": -300,
+          "ExcludeFromShippingCollection": true,
+          "ExcludeFromRandomSale": true,
+          "CanBeGivenAsGift": false
+        },
+        "ArcticPassage_RestaurantReceipt": {
+          "Name": "Restaurant receipt",
+          "DisplayName": "{{i18n:order.Restaurant.name}}",
+          "Description": "{{i18n:order.Restaurant.desc}}",
+          "Type": "Basic",
+          "Category": 0,
+          "Price": 0,
+          "Texture": "Mods/WhiteBay.ArcticPassage/Fish",
+          "SpriteIndex": 6,
+          "Edibility": -300,
+          "ExcludeFromShippingCollection": true,
+          "ExcludeFromRandomSale": true,
+          "CanBeGivenAsGift": false
+        },
+        "ArcticPassage_ResearchReceipt": {
+          "Name": "Research receipt",
+          "DisplayName": "{{i18n:order.Research.name}}",
+          "Description": "{{i18n:order.Research.desc}}",
+          "Type": "Basic",
+          "Category": 0,
+          "Price": 0,
+          "Texture": "Mods/WhiteBay.ArcticPassage/Fish",
+          "SpriteIndex": 6,
+          "Edibility": -300,
+          "ExcludeFromShippingCollection": true,
+          "ExcludeFromRandomSale": true,
+          "CanBeGivenAsGift": false
+        },
+        "ArcticPassage_NorthernShrimp": {
+          "Name": "Northern shrimp",
+          "DisplayName": "{{i18n:fish.NorthernShrimp.name}}",
+          "Description": "{{i18n:fish.NorthernShrimp.description}}",
+          "Type": "Fish",
+          "Category": -4,
+          "Price": 110,
+          "Texture": "Mods/WhiteBay.ArcticPassage/Seafood",
+          "SpriteIndex": 7,
+          "Edibility": 10,
+          "ExcludeFromRandomSale": true,
+          "ContextTags": [
+            "fish_arcticpassage",
+            "fish_ocean",
+            "fish_trap"
+          ]
+        },
+        "ArcticPassage_SnowCrab": {
+          "Name": "Snow crab",
+          "DisplayName": "{{i18n:fish.SnowCrab.name}}",
+          "Description": "{{i18n:fish.SnowCrab.description}}",
+          "Type": "Fish",
+          "Category": -4,
+          "Price": 235,
+          "Texture": "Mods/WhiteBay.ArcticPassage/Seafood",
+          "SpriteIndex": 8,
+          "Edibility": 10,
+          "ExcludeFromRandomSale": true,
+          "ContextTags": [
+            "fish_arcticpassage",
+            "fish_ocean",
+            "fish_trap"
+          ]
+        },
+        "ArcticPassage_CharSoup": {
+          "Name": "ArcticPassage_CharSoup",
+          "DisplayName": "{{i18n:meal.CharSoup.name}}",
+          "Description": "{{i18n:meal.CharSoup.description}}",
+          "Type": "Cooking",
+          "Category": -7,
+          "Price": 360,
+          "Edibility": 80,
+          "Texture": "Mods/WhiteBay.ArcticPassage/Cuisine",
+          "SpriteIndex": 0,
+          "ExcludeFromRandomSale": true,
+          "Buffs": [
+            {
+              "Id": "Meal",
+              "Duration": 240,
+              "CustomAttributes": {
+                "FishingLevel": 1
+              }
+            }
+          ]
+        },
+        "ArcticPassage_PanCod": {
+          "Name": "ArcticPassage_PanCod",
+          "DisplayName": "{{i18n:meal.PanCod.name}}",
+          "Description": "{{i18n:meal.PanCod.description}}",
+          "Type": "Cooking",
+          "Category": -7,
+          "Price": 260,
+          "Edibility": 70,
+          "Texture": "Mods/WhiteBay.ArcticPassage/Cuisine",
+          "SpriteIndex": 1,
+          "ExcludeFromRandomSale": true,
+          "Buffs": [
+            {
+              "Id": "Meal",
+              "Duration": 240,
+              "CustomAttributes": {
+                "FishingLevel": 1
+              }
+            }
+          ]
+        },
+        "ArcticPassage_ShrimpChowder": {
+          "Name": "ArcticPassage_ShrimpChowder",
+          "DisplayName": "{{i18n:meal.ShrimpChowder.name}}",
+          "Description": "{{i18n:meal.ShrimpChowder.description}}",
+          "Type": "Cooking",
+          "Category": -7,
+          "Price": 330,
+          "Edibility": 90,
+          "Texture": "Mods/WhiteBay.ArcticPassage/Cuisine",
+          "SpriteIndex": 2,
+          "ExcludeFromRandomSale": true,
+          "Buffs": [
+            {
+              "Id": "Meal",
+              "Duration": 240,
+              "CustomAttributes": {
+                "FishingLevel": 2
+              }
+            }
+          ]
+        },
+        "ArcticPassage_FishPotatoStew": {
+          "Name": "ArcticPassage_FishPotatoStew",
+          "DisplayName": "{{i18n:meal.FishPotatoStew.name}}",
+          "Description": "{{i18n:meal.FishPotatoStew.description}}",
+          "Type": "Cooking",
+          "Category": -7,
+          "Price": 230,
+          "Edibility": 85,
+          "Texture": "Mods/WhiteBay.ArcticPassage/Cuisine",
+          "SpriteIndex": 3,
+          "ExcludeFromRandomSale": true,
+          "Buffs": [
+            {
+              "Id": "Meal",
+              "Duration": 240,
+              "CustomAttributes": {
+                "Defense": 1
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "LogName": "Data/Fish",
+      "Action": "EditData",
+      "Target": "Data/Fish",
+      "Entries": {
+        "ArcticPassage_PolarCod": "Polar cod/25/smooth/6/15/600 2600/winter spring/both/0/1/0.65/0.05/0/true",
+        "ArcticPassage_AtlanticCod": "Atlantic cod/40/mixed/15/50/600 2600/summer fall/both/0/1/0.65/0.05/0/true",
+        "ArcticPassage_Capelin": "Capelin/20/smooth/4/9/600 2600/spring summer/both/0/1/0.65/0.05/0/true",
+        "ArcticPassage_ArcticChar": "Arctic char/55/dart/12/30/600 2600/summer fall/both/0/1/0.65/0.05/0/true",
+        "ArcticPassage_Halibut": "Greenland halibut/80/sinker/25/60/600 2600/spring summer fall winter/both/0/1/0.65/0.05/0/true",
+        "ArcticPassage_Wolffish": "Atlantic wolffish/65/mixed/18/45/600 2600/spring summer fall/both/0/1/0.65/0.05/0/true",
+        "ArcticPassage_GoldenRedfish": "Golden redfish/60/mixed/12/32/600 2600/summer fall/both/0/1/0.65/0.05/0/true",
+        "ArcticPassage_NorthernShrimp": "Northern shrimp/trap/0.45/0/ap_shrimp_spring ap_shrimp_summer ap_shrimp_fall/2/12",
+        "ArcticPassage_SnowCrab": "Snow crab/trap/0.45/0/ap_crab_fall ap_crab_winter/2/12"
+      }
+    },
+    {
+      "LogName": "Data/Locations",
+      "Action": "EditData",
+      "Target": "Data/Locations",
+      "Entries": {
+        "ArcticPassage_Town": {
+          "DisplayName": "{{i18n:location.Town}}",
+          "DefaultArrivalTile": {
+            "X": 36,
+            "Y": 23
+          },
+          "CreateOnLoad": {
+            "MapPath": "Maps/ArcticPassage_Town"
+          },
+          "CanPlantHere": false,
+          "CanHaveGreenRainSpawns": false,
+          "MinDailyWeeds": 0,
+          "MaxDailyWeeds": 0,
+          "MinDailyForageSpawn": 0,
+          "MaxDailyForageSpawn": 0,
+          "Fish": [],
+          "MusicDefault": "ArcticPassage_LumenhavenTheme",
+          "Music": [
+            {
+              "Id": "ArcticPassage_Night",
+              "Track": "ArcticPassage_PolarNightTheme",
+              "Condition": "TIME 1800 2600"
+            }
+          ],
+          "MusicIgnoredInRain": false,
+          "MusicIgnoredInSpring": false,
+          "MusicIgnoredInSummer": false,
+          "MusicIgnoredInFall": false,
+          "MusicIgnoredInFallDebris": false,
+          "MusicIgnoredInWinter": false
+        },
+        "ArcticPassage_Harbor": {
+          "DisplayName": "{{i18n:location.Harbor}}",
+          "DefaultArrivalTile": {
+            "X": 24,
+            "Y": 23
+          },
+          "CreateOnLoad": {
+            "MapPath": "Maps/ArcticPassage_Harbor"
+          },
+          "CanPlantHere": false,
+          "CanHaveGreenRainSpawns": false,
+          "MinDailyWeeds": 0,
+          "MaxDailyWeeds": 0,
+          "MinDailyForageSpawn": 0,
+          "MaxDailyForageSpawn": 0,
+          "Fish": [
+            {
+              "Id": "ArcticPassage_PolarCod_winter",
+              "ItemId": "(O)ArcticPassage_PolarCod",
+              "Season": "winter",
+              "Chance": 0.75,
+              "Precedence": -20,
+              "MinFishingLevel": 0
+            },
+            {
+              "Id": "ArcticPassage_PolarCod_spring",
+              "ItemId": "(O)ArcticPassage_PolarCod",
+              "Season": "spring",
+              "Chance": 0.75,
+              "Precedence": -20,
+              "MinFishingLevel": 0
+            },
+            {
+              "Id": "ArcticPassage_AtlanticCod_summer",
+              "ItemId": "(O)ArcticPassage_AtlanticCod",
+              "Season": "summer",
+              "Chance": 0.75,
+              "Precedence": -20,
+              "MinFishingLevel": 0
+            },
+            {
+              "Id": "ArcticPassage_AtlanticCod_fall",
+              "ItemId": "(O)ArcticPassage_AtlanticCod",
+              "Season": "fall",
+              "Chance": 0.75,
+              "Precedence": -20,
+              "MinFishingLevel": 0
+            },
+            {
+              "Id": "ArcticPassage_Capelin_spring",
+              "ItemId": "(O)ArcticPassage_Capelin",
+              "Season": "spring",
+              "Chance": 0.75,
+              "Precedence": -20,
+              "MinFishingLevel": 0
+            },
+            {
+              "Id": "ArcticPassage_Capelin_summer",
+              "ItemId": "(O)ArcticPassage_Capelin",
+              "Season": "summer",
+              "Chance": 0.75,
+              "Precedence": -20,
+              "MinFishingLevel": 0
+            },
+            {
+              "Id": "ArcticPassage_Wolffish_spring",
+              "ItemId": "(O)ArcticPassage_Wolffish",
+              "Season": "spring",
+              "Chance": 0.75,
+              "Precedence": -20,
+              "MinFishingLevel": 0,
+              "BobberPosition": {
+                "X": 23,
+                "Y": 4,
+                "Width": 18,
+                "Height": 18
+              }
+            },
+            {
+              "Id": "ArcticPassage_Wolffish_summer",
+              "ItemId": "(O)ArcticPassage_Wolffish",
+              "Season": "summer",
+              "Chance": 0.75,
+              "Precedence": -20,
+              "MinFishingLevel": 0,
+              "BobberPosition": {
+                "X": 23,
+                "Y": 4,
+                "Width": 18,
+                "Height": 18
+              }
+            },
+            {
+              "Id": "ArcticPassage_Wolffish_fall",
+              "ItemId": "(O)ArcticPassage_Wolffish",
+              "Season": "fall",
+              "Chance": 0.75,
+              "Precedence": -20,
+              "MinFishingLevel": 0,
+              "BobberPosition": {
+                "X": 23,
+                "Y": 4,
+                "Width": 18,
+                "Height": 18
+              }
+            }
+          ],
+          "MusicDefault": "ArcticPassage_LumenhavenTheme",
+          "Music": [
+            {
+              "Id": "ArcticPassage_Night",
+              "Track": "ArcticPassage_PolarNightTheme",
+              "Condition": "TIME 1800 2600"
+            }
+          ],
+          "MusicIgnoredInRain": false,
+          "MusicIgnoredInSpring": false,
+          "MusicIgnoredInSummer": false,
+          "MusicIgnoredInFall": false,
+          "MusicIgnoredInFallDebris": false,
+          "MusicIgnoredInWinter": false,
+          "FishAreas": {
+            "Default": {
+              "CrabPotFishTypes": [
+                "ap_{{HarborTrapType}}_{{Season}}"
+              ],
+              "CrabPotJunkChance": 0.2
+            }
+          }
+        },
+        "ArcticPassage_Icefjord": {
+          "DisplayName": "{{i18n:location.Icefjord}}",
+          "DefaultArrivalTile": {
+            "X": 35,
+            "Y": 34
+          },
+          "CreateOnLoad": {
+            "MapPath": "Maps/ArcticPassage_Icefjord"
+          },
+          "CanPlantHere": false,
+          "CanHaveGreenRainSpawns": false,
+          "MinDailyWeeds": 0,
+          "MaxDailyWeeds": 0,
+          "MinDailyForageSpawn": 0,
+          "MaxDailyForageSpawn": 0,
+          "Fish": [
+            {
+              "Id": "ArcticPassage_PolarCod_winter",
+              "ItemId": "(O)ArcticPassage_PolarCod",
+              "Season": "winter",
+              "Chance": 0.75,
+              "Precedence": -20,
+              "MinFishingLevel": 0
+            },
+            {
+              "Id": "ArcticPassage_PolarCod_spring",
+              "ItemId": "(O)ArcticPassage_PolarCod",
+              "Season": "spring",
+              "Chance": 0.75,
+              "Precedence": -20,
+              "MinFishingLevel": 0
+            },
+            {
+              "Id": "ArcticPassage_AtlanticCod_summer",
+              "ItemId": "(O)ArcticPassage_AtlanticCod",
+              "Season": "summer",
+              "Chance": 0.75,
+              "Precedence": -20,
+              "MinFishingLevel": 0
+            },
+            {
+              "Id": "ArcticPassage_AtlanticCod_fall",
+              "ItemId": "(O)ArcticPassage_AtlanticCod",
+              "Season": "fall",
+              "Chance": 0.75,
+              "Precedence": -20,
+              "MinFishingLevel": 0
+            },
+            {
+              "Id": "ArcticPassage_Capelin_spring",
+              "ItemId": "(O)ArcticPassage_Capelin",
+              "Season": "spring",
+              "Chance": 0.75,
+              "Precedence": -20,
+              "MinFishingLevel": 0
+            },
+            {
+              "Id": "ArcticPassage_Capelin_summer",
+              "ItemId": "(O)ArcticPassage_Capelin",
+              "Season": "summer",
+              "Chance": 0.75,
+              "Precedence": -20,
+              "MinFishingLevel": 0
+            },
+            {
+              "Id": "ArcticPassage_Halibut_spring",
+              "ItemId": "(O)ArcticPassage_Halibut",
+              "Season": "spring",
+              "Chance": 0.75,
+              "Precedence": -20,
+              "MinFishingLevel": 4
+            },
+            {
+              "Id": "ArcticPassage_Halibut_summer",
+              "ItemId": "(O)ArcticPassage_Halibut",
+              "Season": "summer",
+              "Chance": 0.75,
+              "Precedence": -20,
+              "MinFishingLevel": 4
+            },
+            {
+              "Id": "ArcticPassage_Halibut_fall",
+              "ItemId": "(O)ArcticPassage_Halibut",
+              "Season": "fall",
+              "Chance": 0.75,
+              "Precedence": -20,
+              "MinFishingLevel": 4
+            },
+            {
+              "Id": "ArcticPassage_Halibut_winter",
+              "ItemId": "(O)ArcticPassage_Halibut",
+              "Season": "winter",
+              "Chance": 0.75,
+              "Precedence": -20,
+              "MinFishingLevel": 4
+            },
+            {
+              "Id": "ArcticPassage_Wolffish_spring",
+              "ItemId": "(O)ArcticPassage_Wolffish",
+              "Season": "spring",
+              "Chance": 0.75,
+              "Precedence": -20,
+              "MinFishingLevel": 0
+            },
+            {
+              "Id": "ArcticPassage_Wolffish_summer",
+              "ItemId": "(O)ArcticPassage_Wolffish",
+              "Season": "summer",
+              "Chance": 0.75,
+              "Precedence": -20,
+              "MinFishingLevel": 0
+            },
+            {
+              "Id": "ArcticPassage_Wolffish_fall",
+              "ItemId": "(O)ArcticPassage_Wolffish",
+              "Season": "fall",
+              "Chance": 0.75,
+              "Precedence": -20,
+              "MinFishingLevel": 0
+            },
+            {
+              "Id": "ArcticPassage_GoldenRedfish_summer",
+              "ItemId": "(O)ArcticPassage_GoldenRedfish",
+              "Season": "summer",
+              "Chance": 0.75,
+              "Precedence": -20,
+              "MinFishingLevel": 2
+            },
+            {
+              "Id": "ArcticPassage_GoldenRedfish_fall",
+              "ItemId": "(O)ArcticPassage_GoldenRedfish",
+              "Season": "fall",
+              "Chance": 0.75,
+              "Precedence": -20,
+              "MinFishingLevel": 2
+            },
+            {
+              "Id": "ArcticPassage_IceFishing_Halibut",
+              "ItemId": "(O)ArcticPassage_Halibut",
+              "Season": "winter",
+              "Chance": 0.35,
+              "MinFishingLevel": 4,
+              "Precedence": -110,
+              "BobberPosition": {
+                "X": 41,
+                "Y": 34,
+                "Width": 3,
+                "Height": 2
+              },
+              "CanUseTrainingRod": false
+            },
+            {
+              "Id": "ArcticPassage_IceFishing_PolarCod",
+              "ItemId": "(O)ArcticPassage_PolarCod",
+              "Season": "winter",
+              "Chance": 1,
+              "MinFishingLevel": 0,
+              "Precedence": -100,
+              "BobberPosition": {
+                "X": 41,
+                "Y": 34,
+                "Width": 3,
+                "Height": 2
+              },
+              "CanUseTrainingRod": true
+            }
+          ],
+          "MusicDefault": "ArcticPassage_IcefjordTheme",
+          "Music": [
+            {
+              "Id": "ArcticPassage_Night",
+              "Track": "ArcticPassage_PolarNightTheme",
+              "Condition": "TIME 1800 2600"
+            }
+          ],
+          "MusicIgnoredInRain": false,
+          "MusicIgnoredInSpring": false,
+          "MusicIgnoredInSummer": false,
+          "MusicIgnoredInFall": false,
+          "MusicIgnoredInFallDebris": false,
+          "MusicIgnoredInWinter": false,
+          "FishAreas": {
+            "Default": {
+              "CrabPotFishTypes": [
+                "ap_crab_{{Season}}"
+              ],
+              "CrabPotJunkChance": 0.2
+            }
+          }
+        },
+        "ArcticPassage_Tundra": {
+          "DisplayName": "{{i18n:location.Tundra}}",
+          "DefaultArrivalTile": {
+            "X": 29,
+            "Y": 43
+          },
+          "CreateOnLoad": {
+            "MapPath": "Maps/ArcticPassage_Tundra"
+          },
+          "CanPlantHere": false,
+          "CanHaveGreenRainSpawns": false,
+          "MinDailyWeeds": 0,
+          "MaxDailyWeeds": 0,
+          "MinDailyForageSpawn": 0,
+          "MaxDailyForageSpawn": 0,
+          "Fish": [
+            {
+              "Id": "ArcticPassage_ArcticChar_summer",
+              "ItemId": "(O)ArcticPassage_ArcticChar",
+              "Season": "summer",
+              "Chance": 0.75,
+              "Precedence": -20,
+              "MinFishingLevel": 0
+            },
+            {
+              "Id": "ArcticPassage_ArcticChar_fall",
+              "ItemId": "(O)ArcticPassage_ArcticChar",
+              "Season": "fall",
+              "Chance": 0.75,
+              "Precedence": -20,
+              "MinFishingLevel": 0
+            }
+          ],
+          "MusicDefault": "ArcticPassage_IcefjordTheme",
+          "Music": [
+            {
+              "Id": "ArcticPassage_Night",
+              "Track": "ArcticPassage_PolarNightTheme",
+              "Condition": "TIME 1800 2600"
+            }
+          ],
+          "MusicIgnoredInRain": false,
+          "MusicIgnoredInSpring": false,
+          "MusicIgnoredInSummer": false,
+          "MusicIgnoredInFall": false,
+          "MusicIgnoredInFallDebris": false,
+          "MusicIgnoredInWinter": false
+        },
+        "ArcticPassage_Guesthouse": {
+          "DisplayName": "{{i18n:location.Guesthouse}}",
+          "DefaultArrivalTile": {
+            "X": 12,
+            "Y": 14
+          },
+          "CreateOnLoad": {
+            "MapPath": "Maps/ArcticPassage_Guesthouse"
+          },
+          "CanPlantHere": false,
+          "CanHaveGreenRainSpawns": false,
+          "MinDailyWeeds": 0,
+          "MaxDailyWeeds": 0,
+          "MinDailyForageSpawn": 0,
+          "MaxDailyForageSpawn": 0,
+          "Fish": [],
+          "MusicDefault": "ArcticPassage_LumenhavenTheme",
+          "Music": [
+            {
+              "Id": "ArcticPassage_Night",
+              "Track": "ArcticPassage_PolarNightTheme",
+              "Condition": "TIME 1800 2600"
+            }
+          ],
+          "MusicIgnoredInRain": false,
+          "MusicIgnoredInSpring": false,
+          "MusicIgnoredInSummer": false,
+          "MusicIgnoredInFall": false,
+          "MusicIgnoredInFallDebris": false,
+          "MusicIgnoredInWinter": false
+        },
+        "ArcticPassage_Fishery": {
+          "DisplayName": "{{i18n:location.Fishery}}",
+          "DefaultArrivalTile": {
+            "X": 12,
+            "Y": 14
+          },
+          "CreateOnLoad": {
+            "MapPath": "Maps/ArcticPassage_Fishery"
+          },
+          "CanPlantHere": false,
+          "CanHaveGreenRainSpawns": false,
+          "MinDailyWeeds": 0,
+          "MaxDailyWeeds": 0,
+          "MinDailyForageSpawn": 0,
+          "MaxDailyForageSpawn": 0,
+          "Fish": [],
+          "MusicDefault": "ArcticPassage_LumenhavenTheme",
+          "Music": [
+            {
+              "Id": "ArcticPassage_Night",
+              "Track": "ArcticPassage_PolarNightTheme",
+              "Condition": "TIME 1800 2600"
+            }
+          ],
+          "MusicIgnoredInRain": false,
+          "MusicIgnoredInSpring": false,
+          "MusicIgnoredInSummer": false,
+          "MusicIgnoredInFall": false,
+          "MusicIgnoredInFallDebris": false,
+          "MusicIgnoredInWinter": false
+        },
+        "ArcticPassage_WinterCamp": {
+          "DisplayName": "{{i18n:location.WinterCamp}}",
+          "DefaultArrivalTile": {
+            "X": 2,
+            "Y": 24
+          },
+          "CreateOnLoad": {
+            "MapPath": "Maps/ArcticPassage_WinterCamp"
+          },
+          "CanPlantHere": false,
+          "CanHaveGreenRainSpawns": false,
+          "MinDailyWeeds": 0,
+          "MaxDailyWeeds": 0,
+          "MinDailyForageSpawn": 0,
+          "MaxDailyForageSpawn": 0,
+          "Fish": [],
+          "MusicDefault": "ArcticPassage_IcefjordTheme",
+          "Music": [
+            {
+              "Id": "ArcticPassage_Night",
+              "Track": "ArcticPassage_PolarNightTheme",
+              "Condition": "TIME 1800 2600"
+            }
+          ],
+          "MusicIgnoredInRain": false,
+          "MusicIgnoredInSpring": false,
+          "MusicIgnoredInSummer": false,
+          "MusicIgnoredInFall": false,
+          "MusicIgnoredInFallDebris": false,
+          "MusicIgnoredInWinter": false
+        },
+        "ArcticPassage_ResearchStation": {
+          "DisplayName": "{{i18n:location.ResearchStation}}",
+          "DefaultArrivalTile": {
+            "X": 12,
+            "Y": 14
+          },
+          "CreateOnLoad": {
+            "MapPath": "Maps/ArcticPassage_ResearchStation"
+          },
+          "CanPlantHere": false,
+          "CanHaveGreenRainSpawns": false,
+          "MinDailyWeeds": 0,
+          "MaxDailyWeeds": 0,
+          "MinDailyForageSpawn": 0,
+          "MaxDailyForageSpawn": 0,
+          "Fish": [],
+          "MusicDefault": "ArcticPassage_IcefjordTheme",
+          "Music": [
+            {
+              "Id": "ArcticPassage_Night",
+              "Track": "ArcticPassage_PolarNightTheme",
+              "Condition": "TIME 1800 2600"
+            }
+          ],
+          "MusicIgnoredInRain": false,
+          "MusicIgnoredInSpring": false,
+          "MusicIgnoredInSummer": false,
+          "MusicIgnoredInFall": false,
+          "MusicIgnoredInFallDebris": false,
+          "MusicIgnoredInWinter": false
+        }
+      }
+    },
+    {
+      "LogName": "Characters/ArcticPassage_Ada",
+      "Action": "Load",
+      "Target": "Characters/ArcticPassage_Ada",
+      "FromFile": "assets/characters/Ada.png"
+    },
+    {
+      "LogName": "Portraits/ArcticPassage_Ada",
+      "Action": "Load",
+      "Target": "Portraits/ArcticPassage_Ada",
+      "FromFile": "assets/portraits/Ada.png"
+    },
+    {
+      "LogName": "Characters/Dialogue/ArcticPassage_Ada",
+      "Action": "Load",
+      "Target": "Characters/Dialogue/ArcticPassage_Ada",
+      "FromFile": "assets/data/Ada_dialogue.json"
+    },
+    {
+      "LogName": "Characters/Dialogue/ArcticPassage_Ada",
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/ArcticPassage_Ada",
+      "Entries": {
+        "Mon": "{{i18n:dialogue.Ada.Mon}}",
+        "Tue": "{{i18n:dialogue.Ada.Tue}}",
+        "Wed": "{{i18n:dialogue.Ada.Wed}}",
+        "Thu": "{{i18n:dialogue.Ada.Thu}}",
+        "Fri": "{{i18n:dialogue.Ada.Fri}}",
+        "Sat": "{{i18n:dialogue.Ada.Sat}}",
+        "Sun": "{{i18n:dialogue.Ada.Sun}}",
+        "Mon2": "{{i18n:dialogue.Ada.Mon2}}",
+        "Tue2": "{{i18n:dialogue.Ada.Tue2}}",
+        "Wed2": "{{i18n:dialogue.Ada.Wed2}}",
+        "Thu2": "{{i18n:dialogue.Ada.Thu2}}",
+        "Fri2": "{{i18n:dialogue.Ada.Fri2}}",
+        "Sat2": "{{i18n:dialogue.Ada.Sat2}}",
+        "Sun2": "{{i18n:dialogue.Ada.Sun2}}",
+        "Mon4": "{{i18n:dialogue.Ada.Mon4}}",
+        "Tue4": "{{i18n:dialogue.Ada.Tue4}}",
+        "Wed4": "{{i18n:dialogue.Ada.Wed4}}",
+        "Thu4": "{{i18n:dialogue.Ada.Thu4}}",
+        "Fri4": "{{i18n:dialogue.Ada.Fri4}}",
+        "Sat4": "{{i18n:dialogue.Ada.Sat4}}",
+        "Introduction": "{{i18n:dialogue.Ada.intro}}",
+        "Rainy_Day_0": "{{i18n:dialogue.Ada.rain}}",
+        "winter_Mon": "{{i18n:dialogue.Ada.winter}}"
+      }
+    },
+    {
+      "LogName": "Characters/schedules/ArcticPassage_Ada",
+      "Action": "Load",
+      "Target": "Characters/schedules/ArcticPassage_Ada",
+      "FromFile": "assets/data/Ada_schedule.json"
+    },
+    {
+      "LogName": "Characters/ArcticPassage_Mira",
+      "Action": "Load",
+      "Target": "Characters/ArcticPassage_Mira",
+      "FromFile": "assets/characters/Mira.png"
+    },
+    {
+      "LogName": "Portraits/ArcticPassage_Mira",
+      "Action": "Load",
+      "Target": "Portraits/ArcticPassage_Mira",
+      "FromFile": "assets/portraits/Mira.png"
+    },
+    {
+      "LogName": "Characters/Dialogue/ArcticPassage_Mira",
+      "Action": "Load",
+      "Target": "Characters/Dialogue/ArcticPassage_Mira",
+      "FromFile": "assets/data/Mira_dialogue.json"
+    },
+    {
+      "LogName": "Characters/Dialogue/ArcticPassage_Mira",
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/ArcticPassage_Mira",
+      "Entries": {
+        "Mon": "{{i18n:dialogue.Mira.Mon}}",
+        "Tue": "{{i18n:dialogue.Mira.Tue}}",
+        "Wed": "{{i18n:dialogue.Mira.Wed}}",
+        "Thu": "{{i18n:dialogue.Mira.Thu}}",
+        "Fri": "{{i18n:dialogue.Mira.Fri}}",
+        "Sat": "{{i18n:dialogue.Mira.Sat}}",
+        "Sun": "{{i18n:dialogue.Mira.Sun}}",
+        "Mon2": "{{i18n:dialogue.Mira.Mon2}}",
+        "Tue2": "{{i18n:dialogue.Mira.Tue2}}",
+        "Wed2": "{{i18n:dialogue.Mira.Wed2}}",
+        "Thu2": "{{i18n:dialogue.Mira.Thu2}}",
+        "Fri2": "{{i18n:dialogue.Mira.Fri2}}",
+        "Sat2": "{{i18n:dialogue.Mira.Sat2}}",
+        "Sun2": "{{i18n:dialogue.Mira.Sun2}}",
+        "Mon4": "{{i18n:dialogue.Mira.Mon4}}",
+        "Tue4": "{{i18n:dialogue.Mira.Tue4}}",
+        "Wed4": "{{i18n:dialogue.Mira.Wed4}}",
+        "Thu4": "{{i18n:dialogue.Mira.Thu4}}",
+        "Fri4": "{{i18n:dialogue.Mira.Fri4}}",
+        "Sat4": "{{i18n:dialogue.Mira.Sat4}}",
+        "Introduction": "{{i18n:dialogue.Mira.intro}}",
+        "Rainy_Day_0": "{{i18n:dialogue.Mira.rain}}",
+        "winter_Mon": "{{i18n:dialogue.Mira.winter}}"
+      }
+    },
+    {
+      "LogName": "Characters/schedules/ArcticPassage_Mira",
+      "Action": "Load",
+      "Target": "Characters/schedules/ArcticPassage_Mira",
+      "FromFile": "assets/data/Mira_schedule.json"
+    },
+    {
+      "LogName": "Characters/ArcticPassage_Roan",
+      "Action": "Load",
+      "Target": "Characters/ArcticPassage_Roan",
+      "FromFile": "assets/characters/Roan.png"
+    },
+    {
+      "LogName": "Portraits/ArcticPassage_Roan",
+      "Action": "Load",
+      "Target": "Portraits/ArcticPassage_Roan",
+      "FromFile": "assets/portraits/Roan.png"
+    },
+    {
+      "LogName": "Characters/Dialogue/ArcticPassage_Roan",
+      "Action": "Load",
+      "Target": "Characters/Dialogue/ArcticPassage_Roan",
+      "FromFile": "assets/data/Roan_dialogue.json"
+    },
+    {
+      "LogName": "Characters/Dialogue/ArcticPassage_Roan",
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/ArcticPassage_Roan",
+      "Entries": {
+        "Mon": "{{i18n:dialogue.Roan.Mon}}",
+        "Tue": "{{i18n:dialogue.Roan.Tue}}",
+        "Wed": "{{i18n:dialogue.Roan.Wed}}",
+        "Thu": "{{i18n:dialogue.Roan.Thu}}",
+        "Fri": "{{i18n:dialogue.Roan.Fri}}",
+        "Sat": "{{i18n:dialogue.Roan.Sat}}",
+        "Sun": "{{i18n:dialogue.Roan.Sun}}",
+        "Mon2": "{{i18n:dialogue.Roan.Mon2}}",
+        "Tue2": "{{i18n:dialogue.Roan.Tue2}}",
+        "Wed2": "{{i18n:dialogue.Roan.Wed2}}",
+        "Thu2": "{{i18n:dialogue.Roan.Thu2}}",
+        "Fri2": "{{i18n:dialogue.Roan.Fri2}}",
+        "Sat2": "{{i18n:dialogue.Roan.Sat2}}",
+        "Sun2": "{{i18n:dialogue.Roan.Sun2}}",
+        "Mon4": "{{i18n:dialogue.Roan.Mon4}}",
+        "Tue4": "{{i18n:dialogue.Roan.Tue4}}",
+        "Wed4": "{{i18n:dialogue.Roan.Wed4}}",
+        "Thu4": "{{i18n:dialogue.Roan.Thu4}}",
+        "Fri4": "{{i18n:dialogue.Roan.Fri4}}",
+        "Sat4": "{{i18n:dialogue.Roan.Sat4}}",
+        "Introduction": "{{i18n:dialogue.Roan.intro}}",
+        "Rainy_Day_0": "{{i18n:dialogue.Roan.rain}}",
+        "winter_Mon": "{{i18n:dialogue.Roan.winter}}"
+      }
+    },
+    {
+      "LogName": "Characters/schedules/ArcticPassage_Roan",
+      "Action": "Load",
+      "Target": "Characters/schedules/ArcticPassage_Roan",
+      "FromFile": "assets/data/Roan_schedule.json"
+    },
+    {
+      "LogName": "Data/Characters",
+      "Action": "EditData",
+      "Target": "Data/Characters",
+      "Entries": {
+        "ArcticPassage_Ada": {
+          "DisplayName": "{{i18n:npc.Ada}}",
+          "Gender": "Female",
+          "Age": "Adult",
+          "Manner": "Polite",
+          "SocialAnxiety": "Neutral",
+          "BirthSeason": "fall",
+          "BirthDay": 9,
+          "HomeRegion": "Other",
+          "CanBeRomanced": false,
+          "CanVisitIsland": "FALSE",
+          "IntroductionsQuest": false,
+          "PerfectionScore": false,
+          "Home": [
+            {
+              "Id": "Home",
+              "Location": "ArcticPassage_Fishery",
+              "Tile": {
+                "X": 5,
+                "Y": 12
+              },
+              "Direction": "down"
+            }
+          ]
+        },
+        "ArcticPassage_Mira": {
+          "DisplayName": "{{i18n:npc.Mira}}",
+          "Gender": "Female",
+          "Age": "Adult",
+          "Manner": "Polite",
+          "SocialAnxiety": "Neutral",
+          "BirthSeason": "winter",
+          "BirthDay": 15,
+          "HomeRegion": "Other",
+          "CanBeRomanced": false,
+          "CanVisitIsland": "FALSE",
+          "IntroductionsQuest": false,
+          "PerfectionScore": false,
+          "Home": [
+            {
+              "Id": "Home",
+              "Location": "ArcticPassage_Guesthouse",
+              "Tile": {
+                "X": 10,
+                "Y": 12
+              },
+              "Direction": "down"
+            }
+          ]
+        },
+        "ArcticPassage_Roan": {
+          "DisplayName": "{{i18n:npc.Roan}}",
+          "Gender": "Male",
+          "Age": "Adult",
+          "Manner": "Polite",
+          "SocialAnxiety": "Outgoing",
+          "BirthSeason": "summer",
+          "BirthDay": 21,
+          "HomeRegion": "Other",
+          "CanBeRomanced": false,
+          "CanVisitIsland": "FALSE",
+          "IntroductionsQuest": false,
+          "PerfectionScore": false,
+          "Home": [
+            {
+              "Id": "Home",
+              "Location": "ArcticPassage_Guesthouse",
+              "Tile": {
+                "X": 15,
+                "Y": 12
+              },
+              "Direction": "down"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "LogName": "Data/NPCGiftTastes",
+      "Action": "EditData",
+      "Target": "Data/NPCGiftTastes",
+      "Entries": {
+        "ArcticPassage_Ada": "{{i18n:gift.Ada.love}}/ArcticPassage_ArcticChar 348/{{i18n:gift.Ada.like}}/ArcticPassage_AtlanticCod 334 388/{{i18n:gift.Ada.dislike}}/92/{{i18n:gift.Ada.hate}}/168 169 170 171 172/{{i18n:gift.Ada.neutral}}//",
+        "ArcticPassage_Mira": "{{i18n:gift.Mira.love}}/ArcticPassage_ArcticChar 348/{{i18n:gift.Mira.like}}/ArcticPassage_AtlanticCod 334 388/{{i18n:gift.Mira.dislike}}/92/{{i18n:gift.Mira.hate}}/168 169 170 171 172/{{i18n:gift.Mira.neutral}}//",
+        "ArcticPassage_Roan": "{{i18n:gift.Roan.love}}/ArcticPassage_ArcticChar 348/{{i18n:gift.Roan.like}}/ArcticPassage_AtlanticCod 334 388/{{i18n:gift.Roan.dislike}}/92/{{i18n:gift.Roan.hate}}/168 169 170 171 172/{{i18n:gift.Roan.neutral}}//"
+      }
+    },
+    {
+      "LogName": "Mods/WhiteBay.ArcticPassage/DryingRack",
+      "Action": "Load",
+      "Target": "Mods/WhiteBay.ArcticPassage/DryingRack",
+      "FromFile": "assets/machines/DryingRack.png"
+    },
+    {
+      "LogName": "Mods/WhiteBay.ArcticPassage/ProcessedFish",
+      "Action": "Load",
+      "Target": "Mods/WhiteBay.ArcticPassage/ProcessedFish",
+      "FromFile": "assets/items/processed-fish.png"
+    },
+    {
+      "LogName": "Data/BigCraftables",
+      "Action": "EditData",
+      "Target": "Data/BigCraftables",
+      "Entries": {
+        "ArcticPassage_DryingRack": {
+          "Name": "Lumenhaven fish drying rack",
+          "DisplayName": "{{i18n:machine.drying.name}}",
+          "Description": "{{i18n:machine.drying.description}}",
+          "Price": 300,
+          "Fragility": 0,
+          "CanBePlacedOutdoors": true,
+          "CanBePlacedIndoors": true,
+          "Texture": "Mods/WhiteBay.ArcticPassage/DryingRack",
+          "SpriteIndex": 0
+        }
+      }
+    },
+    {
+      "LogName": "Data/CraftingRecipes",
+      "Action": "EditData",
+      "Target": "Data/CraftingRecipes",
+      "Entries": {
+        "ArcticPassage_DryingRack": "388 40 771 15 335 1/Home/ArcticPassage_DryingRack/true/null/{{i18n:machine.drying.name}}"
+      }
+    },
+    {
+      "LogName": "Data/Machines",
+      "Action": "EditData",
+      "Target": "Data/Machines",
+      "Entries": {
+        "(BC)ArcticPassage_DryingRack": {
+          "OutputRules": [
+            {
+              "Id": "ArcticPassage_DryAtlanticCod",
+              "Triggers": [
+                {
+                  "Id": "Input",
+                  "Trigger": "ItemPlacedInMachine",
+                  "RequiredItemId": "(O)ArcticPassage_AtlanticCod",
+                  "RequiredCount": 1
+                }
+              ],
+              "OutputItem": [
+                {
+                  "Id": "Product",
+                  "ItemId": "(O)ArcticPassage_DriedAtlanticCod",
+                  "CopyPrice": true,
+                  "CopyQuality": true,
+                  "PriceModifiers": [
+                    {
+                      "Id": "DryingValue",
+                      "Modification": "Multiply",
+                      "Amount": 1.4
+                    }
+                  ]
+                }
+              ],
+              "DaysUntilReady": 2
+            },
+            {
+              "Id": "ArcticPassage_DryCapelin",
+              "Triggers": [
+                {
+                  "Id": "Input",
+                  "Trigger": "ItemPlacedInMachine",
+                  "RequiredItemId": "(O)ArcticPassage_Capelin",
+                  "RequiredCount": 1
+                }
+              ],
+              "OutputItem": [
+                {
+                  "Id": "Product",
+                  "ItemId": "(O)ArcticPassage_DriedCapelin",
+                  "CopyPrice": true,
+                  "CopyQuality": true,
+                  "PriceModifiers": [
+                    {
+                      "Id": "DryingValue",
+                      "Modification": "Multiply",
+                      "Amount": 1.4
+                    }
+                  ]
+                }
+              ],
+              "DaysUntilReady": 2
+            },
+            {
+              "Id": "ArcticPassage_DryPolarCod",
+              "Triggers": [
+                {
+                  "Id": "Input",
+                  "Trigger": "ItemPlacedInMachine",
+                  "RequiredItemId": "(O)ArcticPassage_PolarCod",
+                  "RequiredCount": 1
+                }
+              ],
+              "OutputItem": [
+                {
+                  "Id": "Product",
+                  "ItemId": "(O)ArcticPassage_DriedPolarCod",
+                  "CopyPrice": true,
+                  "CopyQuality": true,
+                  "PriceModifiers": [
+                    {
+                      "Id": "DryingValue",
+                      "Modification": "Multiply",
+                      "Amount": 1.4
+                    }
+                  ]
+                }
+              ],
+              "DaysUntilReady": 2
+            }
+          ],
+          "AdditionalConsumedItems": [],
+          "WobbleWhileWorking": false,
+          "ShowNextIndexWhileWorking": true,
+          "ShowNextIndexWhenReady": true,
+          "AllowFairyDust": false,
+          "OnlyCompleteOvernight": true,
+          "InvalidItemMessage": "{{i18n:machine.drying.invalid}}"
+        }
+      }
+    },
+    {
+      "LogName": "Data/mail",
+      "Action": "EditData",
+      "Target": "Data/mail",
+      "Entries": {
+        "ArcticPassage_DryingPlan": "{{i18n:mail.drying}}"
+      }
+    },
+    {
+      "LogName": "Data/TriggerActions",
+      "Action": "EditData",
+      "Target": "Data/TriggerActions",
+      "Entries": {
+        "ArcticPassage_DryingPlan": {
+          "Id": "ArcticPassage_DryingPlan",
+          "Trigger": "DayStarted",
+          "Condition": "PLAYER_HAS_MAIL Current ArcticPassage_Shed",
+          "Actions": [
+            "AddMail Current ArcticPassage_DryingPlan now"
+          ]
+        }
+      }
+    },
+    {
+      "LogName": "Data/Quests",
+      "Action": "EditData",
+      "Target": "Data/Quests",
+      "Entries": {
+        "ArcticPassage_Arrival": "Location/{{i18n:quest.Arrival.title}}/{{i18n:quest.Arrival.desc}}/{{i18n:quest.Arrival.hint}}/ArcticPassage_Guesthouse/ArcticPassage_FirstCatch_{{MapSeason}}/150/-1/false",
+        "ArcticPassage_FirstCatch_spring": "ItemDelivery/{{i18n:quest.FirstCatch_spring.title}}/{{i18n:quest.FirstCatch_spring.desc}}/{{i18n:quest.FirstCatch_spring.hint}}/ArcticPassage_Ada (O)ArcticPassage_Capelin 3/ArcticPassage_Shed/400/-1/false/{{i18n:quest.catch.reply}}",
+        "ArcticPassage_FirstCatch_summer": "ItemDelivery/{{i18n:quest.FirstCatch_summer.title}}/{{i18n:quest.FirstCatch_summer.desc}}/{{i18n:quest.FirstCatch_summer.hint}}/ArcticPassage_Ada (O)ArcticPassage_Capelin 3/ArcticPassage_Shed/400/-1/false/{{i18n:quest.catch.reply}}",
+        "ArcticPassage_FirstCatch_fall": "ItemDelivery/{{i18n:quest.FirstCatch_fall.title}}/{{i18n:quest.FirstCatch_fall.desc}}/{{i18n:quest.FirstCatch_fall.hint}}/ArcticPassage_Ada (O)ArcticPassage_AtlanticCod 3/ArcticPassage_Shed/400/-1/false/{{i18n:quest.catch.reply}}",
+        "ArcticPassage_FirstCatch_winter": "ItemDelivery/{{i18n:quest.FirstCatch_winter.title}}/{{i18n:quest.FirstCatch_winter.desc}}/{{i18n:quest.FirstCatch_winter.hint}}/ArcticPassage_Ada (O)ArcticPassage_PolarCod 3/ArcticPassage_Shed/400/-1/false/{{i18n:quest.catch.reply}}",
+        "ArcticPassage_Shed": "ItemDelivery/{{i18n:quest.Shed.title}}/{{i18n:quest.Shed.desc}}/{{i18n:quest.Shed.hint}}/ArcticPassage_Roan (O)388 40/ArcticPassage_BoatRepair/250/-1/false/{{i18n:quest.shed.reply}}#$action AddMail Current ArcticPassage_WoodDelivered received",
+        "ArcticPassage_BoatRepair": "ItemDelivery/{{i18n:quest.BoatRepair.title}}/{{i18n:quest.BoatRepair.desc}}/{{i18n:quest.BoatRepair.hint}}/ArcticPassage_Roan (O)335 2/ArcticPassage_FjordVisit/300/-1/false/{{i18n:quest.boat.reply}}#$action AddMail Current ArcticPassage_IronDelivered received",
+        "ArcticPassage_FjordVisit": "Location/{{i18n:quest.FjordVisit.title}}/{{i18n:quest.FjordVisit.desc}}/{{i18n:quest.FjordVisit.hint}}/ArcticPassage_Icefjord/ArcticPassage_DeepCatch/200/-1/false",
+        "ArcticPassage_DeepCatch": "ItemDelivery/{{i18n:quest.DeepCatch.title}}/{{i18n:quest.DeepCatch.desc}}/{{i18n:quest.DeepCatch.hint}}/ArcticPassage_Ada (O)ArcticPassage_Halibut 1/-1/700/-1/false/{{i18n:quest.deep.reply}}"
+      }
+    },
+    {
+      "LogName": "Data/TriggerActions",
+      "Action": "EditData",
+      "Target": "Data/TriggerActions",
+      "Entries": {
+        "ArcticPassage_Start": {
+          "Id": "ArcticPassage_Start",
+          "Trigger": "LocationChanged",
+          "Condition": "PLAYER_LOCATION_NAME Current ArcticPassage_Town",
+          "Actions": [
+            "AddQuest ArcticPassage_Arrival"
+          ]
+        },
+        "ArcticPassage_RepairComplete": {
+          "Id": "ArcticPassage_RepairComplete",
+          "Trigger": "DayStarted",
+          "Condition": "PLAYER_HAS_MAIL Current ArcticPassage_WoodDelivered",
+          "Actions": [
+            "AddMail Current ArcticPassage_Shed received",
+            "AddMail Current ArcticPassage_Processing now"
+          ]
+        },
+        "ArcticPassage_BoatComplete": {
+          "Id": "ArcticPassage_BoatComplete",
+          "Trigger": "DayStarted",
+          "Condition": "PLAYER_HAS_MAIL Current ArcticPassage_IronDelivered",
+          "Actions": [
+            "AddMail Current ArcticPassage_Boat received",
+            "AddMail Current ArcticPassage_Route now"
+          ]
+        }
+      }
+    },
+    {
+      "LogName": "Data/mail",
+      "Action": "EditData",
+      "Target": "Data/mail",
+      "Entries": {
+        "ArcticPassage_Invitation": "{{i18n:mail.invitation.legacy}}",
+        "ArcticPassage_Processing": "{{i18n:mail.processing}}",
+        "ArcticPassage_Route": "{{i18n:mail.route}}"
+      }
+    },
+    {
+      "LogName": "Data/TriggerActions",
+      "Action": "EditData",
+      "Target": "Data/TriggerActions",
+      "Entries": {
+        "ArcticPassage_Coal": {
+          "Id": "ArcticPassage_Coal",
+          "Trigger": "LocationChanged",
+          "Condition": "PLAYER_HAS_MAIL Current ArcticPassage_Shed",
+          "Actions": [
+            "AddItem (O)382 10"
+          ]
+        }
+      }
+    },
+    {
+      "LogName": "Maps/ArcticPassage_Harbor",
+      "Action": "EditMap",
+      "Target": "Maps/ArcticPassage_Harbor",
+      "MapTiles": [
+        {
+          "Position": {
+            "X": 43,
+            "Y": 24
+          },
+          "Layer": "Buildings",
+          "SetProperties": {
+            "Action": "Warp 35 34 ArcticPassage_Icefjord"
+          }
+        }
+      ],
+      "When": {
+        "HasFlag |contains=ArcticPassage_Boat": true
+      }
+    },
+    {
+      "LogName": "Maps/ArcticPassage_Harbor",
+      "Action": "EditMap",
+      "Target": "Maps/ArcticPassage_Harbor",
+      "MapTiles": [
+        {
+          "Position": {
+            "X": 23,
+            "Y": 36
+          },
+          "Layer": "Buildings",
+          "SetProperties": {
+            "Action": "Message ArcticPassage_WorkshopReady"
+          }
+        }
+      ],
+      "When": {
+        "HasFlag |contains=ArcticPassage_Shed": true
+      }
+    },
+    {
+      "LogName": "Mods/WhiteBay.ArcticPassage/Seafood",
+      "Action": "Load",
+      "Target": "Mods/WhiteBay.ArcticPassage/Seafood",
+      "FromFile": "assets/items/seafood.png"
+    },
+    {
+      "LogName": "Mods/WhiteBay.ArcticPassage/Cuisine",
+      "Action": "Load",
+      "Target": "Mods/WhiteBay.ArcticPassage/Cuisine",
+      "FromFile": "assets/items/cuisine.png"
+    },
+    {
+      "LogName": "Data/CookingRecipes",
+      "Action": "EditData",
+      "Target": "Data/CookingRecipes",
+      "Entries": {
+        "ArcticPassage_CharSoup": "ArcticPassage_ArcticChar 1 192 1 20 1/10 10/ArcticPassage_CharSoup/null/{{i18n:meal.CharSoup.name}}",
+        "ArcticPassage_PanCod": "ArcticPassage_AtlanticCod 1 247 1/10 10/ArcticPassage_PanCod/null/{{i18n:meal.PanCod.name}}",
+        "ArcticPassage_ShrimpChowder": "ArcticPassage_NorthernShrimp 1 184 1 246 1/10 10/ArcticPassage_ShrimpChowder/null/{{i18n:meal.ShrimpChowder.name}}",
+        "ArcticPassage_FishPotatoStew": "ArcticPassage_PolarCod 1 192 1 78 1/10 10/ArcticPassage_FishPotatoStew/null/{{i18n:meal.FishPotatoStew.name}}"
+      }
+    },
+    {
+      "LogName": "Data/Shops",
+      "Action": "EditData",
+      "Target": "Data/Shops",
+      "Entries": {
+        "ArcticPassage_Orders": {
+          "Owners": [
+            {
+              "Name": "AnyOrNone",
+              "Portrait": "ArcticPassage_Ada",
+              "Dialogues": [
+                {
+                  "Id": "Instructions",
+                  "Dialogue": "{{i18n:shop.orders}}"
+                }
+              ]
+            }
+          ],
+          "Items": [
+            {
+              "Id": "spring_Regular",
+              "ItemId": "(O)ArcticPassage_RegularReceipt",
+              "Condition": "SEASON spring, !PLAYER_HAS_MAIL Current ArcticPassage_Order_Regular_{{Year}}_{{Season}}_{{Day}}",
+              "TradeItemId": "(O)ArcticPassage_Capelin",
+              "TradeItemAmount": 3,
+              "Price": 0,
+              "AvailableStock": 1,
+              "AvailableStockLimit": "Player",
+              "ActionsOnPurchase": [
+                "AddMoney 273",
+                "AddMail Current ArcticPassage_Order_Regular_{{Year}}_{{Season}}_{{Day}} received"
+              ]
+            },
+            {
+              "Id": "spring_Restaurant",
+              "ItemId": "(O)ArcticPassage_RestaurantReceipt",
+              "Condition": "SEASON spring, !PLAYER_HAS_MAIL Current ArcticPassage_Order_Restaurant_{{Year}}_{{Season}}_{{Day}}",
+              "TradeItemId": "(O)ArcticPassage_Capelin",
+              "TradeItemAmount": 2,
+              "Price": 0,
+              "AvailableStock": 1,
+              "AvailableStockLimit": "Player",
+              "ActionsOnPurchase": [
+                "AddMoney 202",
+                "AddMail Current ArcticPassage_Order_Restaurant_{{Year}}_{{Season}}_{{Day}} received"
+              ]
+            },
+            {
+              "Id": "spring_Research",
+              "ItemId": "(O)ArcticPassage_ResearchReceipt",
+              "Condition": "SEASON spring, !PLAYER_HAS_MAIL Current ArcticPassage_Order_Research_{{Year}}_{{Season}}_{{Day}}",
+              "TradeItemId": "(O)ArcticPassage_Capelin",
+              "TradeItemAmount": 1,
+              "Price": 0,
+              "AvailableStock": 1,
+              "AvailableStockLimit": "Player",
+              "ActionsOnPurchase": [
+                "AddMoney 84",
+                "AddMail Current ArcticPassage_Order_Research_{{Year}}_{{Season}}_{{Day}} received"
+              ]
+            },
+            {
+              "Id": "summer_Regular",
+              "ItemId": "(O)ArcticPassage_RegularReceipt",
+              "Condition": "SEASON summer, !PLAYER_HAS_MAIL Current ArcticPassage_Order_Regular_{{Year}}_{{Season}}_{{Day}}",
+              "TradeItemId": "(O)ArcticPassage_AtlanticCod",
+              "TradeItemAmount": 3,
+              "Price": 0,
+              "AvailableStock": 1,
+              "AvailableStockLimit": "Player",
+              "ActionsOnPurchase": [
+                "AddMoney 504",
+                "AddMail Current ArcticPassage_Order_Regular_{{Year}}_{{Season}}_{{Day}} received"
+              ]
+            },
+            {
+              "Id": "summer_Restaurant",
+              "ItemId": "(O)ArcticPassage_RestaurantReceipt",
+              "Condition": "SEASON summer, !PLAYER_HAS_MAIL Current ArcticPassage_Order_Restaurant_{{Year}}_{{Season}}_{{Day}}",
+              "TradeItemId": "(O)ArcticPassage_AtlanticCod",
+              "TradeItemAmount": 2,
+              "Price": 0,
+              "AvailableStock": 1,
+              "AvailableStockLimit": "Player",
+              "ActionsOnPurchase": [
+                "AddMoney 372",
+                "AddMail Current ArcticPassage_Order_Restaurant_{{Year}}_{{Season}}_{{Day}} received"
+              ]
+            },
+            {
+              "Id": "summer_Research",
+              "ItemId": "(O)ArcticPassage_ResearchReceipt",
+              "Condition": "SEASON summer, !PLAYER_HAS_MAIL Current ArcticPassage_Order_Research_{{Year}}_{{Season}}_{{Day}}",
+              "TradeItemId": "(O)ArcticPassage_AtlanticCod",
+              "TradeItemAmount": 1,
+              "Price": 0,
+              "AvailableStock": 1,
+              "AvailableStockLimit": "Player",
+              "ActionsOnPurchase": [
+                "AddMoney 156",
+                "AddMail Current ArcticPassage_Order_Research_{{Year}}_{{Season}}_{{Day}} received"
+              ]
+            },
+            {
+              "Id": "fall_Regular",
+              "ItemId": "(O)ArcticPassage_RegularReceipt",
+              "Condition": "SEASON fall, !PLAYER_HAS_MAIL Current ArcticPassage_Order_Regular_{{Year}}_{{Season}}_{{Day}}",
+              "TradeItemId": "(O)ArcticPassage_AtlanticCod",
+              "TradeItemAmount": 3,
+              "Price": 0,
+              "AvailableStock": 1,
+              "AvailableStockLimit": "Player",
+              "ActionsOnPurchase": [
+                "AddMoney 504",
+                "AddMail Current ArcticPassage_Order_Regular_{{Year}}_{{Season}}_{{Day}} received"
+              ]
+            },
+            {
+              "Id": "fall_Restaurant",
+              "ItemId": "(O)ArcticPassage_RestaurantReceipt",
+              "Condition": "SEASON fall, !PLAYER_HAS_MAIL Current ArcticPassage_Order_Restaurant_{{Year}}_{{Season}}_{{Day}}",
+              "TradeItemId": "(O)ArcticPassage_AtlanticCod",
+              "TradeItemAmount": 2,
+              "Price": 0,
+              "AvailableStock": 1,
+              "AvailableStockLimit": "Player",
+              "ActionsOnPurchase": [
+                "AddMoney 372",
+                "AddMail Current ArcticPassage_Order_Restaurant_{{Year}}_{{Season}}_{{Day}} received"
+              ]
+            },
+            {
+              "Id": "fall_Research",
+              "ItemId": "(O)ArcticPassage_ResearchReceipt",
+              "Condition": "SEASON fall, !PLAYER_HAS_MAIL Current ArcticPassage_Order_Research_{{Year}}_{{Season}}_{{Day}}",
+              "TradeItemId": "(O)ArcticPassage_AtlanticCod",
+              "TradeItemAmount": 1,
+              "Price": 0,
+              "AvailableStock": 1,
+              "AvailableStockLimit": "Player",
+              "ActionsOnPurchase": [
+                "AddMoney 156",
+                "AddMail Current ArcticPassage_Order_Research_{{Year}}_{{Season}}_{{Day}} received"
+              ]
+            },
+            {
+              "Id": "winter_Regular",
+              "ItemId": "(O)ArcticPassage_RegularReceipt",
+              "Condition": "SEASON winter, !PLAYER_HAS_MAIL Current ArcticPassage_Order_Regular_{{Year}}_{{Season}}_{{Day}}",
+              "TradeItemId": "(O)ArcticPassage_PolarCod",
+              "TradeItemAmount": 3,
+              "Price": 0,
+              "AvailableStock": 1,
+              "AvailableStockLimit": "Player",
+              "ActionsOnPurchase": [
+                "AddMoney 357",
+                "AddMail Current ArcticPassage_Order_Regular_{{Year}}_{{Season}}_{{Day}} received"
+              ]
+            },
+            {
+              "Id": "winter_Restaurant",
+              "ItemId": "(O)ArcticPassage_RestaurantReceipt",
+              "Condition": "SEASON winter, !PLAYER_HAS_MAIL Current ArcticPassage_Order_Restaurant_{{Year}}_{{Season}}_{{Day}}",
+              "TradeItemId": "(O)ArcticPassage_PolarCod",
+              "TradeItemAmount": 2,
+              "Price": 0,
+              "AvailableStock": 1,
+              "AvailableStockLimit": "Player",
+              "ActionsOnPurchase": [
+                "AddMoney 264",
+                "AddMail Current ArcticPassage_Order_Restaurant_{{Year}}_{{Season}}_{{Day}} received"
+              ]
+            },
+            {
+              "Id": "winter_Research",
+              "ItemId": "(O)ArcticPassage_ResearchReceipt",
+              "Condition": "SEASON winter, !PLAYER_HAS_MAIL Current ArcticPassage_Order_Research_{{Year}}_{{Season}}_{{Day}}",
+              "TradeItemId": "(O)ArcticPassage_PolarCod",
+              "TradeItemAmount": 1,
+              "Price": 0,
+              "AvailableStock": 1,
+              "AvailableStockLimit": "Player",
+              "ActionsOnPurchase": [
+                "AddMoney 110",
+                "AddMail Current ArcticPassage_Order_Research_{{Year}}_{{Season}}_{{Day}} received"
+              ]
+            }
+          ]
+        },
+        "ArcticPassage_Supplies": {
+          "Items": [
+            {
+              "Id": "Bait",
+              "ItemId": "(O)685",
+              "Price": 5
+            },
+            {
+              "Id": "TrainingRod",
+              "ItemId": "(T)TrainingRod",
+              "Price": 25
+            },
+            {
+              "Id": "Coal",
+              "ItemId": "(O)382",
+              "Price": 150,
+              "AvailableStock": 10
+            },
+            {
+              "Id": "ArcticPassage_CharSoupRecipe",
+              "ItemId": "(O)ArcticPassage_CharSoup",
+              "IsRecipe": true,
+              "Price": 450,
+              "AvailableStock": 1
+            },
+            {
+              "Id": "ArcticPassage_PanCodRecipe",
+              "ItemId": "(O)ArcticPassage_PanCod",
+              "IsRecipe": true,
+              "Price": 450,
+              "AvailableStock": 1
+            },
+            {
+              "Id": "ArcticPassage_ShrimpChowderRecipe",
+              "ItemId": "(O)ArcticPassage_ShrimpChowder",
+              "IsRecipe": true,
+              "Price": 450,
+              "AvailableStock": 1
+            },
+            {
+              "Id": "ArcticPassage_FishPotatoStewRecipe",
+              "ItemId": "(O)ArcticPassage_FishPotatoStew",
+              "IsRecipe": true,
+              "Price": 450,
+              "AvailableStock": 1
+            },
+            {
+              "Id": "Kitchen_192",
+              "ItemId": "(O)192",
+              "Price": 120,
+              "AvailableStock": 5
+            },
+            {
+              "Id": "Kitchen_20",
+              "ItemId": "(O)20",
+              "Price": 100,
+              "AvailableStock": 5
+            },
+            {
+              "Id": "Kitchen_247",
+              "ItemId": "(O)247",
+              "Price": 240,
+              "AvailableStock": 5
+            },
+            {
+              "Id": "Kitchen_184",
+              "ItemId": "(O)184",
+              "Price": 150,
+              "AvailableStock": 5
+            },
+            {
+              "Id": "Kitchen_246",
+              "ItemId": "(O)246",
+              "Price": 120,
+              "AvailableStock": 5
+            },
+            {
+              "Id": "Kitchen_78",
+              "ItemId": "(O)78",
+              "Price": 100,
+              "AvailableStock": 5
+            },
+            {
+              "Id": "RepairWood",
+              "ItemId": "(O)388",
+              "Price": 15,
+              "AvailableStock": 40
+            },
+            {
+              "Id": "RepairStone",
+              "ItemId": "(O)390",
+              "Price": 30,
+              "AvailableStock": 40
+            },
+            {
+              "Id": "RepairIron",
+              "ItemId": "(O)335",
+              "Price": 1000,
+              "AvailableStock": 2,
+              "Condition": "PLAYER_HAS_MAIL Current ArcticPassage_Shed"
+            },
+            {
+              "Id": "CrabPot",
+              "ItemId": "(O)710",
+              "Price": 1500,
+              "AvailableStock": 2
+            },
+            {
+              "Id": "BaitMaker",
+              "ItemId": "(BC)BaitMaker",
+              "Price": 10000,
+              "AvailableStock": 1,
+              "Condition": "PLAYER_FISHING_LEVEL Current 6"
+            },
+            {
+              "Id": "LocalRepairIron_spring_1",
+              "ItemId": "(O)335",
+              "Price": 0,
+              "TradeItemId": "(O)ArcticPassage_Capelin",
+              "TradeItemAmount": 3,
+              "AvailableStock": 1,
+              "AvailableStockLimit": "Player",
+              "Condition": "SEASON spring, PLAYER_HAS_MAIL Current ArcticPassage_Shed, !PLAYER_HAS_MAIL Current ArcticPassage_IronDelivered, !PLAYER_HAS_MAIL Current ArcticPassage_Boat, !PLAYER_HAS_MAIL Current ArcticPassage_LocalRepairIron_1",
+              "ActionsOnPurchase": [
+                "AddMail Current ArcticPassage_LocalRepairIron_1 received"
+              ]
+            },
+            {
+              "Id": "LocalRepairIron_spring_2",
+              "ItemId": "(O)335",
+              "Price": 0,
+              "TradeItemId": "(O)ArcticPassage_Capelin",
+              "TradeItemAmount": 3,
+              "AvailableStock": 1,
+              "AvailableStockLimit": "Player",
+              "Condition": "SEASON spring, PLAYER_HAS_MAIL Current ArcticPassage_Shed, !PLAYER_HAS_MAIL Current ArcticPassage_IronDelivered, !PLAYER_HAS_MAIL Current ArcticPassage_Boat, !PLAYER_HAS_MAIL Current ArcticPassage_LocalRepairIron_2",
+              "ActionsOnPurchase": [
+                "AddMail Current ArcticPassage_LocalRepairIron_2 received"
+              ]
+            },
+            {
+              "Id": "LocalRepairIron_summer_1",
+              "ItemId": "(O)335",
+              "Price": 0,
+              "TradeItemId": "(O)ArcticPassage_Capelin",
+              "TradeItemAmount": 3,
+              "AvailableStock": 1,
+              "AvailableStockLimit": "Player",
+              "Condition": "SEASON summer, PLAYER_HAS_MAIL Current ArcticPassage_Shed, !PLAYER_HAS_MAIL Current ArcticPassage_IronDelivered, !PLAYER_HAS_MAIL Current ArcticPassage_Boat, !PLAYER_HAS_MAIL Current ArcticPassage_LocalRepairIron_1",
+              "ActionsOnPurchase": [
+                "AddMail Current ArcticPassage_LocalRepairIron_1 received"
+              ]
+            },
+            {
+              "Id": "LocalRepairIron_summer_2",
+              "ItemId": "(O)335",
+              "Price": 0,
+              "TradeItemId": "(O)ArcticPassage_Capelin",
+              "TradeItemAmount": 3,
+              "AvailableStock": 1,
+              "AvailableStockLimit": "Player",
+              "Condition": "SEASON summer, PLAYER_HAS_MAIL Current ArcticPassage_Shed, !PLAYER_HAS_MAIL Current ArcticPassage_IronDelivered, !PLAYER_HAS_MAIL Current ArcticPassage_Boat, !PLAYER_HAS_MAIL Current ArcticPassage_LocalRepairIron_2",
+              "ActionsOnPurchase": [
+                "AddMail Current ArcticPassage_LocalRepairIron_2 received"
+              ]
+            },
+            {
+              "Id": "LocalRepairIron_fall_1",
+              "ItemId": "(O)335",
+              "Price": 0,
+              "TradeItemId": "(O)ArcticPassage_AtlanticCod",
+              "TradeItemAmount": 3,
+              "AvailableStock": 1,
+              "AvailableStockLimit": "Player",
+              "Condition": "SEASON fall, PLAYER_HAS_MAIL Current ArcticPassage_Shed, !PLAYER_HAS_MAIL Current ArcticPassage_IronDelivered, !PLAYER_HAS_MAIL Current ArcticPassage_Boat, !PLAYER_HAS_MAIL Current ArcticPassage_LocalRepairIron_1",
+              "ActionsOnPurchase": [
+                "AddMail Current ArcticPassage_LocalRepairIron_1 received"
+              ]
+            },
+            {
+              "Id": "LocalRepairIron_fall_2",
+              "ItemId": "(O)335",
+              "Price": 0,
+              "TradeItemId": "(O)ArcticPassage_AtlanticCod",
+              "TradeItemAmount": 3,
+              "AvailableStock": 1,
+              "AvailableStockLimit": "Player",
+              "Condition": "SEASON fall, PLAYER_HAS_MAIL Current ArcticPassage_Shed, !PLAYER_HAS_MAIL Current ArcticPassage_IronDelivered, !PLAYER_HAS_MAIL Current ArcticPassage_Boat, !PLAYER_HAS_MAIL Current ArcticPassage_LocalRepairIron_2",
+              "ActionsOnPurchase": [
+                "AddMail Current ArcticPassage_LocalRepairIron_2 received"
+              ]
+            },
+            {
+              "Id": "LocalRepairIron_winter_1",
+              "ItemId": "(O)335",
+              "Price": 0,
+              "TradeItemId": "(O)ArcticPassage_PolarCod",
+              "TradeItemAmount": 3,
+              "AvailableStock": 1,
+              "AvailableStockLimit": "Player",
+              "Condition": "SEASON winter, PLAYER_HAS_MAIL Current ArcticPassage_Shed, !PLAYER_HAS_MAIL Current ArcticPassage_IronDelivered, !PLAYER_HAS_MAIL Current ArcticPassage_Boat, !PLAYER_HAS_MAIL Current ArcticPassage_LocalRepairIron_1",
+              "ActionsOnPurchase": [
+                "AddMail Current ArcticPassage_LocalRepairIron_1 received"
+              ]
+            },
+            {
+              "Id": "LocalRepairIron_winter_2",
+              "ItemId": "(O)335",
+              "Price": 0,
+              "TradeItemId": "(O)ArcticPassage_PolarCod",
+              "TradeItemAmount": 3,
+              "AvailableStock": 1,
+              "AvailableStockLimit": "Player",
+              "Condition": "SEASON winter, PLAYER_HAS_MAIL Current ArcticPassage_Shed, !PLAYER_HAS_MAIL Current ArcticPassage_IronDelivered, !PLAYER_HAS_MAIL Current ArcticPassage_Boat, !PLAYER_HAS_MAIL Current ArcticPassage_LocalRepairIron_2",
+              "ActionsOnPurchase": [
+                "AddMail Current ArcticPassage_LocalRepairIron_2 received"
+              ]
+            }
+          ]
+        },
+        "ArcticPassage_Market": {
+          "Owners": [
+            {
+              "Name": "AnyOrNone",
+              "Portrait": "ArcticPassage_Ada"
+            }
+          ],
+          "SalableItemTags": [
+            "category_fish",
+            "arcticpassage_fish_product",
+            "id_o_smokedfish"
+          ],
+          "Items": [
+            {
+              "Id": "Bait",
+              "ItemId": "(O)685",
+              "Price": 5
+            }
+          ]
+        }
+      }
+    },
+    {
+      "LogName": "Strings/StringsFromMaps",
+      "Action": "EditData",
+      "Target": "Strings/StringsFromMaps",
+      "Entries": {
+        "ArcticPassage_TownGuide": "{{i18n:sign.town}}",
+        "ArcticPassage_InnGuide": "{{i18n:sign.inn}}",
+        "ArcticPassage_BoatLocked": "{{i18n:sign.boat}}",
+        "ArcticPassage_Fishing": "{{i18n:sign.fishing}}",
+        "ArcticPassage_Workshop": "{{i18n:sign.workshop}}",
+        "ArcticPassage_WorkshopReady": "{{i18n:sign.ready}}",
+        "ArcticPassage_DeepWater": "{{i18n:sign.deep}}",
+        "ArcticPassage_WhaleNote": "{{i18n:sign.whale}}",
+        "ArcticPassage_TundraGuide": "{{i18n:sign.tundra}}",
+        "ArcticPassage_CampRoute": "{{i18n:sign.camp.route}}",
+        "ArcticPassage_SnowShelter": "{{i18n:sign.camp.snow}}",
+        "ArcticPassage_CampDesk": "{{i18n:sign.camp.desk}}",
+        "ArcticPassage_Char": "{{i18n:sign.char}}",
+        "ArcticPassage_Safety": "{{i18n:sign.safety}}",
+        "ArcticPassage_Lodging": "{{i18n:sign.lodging}}"
+      }
+    },
+    {
+      "LogName": "Data/Events/ArcticPassage_Town",
+      "Action": "EditData",
+      "Target": "Data/Events/ArcticPassage_Town",
+      "Entries": {
+        "ArcticPassage_Welcome": "continue/24 24/farmer 24 24 2 ArcticPassage_Ada 25 24 3/pause 400/speak ArcticPassage_Ada \"{{i18n:event.arrival1}}\"/speak ArcticPassage_Ada \"{{i18n:event.arrival2}}\"/end"
+      }
+    },
+    {
+      "LogName": "Air travel: Data/TriggerActions",
+      "Target": "Data/TriggerActions",
+      "Action": "EditData",
+      "Entries": {
+        "ArcticPassage_AirlineInvitation": {
+          "Id": "ArcticPassage_AirlineInvitation",
+          "Trigger": "DayStarted",
+          "Condition": "!PLAYER_HAS_MAIL Current ArcticPassage_AirlineInvitation",
+          "Actions": [
+            "AddMail Current ArcticPassage_AirlineInvitation now"
+          ]
+        }
+      }
+    },
+    {
+      "LogName": "Air travel: Data/mail",
+      "Target": "Data/mail",
+      "Action": "EditData",
+      "Entries": {
+        "ArcticPassage_AirlineInvitation": "{{i18n:mail.invitation}}"
+      }
+    },
+    {
+      "LogName": "Air travel: Maps/ArcticPassage_Airstrip",
+      "Target": "Maps/ArcticPassage_Airstrip",
+      "Action": "Load",
+      "FromFile": "assets/maps/Airstrip_{{MapSeason}}.tmx"
+    },
+    {
+      "LogName": "Air travel: Mods/WhiteBay.ArcticPassage/FlightTicket",
+      "Target": "Mods/WhiteBay.ArcticPassage/FlightTicket",
+      "Action": "Load",
+      "FromFile": "assets/items/flight-ticket.png"
+    },
+    {
+      "LogName": "Air travel: Data/Objects",
+      "Target": "Data/Objects",
+      "Action": "EditData",
+      "Entries": {
+        "ArcticPassage_FlightTicket": {
+          "Name": "ArcticPassage_FlightTicket",
+          "DisplayName": "{{i18n:flight.ticket.name}}",
+          "Description": "{{i18n:flight.ticket.desc}}",
+          "Type": "Basic",
+          "Category": -999,
+          "Price": 0,
+          "Edibility": -300,
+          "Texture": "Mods/WhiteBay.ArcticPassage/FlightTicket",
+          "SpriteIndex": 0,
+          "CanBeGivenAsGift": false,
+          "CanBeTrashed": false,
+          "ExcludeFromFishingCollection": true,
+          "ExcludeFromShippingCollection": true
+        }
+      }
+    },
+    {
+      "LogName": "Air travel: Data/Locations",
+      "Target": "Data/Locations",
+      "Action": "EditData",
+      "Entries": {
+        "ArcticPassage_Airstrip": {
+          "DisplayName": "{{i18n:location.Airstrip}}",
+          "DefaultArrivalTile": {
+            "X": 25,
+            "Y": 26
+          },
+          "CreateOnLoad": {
+            "MapPath": "Maps/ArcticPassage_Airstrip"
+          },
+          "CanPlantHere": false,
+          "CanHaveGreenRainSpawns": false,
+          "MinDailyWeeds": 0,
+          "MaxDailyWeeds": 0,
+          "MinDailyForageSpawn": 0,
+          "MaxDailyForageSpawn": 0,
+          "Fish": [],
+          "MusicDefault": "ArcticPassage_PolarNightTheme",
+          "Music": [
+            {
+              "Id": "ArcticPassage_Night",
+              "Track": "ArcticPassage_PolarNightTheme",
+              "Condition": "TIME 1800 2600"
+            }
+          ],
+          "MusicIgnoredInRain": false,
+          "MusicIgnoredInSpring": false,
+          "MusicIgnoredInSummer": false,
+          "MusicIgnoredInFall": false,
+          "MusicIgnoredInFallDebris": false,
+          "MusicIgnoredInWinter": false
+        }
+      }
+    },
+    {
+      "LogName": "Air travel: Maps/ArcticPassage_Town",
+      "Target": "Maps/ArcticPassage_Town",
+      "Action": "EditMap",
+      "MapTiles": [
+        {
+          "Position": {
+            "X": 40,
+            "Y": 24
+          },
+          "Layer": "Buildings",
+          "SetProperties": {
+            "Action": "Warp 26 32 ArcticPassage_Airstrip"
+          }
+        }
+      ]
+    },
+    {
+      "LogName": "Air travel: Strings/StringsFromMaps",
+      "Target": "Strings/StringsFromMaps",
+      "Action": "EditData",
+      "Entries": {
+        "ArcticPassage_Airport": "{{i18n:flight.airport}}"
+      }
+    },
+    {
+      "Action": "Load",
+      "Target": "Maps/ArcticPassage_SledTrail",
+      "LogName": "R02 frontier: Maps/ArcticPassage_SledTrail",
+      "FromFile": "assets/maps/SledTrail_{{MapSeason}}.tmx"
+    },
+    {
+      "Action": "Load",
+      "Target": "Maps/ArcticPassage_Glacier",
+      "LogName": "R02 frontier: Maps/ArcticPassage_Glacier",
+      "FromFile": "assets/maps/Glacier_{{MapSeason}}.tmx"
+    },
+    {
+      "Action": "Load",
+      "Target": "Maps/ArcticPassage_CommunityHouse",
+      "LogName": "R02 frontier: Maps/ArcticPassage_CommunityHouse",
+      "FromFile": "assets/maps/CommunityHouse_{{MapSeason}}.tmx"
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/Locations",
+      "LogName": "R02 frontier: Data/Locations",
+      "Entries": {
+        "ArcticPassage_SledTrail": {
+          "DisplayName": "{{i18n:location.SledTrail}}",
+          "DefaultArrivalTile": {
+            "X": 12,
+            "Y": 42
+          },
+          "CreateOnLoad": {
+            "MapPath": "Maps/ArcticPassage_SledTrail"
+          },
+          "CanPlantHere": false,
+          "CanHaveGreenRainSpawns": false,
+          "MinDailyWeeds": 0,
+          "MaxDailyWeeds": 0,
+          "MinDailyForageSpawn": 0,
+          "MaxDailyForageSpawn": 0,
+          "Fish": [],
+          "MusicDefault": "ArcticPassage_IcefjordTheme",
+          "Music": [
+            {
+              "Id": "ArcticPassage_Night",
+              "Track": "ArcticPassage_PolarNightTheme",
+              "Condition": "TIME 1800 2600"
+            }
+          ],
+          "MusicIgnoredInRain": false,
+          "MusicIgnoredInSpring": false,
+          "MusicIgnoredInSummer": false,
+          "MusicIgnoredInFall": false,
+          "MusicIgnoredInFallDebris": false,
+          "MusicIgnoredInWinter": false
+        },
+        "ArcticPassage_Glacier": {
+          "DisplayName": "{{i18n:location.Glacier}}",
+          "DefaultArrivalTile": {
+            "X": 32,
+            "Y": 44
+          },
+          "CreateOnLoad": {
+            "MapPath": "Maps/ArcticPassage_Glacier"
+          },
+          "CanPlantHere": false,
+          "CanHaveGreenRainSpawns": false,
+          "MinDailyWeeds": 0,
+          "MaxDailyWeeds": 0,
+          "MinDailyForageSpawn": 0,
+          "MaxDailyForageSpawn": 0,
+          "Fish": [],
+          "MusicDefault": "ArcticPassage_IcefjordTheme",
+          "Music": [
+            {
+              "Id": "ArcticPassage_Night",
+              "Track": "ArcticPassage_PolarNightTheme",
+              "Condition": "TIME 1800 2600"
+            }
+          ],
+          "MusicIgnoredInRain": false,
+          "MusicIgnoredInSpring": false,
+          "MusicIgnoredInSummer": false,
+          "MusicIgnoredInFall": false,
+          "MusicIgnoredInFallDebris": false,
+          "MusicIgnoredInWinter": false
+        },
+        "ArcticPassage_CommunityHouse": {
+          "DisplayName": "{{i18n:location.CommunityHouse}}",
+          "DefaultArrivalTile": {
+            "X": 12,
+            "Y": 14
+          },
+          "CreateOnLoad": {
+            "MapPath": "Maps/ArcticPassage_CommunityHouse"
+          },
+          "CanPlantHere": false,
+          "CanHaveGreenRainSpawns": false,
+          "MinDailyWeeds": 0,
+          "MaxDailyWeeds": 0,
+          "MinDailyForageSpawn": 0,
+          "MaxDailyForageSpawn": 0,
+          "Fish": [],
+          "MusicDefault": "ArcticPassage_LumenhavenTheme",
+          "Music": [
+            {
+              "Id": "ArcticPassage_Night",
+              "Track": "ArcticPassage_PolarNightTheme",
+              "Condition": "TIME 1800 2600"
+            }
+          ],
+          "MusicIgnoredInRain": false,
+          "MusicIgnoredInSpring": false,
+          "MusicIgnoredInSummer": false,
+          "MusicIgnoredInFall": false,
+          "MusicIgnoredInFallDebris": false,
+          "MusicIgnoredInWinter": false
+        }
+      }
+    },
+    {
+      "Action": "EditMap",
+      "Target": "Maps/ArcticPassage_Town",
+      "LogName": "R02 frontier: Maps/ArcticPassage_Town",
+      "MapTiles": [
+        {
+          "Position": {
+            "X": 20,
+            "Y": 8
+          },
+          "Layer": "Buildings",
+          "SetProperties": {
+            "Action": "Warp 12 14 ArcticPassage_CommunityHouse"
+          }
+        }
+      ]
+    },
+    {
+      "Action": "EditMap",
+      "Target": "Maps/ArcticPassage_Tundra",
+      "LogName": "R02 frontier: Maps/ArcticPassage_Tundra",
+      "AddWarps": [
+        "26 3 ArcticPassage_SledTrail 12 42"
+      ]
+    },
+    {
+      "Action": "EditData",
+      "Target": "Strings/StringsFromMaps",
+      "LogName": "R02 frontier: Strings/StringsFromMaps",
+      "Entries": {
+        "ArcticPassage_SledRoute": "{{i18n:frontier.sled}}",
+        "ArcticPassage_GlacierSafety": "{{i18n:frontier.glacier}}",
+        "ArcticPassage_Geology": "{{i18n:frontier.geology}}",
+        "ArcticPassage_SledPending": "{{i18n:frontier.sled.pending}}",
+        "ArcticPassage_Community": "{{i18n:frontier.community}}"
+      }
+    },
+    {
+      "Action": "Load",
+      "Target": "Maps/ArcticPassage_Harbor",
+      "LogName": "R01 facilities: Maps/ArcticPassage_Harbor",
+      "FromFile": "assets/maps/HarborReady_{{MapSeason}}.tmx",
+      "When": {
+        "HasFlag |contains=ArcticPassage_Shed": true
+      }
+    },
+    {
+      "Action": "EditMap",
+      "Target": "Maps/ArcticPassage_Guesthouse",
+      "LogName": "R01 facilities: Maps/ArcticPassage_Guesthouse",
+      "MapTiles": [
+        {
+          "Position": {
+            "X": 17,
+            "Y": 7
+          },
+          "Layer": "Buildings",
+          "SetProperties": {
+            "Action": "Mailbox"
+          }
+        }
+      ]
+    },
+    {
+      "Action": "EditData",
+      "Target": "Strings/StringsFromMaps",
+      "LogName": "R01 facilities: Strings/StringsFromMaps",
+      "Entries": {
+        "ArcticPassage_Workshop": "{{i18n:r01.workshop}}"
+      }
+    },
+    {
+      "Action": "Load",
+      "Target": "Data/Events/ArcticPassage_Harbor",
+      "LogName": "R01 facilities: Data/Events/ArcticPassage_Harbor",
+      "FromFile": "assets/data/Harbor_events.json"
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/Events/ArcticPassage_Harbor",
+      "LogName": "R01 facilities: Data/Events/ArcticPassage_Harbor",
+      "Entries": {
+        "ArcticPassage_WorkshopOpening/LocalMail ArcticPassage_Shed/Time 600 2200": "continue/21 33/farmer 21 35 0 ArcticPassage_Roan 21 33 2/skippable/pause 500/playSound crafting/pause 500/speak ArcticPassage_Roan \"{{i18n:r01.opening.1}}\"/pause 500/speak ArcticPassage_Roan \"{{i18n:r01.opening.2}}\"/speak ArcticPassage_Roan \"{{i18n:r01.opening.3}}\"/end"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/SpecialOrders",
+      "LogName": "R01 weekly: Data/SpecialOrders",
+      "Entries": {
+        "ArcticPassage_CoastalLog": {
+          "Name": "{{i18n:weekly.CoastalLog.name}}",
+          "Requester": "ArcticPassage_Ada",
+          "Duration": "Week",
+          "Repeatable": true,
+          "Condition": "PLAYER_HAS_MAIL Host ArcticPassage_Shed",
+          "OrderType": "ArcticPassage_Weekly",
+          "Text": "{{i18n:weekly.CoastalLog.desc}}",
+          "Objectives": [
+            {
+              "Type": "Fish",
+              "Text": "{{i18n:weekly.CoastalLog.objective}}",
+              "RequiredCount": "6",
+              "Data": {
+                "AcceptedContextTags": "arcticpassage_rod_fish"
+              }
+            }
+          ],
+          "Rewards": [
+            {
+              "Type": "Money",
+              "Data": {
+                "Amount": "600"
+              }
+            }
+          ]
+        },
+        "ArcticPassage_FreshCrates": {
+          "Name": "{{i18n:weekly.FreshCrates.name}}",
+          "Requester": "ArcticPassage_Ada",
+          "Duration": "Week",
+          "Repeatable": true,
+          "Condition": "PLAYER_HAS_MAIL Host ArcticPassage_Shed",
+          "OrderType": "ArcticPassage_Weekly",
+          "Text": "{{i18n:weekly.FreshCrates.desc}}",
+          "Objectives": [
+            {
+              "Type": "Donate",
+              "Text": "{{i18n:weekly.FreshCrates.objective}}",
+              "RequiredCount": "6",
+              "Data": {
+                "AcceptedContextTags": "arcticpassage_rod_fish",
+                "DropBox": "ArcticPassage_FishCrate",
+                "DropBoxGameLocation": "ArcticPassage_CommunityHouse",
+                "DropBoxIndicatorLocation": "3 5",
+                "MinimumCapacity": "9"
+              }
+            }
+          ],
+          "Rewards": [
+            {
+              "Type": "Money",
+              "Data": {
+                "Amount": "650"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "Action": "EditMap",
+      "Target": "Maps/ArcticPassage_CommunityHouse",
+      "LogName": "R01 weekly: Maps/ArcticPassage_CommunityHouse",
+      "MapTiles": [
+        {
+          "Position": {
+            "X": 5,
+            "Y": 5
+          },
+          "Layer": "Buildings",
+          "SetProperties": {
+            "Action": "ArcticPassageWeekly"
+          }
+        },
+        {
+          "Position": {
+            "X": 3,
+            "Y": 5
+          },
+          "Layer": "Buildings",
+          "SetProperties": {
+            "Action": "ArcticPassageFishCrate"
+          }
+        }
+      ]
+    },
+    {
+      "LogName": "R03 ice: existing platform marker",
+      "Action": "EditMap",
+      "Target": "Maps/ArcticPassage_Icefjord",
+      "When": {
+        "Season": "winter"
+      },
+      "MapTiles": [
+        {
+          "Position": {
+            "X": 40,
+            "Y": 35
+          },
+          "Layer": "Buildings",
+          "SetProperties": {
+            "Action": "ArcticPassageIceFishing"
+          }
+        }
+      ]
+    },
+    {
+      "LogName": "R03 sled: Mods/WhiteBay.ArcticPassage/SledQuest",
+      "Action": "Load",
+      "Target": "Mods/WhiteBay.ArcticPassage/SledQuest",
+      "FromFile": "assets/items/sled-quest.png"
+    },
+    {
+      "LogName": "R03 sled: Data/Objects",
+      "Action": "EditData",
+      "Target": "Data/Objects",
+      "Entries": {
+        "ArcticPassage_SledTool": {
+          "Name": "ArcticPassage_SledTool",
+          "DisplayName": "{{i18n:sled.item.0.name}}",
+          "Description": "{{i18n:sled.item.0.desc}}",
+          "Type": "Basic",
+          "Category": -999,
+          "Price": 0,
+          "Edibility": -300,
+          "Texture": "Mods/WhiteBay.ArcticPassage/SledQuest",
+          "SpriteIndex": 0,
+          "CanBeGivenAsGift": false,
+          "CanBeTrashed": false,
+          "ExcludeFromFishingCollection": true,
+          "ExcludeFromShippingCollection": true
+        },
+        "ArcticPassage_SledSupply": {
+          "Name": "ArcticPassage_SledSupply",
+          "DisplayName": "{{i18n:sled.item.1.name}}",
+          "Description": "{{i18n:sled.item.1.desc}}",
+          "Type": "Basic",
+          "Category": -999,
+          "Price": 0,
+          "Edibility": -300,
+          "Texture": "Mods/WhiteBay.ArcticPassage/SledQuest",
+          "SpriteIndex": 1,
+          "CanBeGivenAsGift": false,
+          "CanBeTrashed": false,
+          "ExcludeFromFishingCollection": true,
+          "ExcludeFromShippingCollection": true
+        }
+      }
+    },
+    {
+      "LogName": "R03 sled: Maps/ArcticPassage_Tundra",
+      "Action": "EditMap",
+      "Target": "Maps/ArcticPassage_Tundra",
+      "MapTiles": [
+        {
+          "Position": {
+            "X": 28,
+            "Y": 38
+          },
+          "Layer": "Buildings",
+          "SetProperties": {
+            "Action": "ArcticPassageSled"
+          }
+        }
+      ]
+    },
+    {
+      "LogName": "R03 sled: Maps/ArcticPassage_WinterCamp",
+      "Action": "EditMap",
+      "Target": "Maps/ArcticPassage_WinterCamp",
+      "MapTiles": [
+        {
+          "Position": {
+            "X": 13,
+            "Y": 23
+          },
+          "Layer": "Buildings",
+          "SetProperties": {
+            "Action": "ArcticPassageSled"
+          }
+        }
+      ]
+    },
+    {
+      "LogName": "R03 sled: Maps/ArcticPassage_Glacier",
+      "Action": "EditMap",
+      "Target": "Maps/ArcticPassage_Glacier",
+      "MapTiles": [
+        {
+          "Position": {
+            "X": 30,
+            "Y": 25
+          },
+          "Layer": "Buildings",
+          "SetProperties": {
+            "Action": "ArcticPassageSled"
+          }
+        }
+      ]
+    },
+    {
+      "LogName": "R03 sled: Maps/ArcticPassage_SledTrail",
+      "Action": "EditMap",
+      "Target": "Maps/ArcticPassage_SledTrail",
+      "MapTiles": [
+        {
+          "Position": {
+            "X": 29,
+            "Y": 27
+          },
+          "Layer": "Buildings",
+          "SetProperties": {
+            "Action": "ArcticPassageSled"
+          }
+        }
+      ]
+    },
+    {
+      "LogName": "R03 sled: Data/Quests",
+      "Action": "EditData",
+      "Target": "Data/Quests",
+      "Entries": {
+        "ArcticPassage_SledTools": "Basic/{{i18n:sled.quest.Tools}}/{{i18n:sled.tools}}/{{i18n:sled.tools}}//-1/0/-1/false",
+        "ArcticPassage_SledSupplies": "Basic/{{i18n:sled.quest.Supplies}}/{{i18n:sled.supplies}}/{{i18n:sled.supplies}}//-1/0/-1/false",
+        "ArcticPassage_SledRepair": "Basic/{{i18n:sled.quest.Repair}}/{{i18n:sled.repair}}/{{i18n:sled.repair}}//-1/0/-1/false",
+        "ArcticPassage_SledTrial": "Basic/{{i18n:sled.quest.Trial}}/{{i18n:sled.trial}}/{{i18n:sled.trial}}//-1/0/-1/false"
+      }
+    }
+  ]
+}

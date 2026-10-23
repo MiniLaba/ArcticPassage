@@ -1,0 +1,23 @@
+{
+  "LumenhavenTheme": {
+    "title": "栖光归港",
+    "seconds": 110.76923076923077,
+    "bpm": 78,
+    "meter": "3/4",
+    "bars": 48
+  },
+  "IcefjordTheme": {
+    "title": "冰山的远信",
+    "seconds": 123.87096774193549,
+    "bpm": 62,
+    "meter": "4/4",
+    "bars": 32
+  },
+  "PolarNightTheme": {
+    "title": "窗灯与长夜",
+    "seconds": 124.13793103448276,
+    "bpm": 58,
+    "meter": "3/4",
+    "bars": 40
+  }
+}

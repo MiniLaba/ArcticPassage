@@ -1,0 +1,1 @@
+Remove all background, glow and shadow; preserve all nine sprites and their placement. Output genuine alpha cutouts. Built-in imagegen edit of seafood-icons-063-master.png.

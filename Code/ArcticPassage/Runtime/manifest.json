@@ -1,0 +1,15 @@
+{
+  "Name": "Arctic Passage — Harbor Services",
+  "Author": "WhiteBay Project",
+  "Version": "0.7.9",
+  "Description": "Frosthavn field guide, personal nature notes, keyboard counters, lighting and safe gear recovery.",
+  "UniqueID": "WhiteBay.ArcticPassage.Runtime",
+  "EntryDll": "ArcticPassage.Runtime.dll",
+  "MinimumApiVersion": "4.5.2",
+  "Dependencies": [
+    {
+      "UniqueID": "Pathoschild.ContentPatcher",
+      "IsRequired": true
+    }
+  ]
+}

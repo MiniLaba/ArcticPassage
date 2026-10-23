@@ -1,0 +1,17 @@
+.DS_Store
+.development/
+dist/
+**/bin/
+**/obj/
+**/__pycache__/
+*.user
+*.suo
+*.log
+art/ephemera/
+art/prompts/ephemera/
+art/source/archive/
+art/source/review-060/
+previews/
+docs/Native*.txt
+docs/*SaveState*.json
+docs/*Baseline*.txt

@@ -1,0 +1,18 @@
+{
+  "Name": "Arctic QA fixture",
+  "Author": "WhiteBay Project",
+  "Version": "0.1.0",
+  "UniqueID": "WhiteBay.QA",
+  "EntryDll": "ArcticQA.dll",
+  "MinimumApiVersion": "4.1.10",
+  "Dependencies": [
+    {
+      "UniqueID": "WhiteBay.ArcticPassage",
+      "IsRequired": true
+    },
+    {
+      "UniqueID": "WhiteBay.ArcticPassage.Runtime",
+      "IsRequired": true
+    }
+  ]
+}
