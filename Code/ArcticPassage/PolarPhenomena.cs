@@ -29,8 +29,9 @@ internal sealed class PolarPhenomena
     {
         if (!Context.IsWorldReady || Game1.currentLocation == null || !Game1.currentLocation.IsOutdoors) return false;
         string location = Game1.currentLocation.Name;
+        bool lanternFestival = FestivalRuntime.CurrentFestival() == "winter";
         bool arcticOutdoor = location.StartsWith("ArcticPassage_")
-            || (location == "Temp" && Game1.currentSeason == "winter" && Game1.dayOfMonth == 21);
+            || lanternFestival;
         if (!arcticOutdoor) return false;
         int time = Game1.timeOfDay;
         switch (id)
@@ -44,11 +45,11 @@ internal sealed class PolarPhenomena
                     && PolarPhotoperiod.At(Game1.currentSeason, Game1.dayOfMonth, time).Darkness < .50f;
             case "aurora":
                 bool auroraHour = time is >= 2000 and <= 2600
-                    || location == "Temp" && Game1.dayOfMonth == 21 && time is >= 1800 and <= 2600;
+                    || lanternFestival && time is >= 1800 and <= 2600;
                 return Game1.currentSeason == "winter" && auroraHour
                     && Game1.dayOfMonth % 4 == 1 && PolarWeather.Today == PolarCondition.Calm
                     && (location is "ArcticPassage_Icefjord" or "ArcticPassage_Glacier"
-                        || location == "Temp" && Game1.dayOfMonth == 21);
+                        || lanternFestival);
             case "blizzard":
                 return PolarWeather.Today == PolarCondition.Blizzard && time is >= 600 and <= 2200
                     && location is "ArcticPassage_Tundra" or "ArcticPassage_Glacier";

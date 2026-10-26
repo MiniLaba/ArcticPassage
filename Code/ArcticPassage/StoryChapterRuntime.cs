@@ -71,6 +71,14 @@ internal sealed class StoryChapterRuntime
             case "ArcticPassage_StormReadiness":
                 Game1.player.mailReceived.Add("ArcticPassage_StormSuppliesUnlocked");
                 break;
+            case "ArcticPassage_StormSupplies":
+                Game1.player.mailReceived.Add("ArcticPassage_StormSuppliesComplete");
+                Game1.player.mailReceived.Add("ArcticPassage_StormFishUnlocked");
+                break;
+            case "ArcticPassage_StormFish":
+                Game1.player.mailReceived.Add("ArcticPassage_StormFishComplete");
+                Game1.player.mailReceived.Add("ArcticPassage_StormRouteUnlocked");
+                break;
             case "ArcticPassage_StormRoute": QueueMail("ArcticPassage_StormRouteReward"); break;
             case "ArcticPassage_IceCatch": QueueMail("ArcticPassage_IceLessonReward"); break;
             case "ArcticPassage_MultiWaterCatch": Game1.player.mailReceived.Add("ArcticPassage_PortOrderUnlocked"); break;
@@ -136,6 +144,20 @@ internal sealed class StoryChapterRuntime
         }
         // A later active chapter is native evidence that its predecessor ended.
         if (Active("ArcticPassage_FieldReport") != null) RecordCompletion("ArcticPassage_DeepCatch");
+        // Old versions had a terminal DeepCatch. It can still be in the log
+        // awaiting its original reward, with no successor added by the engine.
+        // Recover only from a completed native quest or our saved receipt.
+        foreach (var quest in Game1.player.questLog.Where(q => q.completed.Value
+            && q.id.Value.StartsWith(HarborProgress.Prefix, StringComparison.Ordinal)).ToArray())
+            RecordCompletion(quest.id.Value);
+        var complete = HarborProgress.Chapters.Where(id => WasCompleted(HarborProgress.Prefix + id)).ToHashSet();
+        var present = Game1.player.questLog.Where(q => q.id.Value.StartsWith(HarborProgress.Prefix, StringComparison.Ordinal))
+            .Select(q => q.id.Value[HarborProgress.Prefix.Length..]).ToHashSet();
+        if (HarborProgress.MissingChapterSuccessor(complete, present) is { } next)
+        {
+            Game1.player.addQuest(HarborProgress.Prefix + next);
+            monitor.Log($"STORY recovered missing successor {next} from native completion evidence; original reward left untouched", LogLevel.Info);
+        }
     }
 
     private static bool MiraInteraction(NPC __instance, Farmer __0, GameLocation __1, ref bool __result)

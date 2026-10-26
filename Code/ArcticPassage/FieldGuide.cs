@@ -64,7 +64,7 @@ internal sealed class FieldGuide
 
     private void OnButton(object? sender, ButtonPressedEventArgs e)
     {
-        if (!Context.IsWorldReady || Game1.eventUp) return;
+        if (!Context.IsWorldReady || Game1.eventUp && !FestivalRuntime.CanInteract) return;
         if (Game1.activeClickableMenu is GuideMenu book)
         {
             bool used = true;
@@ -196,6 +196,11 @@ internal sealed class FieldGuide
                     rod = T(hasSuitableRod ? "goal.rodReady" : "goal.rodNeeded"),
                     count = halibut
                 });
+        }
+        if (HarborProgress.Chapters.Contains(id))
+        {
+            var chapter = Game1.player.questLog.First(q => q.id.Value == HarborProgress.Prefix + id && !q.completed.Value);
+            return chapter.questTitle + "\n" + chapter.currentObjective;
         }
         return T("goal." + id);
     }

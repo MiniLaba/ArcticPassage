@@ -88,15 +88,22 @@ for date, (season, location, hours) in expected.items():
     require(Image.open(image_path).size == (16, 32), f"{date}: keepsake atlas has wrong dimensions")
 
 for required in [
-    'e.Button != SButton.F', 'Game1.player.stats.Get("FishCaught")',
+    'e.Button != SButton.F', 'nameof(Event.caughtFish)', 'nameof(Event.canPlayerUseTool)',
+    'Key("spring", "fishCatch", Game1.year)', 'ref string __6',
     'Game1.player.Money < price', 'Game1.player.Money -= price',
     'Key(festival, "reward", Game1.year)', 'Game1.player.addItemByMenuIfNecessaryElseHoldUp(item)',
     'new Response("shore"', 'WarmTown()', 'Key("winter", "friendship", Game1.year)',
 ]:
     require(required in runtime, f"Festival runtime is missing required player-facing behavior: {required}")
-require('location == "Temp" && Game1.dayOfMonth == 21' in phenomena,
+require('private static void ChallengeCatch(Event __instance' in runtime
+        and 'Game1.player.stats.Get("FishCaught")' not in runtime,
+        "Festival fishing must use its native event callback, not a lifetime counter the engine never increments here")
+require('Game1.activeClickableMenu is ItemGrabMenu' in runtime
+        and 'Game1.addHUDMessage(new HUDMessage(T(boughtKey)' in runtime,
+        "Paid meals must retain their native full-inventory item menu")
+require('FestivalRuntime.CurrentFestival() == "winter"' in phenomena,
         "Clear winter festival aurora condition is missing")
-require('("winter", 21) => "ArcticPassage_Town"' in lighting and '0, location.Name);' in lighting,
+require('"winter" => "ArcticPassage_Town"' in lighting and 'FestivalForEvent(location.currentEvent)' in lighting and '0, location.Name);' in lighting,
         "Winter festival does not inherit the town lightmap sources")
 
 for lang in ("default", "zh"):

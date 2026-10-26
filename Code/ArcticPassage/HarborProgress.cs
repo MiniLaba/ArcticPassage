@@ -4,6 +4,20 @@ namespace ArcticPassage.Runtime;
 internal static class HarborProgress
 {
     internal const string Prefix = "ArcticPassage_";
+    internal static readonly string[] Chapters = ["DeepCatch", "FieldReport", "StormReadiness", "StormSupplies",
+        "StormFish", "StormRoute", "CampVisit", "ShelterLesson", "IceCatch", "MultiWaterCatch",
+        "DriedOrder", "FinalePreparation", "WarmHarbor"];
+
+    internal static string? MissingChapterSuccessor(IReadOnlySet<string> completed, IReadOnlySet<string> present)
+    {
+        for (int i = Chapters.Length - 1; i >= 0; i--)
+        {
+            if (!completed.Contains(Chapters[i])) continue;
+            if (i == Chapters.Length - 1 || Chapters.Skip(i + 1).Any(present.Contains)) return null;
+            return Chapters[i + 1];
+        }
+        return null; // Wallet, fish collection and boat access cannot prove delivery.
+    }
 
     internal static string NextStep(IEnumerable<string> activeQuests, IReadOnlySet<string> mail, bool hasReward)
     {
@@ -15,7 +29,7 @@ internal static class HarborProgress
         {
             if (!quest.StartsWith(Prefix, StringComparison.Ordinal)) continue;
             string id = quest[Prefix.Length..];
-            if (id is "Arrival" or "Shed" or "BoatRepair" or "FjordVisit" or "DeepCatch"
+            if (id is "Arrival" or "Shed" or "BoatRepair" or "FjordVisit" || Chapters.Contains(id)
                 || id is "FirstCatch_spring" or "FirstCatch_summer" or "FirstCatch_fall" or "FirstCatch_winter") return id;
         }
         if (hasReward) return "claim";

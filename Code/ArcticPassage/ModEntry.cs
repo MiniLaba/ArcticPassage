@@ -31,11 +31,11 @@ public sealed class ModEntry : Mod
         _ = new PolarWeather(helper, Monitor);
         _ = new KeyboardRoutes(helper, Monitor);
         _ = new WeeklyOrders(helper, Monitor);
-        _ = new FestivalRuntime(helper, Monitor);
         // CP refreshes season tokens after native overnight object updates.
         // Read the real new date at the fish-type boundary so winter 1 never
         // inherits autumn shrimp. Native bait, RNG and catch handling remain.
         var harmony = new Harmony(ModManifest.UniqueID);
+        _ = new FestivalRuntime(helper, Monitor, harmony);
         _ = new DailyOrders(helper, Monitor, harmony);
         _ = new IceFishing(helper, Monitor, harmony);
         _ = new SledTravel(helper, Monitor);
@@ -92,7 +92,8 @@ public sealed class ModEntry : Mod
     private static void CoastalTutorialFallback(GameLocation __instance, Farmer who, ref Item __result)
     {
         if (__result?.QualifiedItemId != "(O)145" || who?.fishCaught == null || who.fishCaught.Length != 0) return;
-        if (__instance.Name != "ArcticPassage_Harbor" && __instance.Name != "ArcticPassage_Icefjord") return;
+        bool festivalHarbor = __instance.Name == "Temp" && FestivalRuntime.CurrentFestival() == "spring";
+        if (__instance.Name != "ArcticPassage_Harbor" && __instance.Name != "ArcticPassage_Icefjord" && !festivalHarbor) return;
         string starter = Game1.currentSeason switch
         {
             "spring" or "summer" => "Capelin",

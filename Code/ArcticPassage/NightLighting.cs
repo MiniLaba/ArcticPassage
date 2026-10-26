@@ -93,11 +93,11 @@ internal sealed class NightLighting
     {
         if (StoryChapterRuntime.FinaleActive) return "ArcticPassage_Town";
         if (location.Name != "Temp") return null;
-        return (Game1.currentSeason, Game1.dayOfMonth) switch
+        return FestivalRuntime.FestivalForEvent(location.currentEvent) switch
         {
-            ("spring", 9) => "ArcticPassage_Harbor",
-            ("summer", 18) => "ArcticPassage_Icefjord",
-            ("winter", 21) => "ArcticPassage_Town",
+            "spring" => "ArcticPassage_Harbor",
+            "summer" => "ArcticPassage_Icefjord",
+            "winter" => "ArcticPassage_Town",
             _ => null
         };
     }

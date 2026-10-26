@@ -285,7 +285,7 @@
   "festival.spring.cast": "参加码头钓鱼挑战",
   "festival.spring.quiz": "猜一猜今天这条鳕鱼的重量",
   "festival.spring.soup": "购买炖鱼配土豆　100金",
-  "festival.spring.castStart": "从公共码头抛竿。钓上一条鱼后回到这里按 F 提交挑战。",
+  "festival.spring.castStart": "装备自己的钓竿，从公共码头抛竿。钓上一条北方鱼后按 F 提交。挑战渔获会放流，不进入背包或累计钓鱼图鉴。",
   "festival.spring.noCatch": "挑战还在等一尾真正上钩的鱼。鱼饵和时间仍由你安排。",
   "festival.spring.quizPrompt": "秤上的鳕鱼重 2.1 千克，哪个范围最接近？",
   "festival.spring.quizWrong": "估得不太准。船员记下了答案，下一竿还是你的。",
@@ -313,5 +313,7 @@
   "festival.answer.high": "超过 3 千克",
   "festival.answer.cliffs": "走到筑巢岩壁旁",
   "festival.answer.boat": "乘船靠近鸟群",
-  "festival.answer.shore": "留在岸上并保持距离"
+  "festival.answer.shore": "留在岸上并保持距离",
+  "festival.spring.noRod": "参加码头挑战需要自备钓竿；你仍可参加猜鱼重或购买热汤。",
+  "festival.spring.catchComplete": "一尾北方鱼顺利上钩，也已安全放流。港口团队记下了你的挑战，并准备了今年的纪念摆件。"
 }

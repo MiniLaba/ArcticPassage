@@ -1,8 +1,10 @@
+using HarmonyLib;
 using Microsoft.Xna.Framework;
 using StardewModdingAPI;
 using StardewModdingAPI.Events;
 using StardewValley;
 using StardewValley.Menus;
+using StardewValley.Tools;
 
 namespace ArcticPassage.Runtime;
 
@@ -12,33 +14,77 @@ internal sealed class FestivalRuntime
     private const string Prefix = "WhiteBay.ArcticPassage/Festival/";
     private readonly IModHelper helper;
     private readonly IMonitor monitor;
+    private static FestivalRuntime? instance;
 
-    internal FestivalRuntime(IModHelper helper, IMonitor monitor)
+    internal FestivalRuntime(IModHelper helper, IMonitor monitor, Harmony harmony)
     {
         this.helper = helper;
         this.monitor = monitor;
+        instance = this;
+        harmony.Patch(AccessTools.Method(typeof(Event), nameof(Event.canPlayerUseTool)),
+            postfix: new HarmonyMethod(typeof(FestivalRuntime), nameof(AllowChallengeRod)));
+        harmony.Patch(AccessTools.Method(typeof(Event), nameof(Event.caughtFish)),
+            postfix: new HarmonyMethod(typeof(FestivalRuntime), nameof(ChallengeCatch)));
+        harmony.Patch(AccessTools.Method(typeof(GameLocation), nameof(GameLocation.getFish)),
+            prefix: new HarmonyMethod(typeof(FestivalRuntime), nameof(ChallengeFishPool)));
         helper.Events.Input.ButtonPressed += OnButton;
         helper.Events.Display.RenderedHud += DrawHint;
     }
 
     private string T(string key) => helper.Translation.Get("festival." + key);
 
-    private static string? CurrentFestival()
+    internal static string? FestivalForEvent(Event? currentEvent)
+        => currentEvent?.isSpecificFestival("spring9") == true ? "spring"
+            : currentEvent?.isSpecificFestival("summer18") == true ? "summer"
+            : currentEvent?.isSpecificFestival("winter21") == true ? "winter" : null;
+
+    internal static string? CurrentFestival()
     {
         if (!Context.IsWorldReady || Game1.currentLocation?.Name != "Temp") return null;
-        return (Game1.currentSeason, Game1.dayOfMonth) switch
+        return FestivalForEvent(Game1.currentLocation.currentEvent);
+    }
+
+    internal static bool CanInteract => CurrentFestival() != null && Game1.player.CanMove
+        && !Game1.player.UsingTool && !Game1.dialogueUp && Game1.currentMinigame == null;
+
+    private static void AllowChallengeRod(Event __instance, ref bool __result, ref bool ___drawTool)
+    {
+        if (__result || !Context.IsWorldReady || !Context.IsMainPlayer
+            || !ReferenceEquals(__instance, Game1.currentLocation?.currentEvent)
+            || CurrentFestival() != "spring" || !CanInteract
+            || Game1.activeClickableMenu != null || Game1.player.CurrentTool is not FishingRod
+            || !Game1.player.modData.ContainsKey(Key("spring", "fishStart", Game1.year))) return;
+        __result = true;
+        ___drawTool = true;
+    }
+
+    private static void ChallengeFishPool(GameLocation __instance, ref string __6)
+    {
+        // The native temporary location has no harbor LocationData of its own.
+        if (Context.IsWorldReady && ReferenceEquals(__instance, Game1.currentLocation)
+            && CurrentFestival() == "spring") __6 = "ArcticPassage_Harbor";
+    }
+
+    private static void ChallengeCatch(Event __instance, string __0, int __1, Farmer __2)
+    {
+        if (!Context.IsWorldReady || !Context.IsMainPlayer || __2 != Game1.player
+            || !ReferenceEquals(__instance, Game1.currentLocation?.currentEvent)
+            || CurrentFestival() != "spring") return;
+        // Festival catches use Event.caughtFish, not Farmer.caughtFish or the
+        // lifetime FishCaught statistic. The native rod releases the fish.
+        if (__1 > 0 && __0?.StartsWith("(O)ArcticPassage_", StringComparison.Ordinal) == true
+            && __2.modData.ContainsKey(Key("spring", "fishStart", Game1.year)))
         {
-            ("spring", 9) => "spring",
-            ("summer", 18) => "summer",
-            ("winter", 21) => "winter",
-            _ => null
-        };
+            __2.modData[Key("spring", "fishCatch", Game1.year)] = __0;
+            instance?.monitor.Log($"FESTIVAL native catch-and-release verified: {__0}, size={__1}", LogLevel.Info);
+        }
+        __2.forceCanMove();
     }
 
     private void DrawHint(object? sender, RenderedHudEventArgs e)
     {
         string? festival = CurrentFestival();
-        if (festival == null || Game1.eventUp || Game1.activeClickableMenu != null) return;
+        if (festival == null || !CanInteract || Game1.activeClickableMenu != null) return;
         string text = T("key");
         Vector2 size = Game1.smallFont.MeasureString(text);
         int x = Game1.uiViewport.Width - (int)size.X - 32;
@@ -49,7 +95,7 @@ internal sealed class FestivalRuntime
 
     private void OnButton(object? sender, ButtonPressedEventArgs e)
     {
-        if (e.Button != SButton.F || e.IsSuppressed() || Game1.activeClickableMenu != null || Game1.eventUp
+        if (e.Button != SButton.F || e.IsSuppressed() || Game1.activeClickableMenu != null || !CanInteract
             || !Context.IsWorldReady || !Context.IsMainPlayer) return;
         string? festival = CurrentFestival();
         if (festival == null) return;
@@ -90,7 +136,9 @@ internal sealed class FestivalRuntime
         switch (festival, answer)
         {
             case ("spring", "cast"):
-                Game1.player.modData[Key("spring", "fishStart", Game1.year)] = Game1.player.stats.Get("FishCaught").ToString();
+                if (!Game1.player.Items.Any(item => item is FishingRod))
+                { Game1.drawObjectDialogue(T("spring.noRod")); return; }
+                Game1.player.modData[Key("spring", "fishStart", Game1.year)] = "native-event-catch";
                 Game1.drawObjectDialogue(T("spring.castStart"));
                 monitor.Log("FESTIVAL spring fishing challenge started from the temporary harbor map", LogLevel.Info);
                 break;
@@ -151,16 +199,12 @@ internal sealed class FestivalRuntime
     private bool TrySubmitFishingChallenge()
     {
         string key = Key("spring", "fishStart", Game1.year);
-        if (!Game1.player.modData.TryGetValue(key, out string? raw) || !int.TryParse(raw, out int before)) return false;
-        if (Game1.player.stats.Get("FishCaught") <= before)
-        {
-            Game1.drawObjectDialogue(T("spring.noCatch"));
-            return true;
-        }
+        if (!Game1.player.modData.ContainsKey(key)
+            || !Game1.player.modData.ContainsKey(Key("spring", "fishCatch", Game1.year))) return false;
         Game1.player.modData.Remove(key);
-        Game1.drawObjectDialogue(T("spring.quizRight"));
+        Game1.drawObjectDialogue(T("spring.catchComplete"));
         if (ClaimReward("spring")) GiveFriendship("ArcticPassage_Ada", 15);
-        monitor.Log("FESTIVAL spring fishing challenge verified a new ordinary catch; catch and inventory remain native", LogLevel.Info);
+        monitor.Log("FESTIVAL spring challenge completed from a native festival catch-and-release; no fish item or lifetime catch statistic granted", LogLevel.Info);
         return true;
     }
 
@@ -176,7 +220,7 @@ internal sealed class FestivalRuntime
         Game1.player.Money -= price;
         Game1.player.addItemByMenuIfNecessaryElseHoldUp(ItemRegistry.Create("(O)" + itemId));
         Game1.playSound("purchaseClick");
-        if (showFoodMessage) Game1.drawObjectDialogue(T(boughtKey));
+        if (showFoodMessage) Game1.addHUDMessage(new HUDMessage(T(boughtKey), 2));
         monitor.Log($"FESTIVAL {festival} native meal transaction -{price}g item=(O){itemId}", LogLevel.Info);
         return true;
     }
@@ -203,6 +247,9 @@ internal sealed class FestivalRuntime
     private bool ClaimReward(string festival)
     {
         if (CurrentFestival() != festival) return false;
+        // A second item menu would discard the paid meal's pending overflow.
+        // Leave the annual reward unclaimed so F -> lantern walk can retry it.
+        if (Game1.activeClickableMenu is ItemGrabMenu) return false;
         string claim = Key(festival, "reward", Game1.year);
         if (Game1.player.modData.ContainsKey(claim))
         {

@@ -26,7 +26,7 @@ def source_files():
         yield R / name
     for name in PUBLIC_DOCS:
         yield R / 'docs' / name
-    for directory in ('.github/workflows', 'ContentPack', 'Code', 'tools', 'art/source', 'art/music', 'art/prompts', 'docs/licenses', 'docs/images', 'tests/NativeValidation', 'tests/RuntimeFixture', 'tests/QualityTradeRegression'):
+    for directory in ('.github/workflows', 'ContentPack', 'Code', 'tools', 'art/source', 'art/music', 'art/prompts', 'docs/licenses', 'docs/images', 'tests/NativeValidation', 'tests/RuntimeFixture', 'tests/QualityTradeRegression', 'tests/HarborProgressRegression', 'tests/PolarPhotoperiodRegression', 'tests/PolarWeatherRegression', 'tests/SnowShelterRegression'):
         yield from tree_files(R / directory)
     yield from sorted((R / 'tests').glob('validate_*.py'))
 

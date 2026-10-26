@@ -285,7 +285,7 @@
   "festival.spring.cast": "Enter the pier fishing challenge",
   "festival.spring.quiz": "Guess the weight of today's cod",
   "festival.spring.soup": "Buy fish-and-potato stew — 100g",
-  "festival.spring.castStart": "Cast from the public pier. Return here and press F after landing a fish.",
+  "festival.spring.castStart": "Equip your own rod and cast from the public pier. After landing a northern fish, press F. Challenge catches are released, not added to your bag or lifetime collection.",
   "festival.spring.noCatch": "The challenge is still waiting for a landed fish. Your bait and time remain yours.",
   "festival.spring.quizPrompt": "The cod on the scale weighs 2.1 kg. Which range is closest?",
   "festival.spring.quizWrong": "Not quite. The crew records the estimate; the next cast is still yours.",
@@ -313,5 +313,7 @@
   "festival.answer.high": "Over 3 kg",
   "festival.answer.cliffs": "On the nesting cliffs",
   "festival.answer.boat": "From a boat beside the colony",
-  "festival.answer.shore": "From shore, at a respectful distance"
+  "festival.answer.shore": "From shore, at a respectful distance",
+  "festival.spring.noRod": "Bring a fishing rod to join the pier challenge. The quiz and hot meal are still open to you.",
+  "festival.spring.catchComplete": "A northern fish, landed and safely released. The crew records your challenge and this year's keepsake."
 }

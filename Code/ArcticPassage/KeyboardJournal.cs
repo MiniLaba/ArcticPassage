@@ -20,7 +20,7 @@ internal sealed class KeyboardJournal
     private static bool IsReward(IQuest q) => q switch
     {
         Quest quest => quest.id.Value.StartsWith("ArcticPassage_") && quest.completed.Value && quest.HasReward(),
-        SpecialOrder order => order.orderType.Value == WeeklyOrders.BoardType && order.HasReward(),
+        SpecialOrder order => order.orderType.Value is WeeklyOrders.BoardType or WeeklyOrders.StoryBoardType && order.HasReward(),
         _ => false
     };
 

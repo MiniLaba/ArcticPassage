@@ -3249,92 +3249,6 @@
       }
     },
     {
-      "Action": "Load",
-      "Target": "Data/Festivals/spring9",
-      "FromFile": "assets/festivals/spring9.json",
-      "LogName": "R08 native festivals: spring9"
-    },
-    {
-      "Action": "Load",
-      "Target": "Mods/WhiteBay.ArcticPassage/FestivalSpring",
-      "FromFile": "assets/items/harbor-knot.png",
-      "LogName": "R08 native festivals: Mods/WhiteBay.ArcticPassage/FestivalSpring"
-    },
-    {
-      "Action": "Load",
-      "Target": "Data/Festivals/summer18",
-      "FromFile": "assets/festivals/summer18.json",
-      "LogName": "R08 native festivals: summer18"
-    },
-    {
-      "Action": "Load",
-      "Target": "Mods/WhiteBay.ArcticPassage/FestivalSummer",
-      "FromFile": "assets/items/midnight-sun-display.png",
-      "LogName": "R08 native festivals: Mods/WhiteBay.ArcticPassage/FestivalSummer"
-    },
-    {
-      "Action": "Load",
-      "Target": "Data/Festivals/winter21",
-      "FromFile": "assets/festivals/winter21.json",
-      "LogName": "R08 native festivals: winter21"
-    },
-    {
-      "Action": "Load",
-      "Target": "Mods/WhiteBay.ArcticPassage/FestivalWinter",
-      "FromFile": "assets/items/winter-lantern.png",
-      "LogName": "R08 native festivals: Mods/WhiteBay.ArcticPassage/FestivalWinter"
-    },
-    {
-      "Action": "EditData",
-      "Target": "Data/Festivals/FestivalDates",
-      "LogName": "R08 native festivals: Data/Festivals/FestivalDates",
-      "Entries": {
-        "spring9": "{{i18n:festival.spring.name}}",
-        "summer18": "{{i18n:festival.summer.name}}",
-        "winter21": "{{i18n:festival.winter.name}}"
-      }
-    },
-    {
-      "Action": "EditData",
-      "Target": "Data/BigCraftables",
-      "LogName": "R08 native festivals: Data/BigCraftables",
-      "Entries": {
-        "ArcticPassage_HarborKnot": {
-          "Name": "ArcticPassage_HarborKnot",
-          "DisplayName": "{{i18n:festival.reward.spring.name}}",
-          "Description": "{{i18n:festival.reward.spring.desc}}",
-          "Price": 0,
-          "Fragility": 0,
-          "CanBePlacedIndoors": true,
-          "CanBePlacedOutdoors": false,
-          "Texture": "Mods/WhiteBay.ArcticPassage/FestivalSpring",
-          "SpriteIndex": 0
-        },
-        "ArcticPassage_MidnightSunDisplay": {
-          "Name": "ArcticPassage_MidnightSunDisplay",
-          "DisplayName": "{{i18n:festival.reward.summer.name}}",
-          "Description": "{{i18n:festival.reward.summer.desc}}",
-          "Price": 0,
-          "Fragility": 0,
-          "CanBePlacedIndoors": true,
-          "CanBePlacedOutdoors": false,
-          "Texture": "Mods/WhiteBay.ArcticPassage/FestivalSummer",
-          "SpriteIndex": 0
-        },
-        "ArcticPassage_WinterLantern": {
-          "Name": "ArcticPassage_WinterLantern",
-          "DisplayName": "{{i18n:festival.reward.winter.name}}",
-          "Description": "{{i18n:festival.reward.winter.desc}}",
-          "Price": 0,
-          "Fragility": 0,
-          "CanBePlacedIndoors": true,
-          "CanBePlacedOutdoors": false,
-          "Texture": "Mods/WhiteBay.ArcticPassage/FestivalWinter",
-          "SpriteIndex": 0
-        }
-      }
-    },
-    {
       "Action": "EditData",
       "Target": "Data/SpecialOrders",
       "LogName": "R01 weekly: Data/SpecialOrders",
@@ -3483,6 +3397,92 @@
           }
         }
       ]
+    },
+    {
+      "Action": "Load",
+      "Target": "Data/Festivals/spring9",
+      "FromFile": "assets/festivals/spring9.json",
+      "LogName": "R08 native festivals: spring9"
+    },
+    {
+      "Action": "Load",
+      "Target": "Mods/WhiteBay.ArcticPassage/FestivalSpring",
+      "FromFile": "assets/items/harbor-knot.png",
+      "LogName": "R08 native festivals: Mods/WhiteBay.ArcticPassage/FestivalSpring"
+    },
+    {
+      "Action": "Load",
+      "Target": "Data/Festivals/summer18",
+      "FromFile": "assets/festivals/summer18.json",
+      "LogName": "R08 native festivals: summer18"
+    },
+    {
+      "Action": "Load",
+      "Target": "Mods/WhiteBay.ArcticPassage/FestivalSummer",
+      "FromFile": "assets/items/midnight-sun-display.png",
+      "LogName": "R08 native festivals: Mods/WhiteBay.ArcticPassage/FestivalSummer"
+    },
+    {
+      "Action": "Load",
+      "Target": "Data/Festivals/winter21",
+      "FromFile": "assets/festivals/winter21.json",
+      "LogName": "R08 native festivals: winter21"
+    },
+    {
+      "Action": "Load",
+      "Target": "Mods/WhiteBay.ArcticPassage/FestivalWinter",
+      "FromFile": "assets/items/winter-lantern.png",
+      "LogName": "R08 native festivals: Mods/WhiteBay.ArcticPassage/FestivalWinter"
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/Festivals/FestivalDates",
+      "LogName": "R08 native festivals: Data/Festivals/FestivalDates",
+      "Entries": {
+        "spring9": "{{i18n:festival.spring.name}}",
+        "summer18": "{{i18n:festival.summer.name}}",
+        "winter21": "{{i18n:festival.winter.name}}"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/BigCraftables",
+      "LogName": "R08 native festivals: Data/BigCraftables",
+      "Entries": {
+        "ArcticPassage_HarborKnot": {
+          "Name": "ArcticPassage_HarborKnot",
+          "DisplayName": "{{i18n:festival.reward.spring.name}}",
+          "Description": "{{i18n:festival.reward.spring.desc}}",
+          "Price": 0,
+          "Fragility": 0,
+          "CanBePlacedIndoors": true,
+          "CanBePlacedOutdoors": false,
+          "Texture": "Mods/WhiteBay.ArcticPassage/FestivalSpring",
+          "SpriteIndex": 0
+        },
+        "ArcticPassage_MidnightSunDisplay": {
+          "Name": "ArcticPassage_MidnightSunDisplay",
+          "DisplayName": "{{i18n:festival.reward.summer.name}}",
+          "Description": "{{i18n:festival.reward.summer.desc}}",
+          "Price": 0,
+          "Fragility": 0,
+          "CanBePlacedIndoors": true,
+          "CanBePlacedOutdoors": false,
+          "Texture": "Mods/WhiteBay.ArcticPassage/FestivalSummer",
+          "SpriteIndex": 0
+        },
+        "ArcticPassage_WinterLantern": {
+          "Name": "ArcticPassage_WinterLantern",
+          "DisplayName": "{{i18n:festival.reward.winter.name}}",
+          "Description": "{{i18n:festival.reward.winter.desc}}",
+          "Price": 0,
+          "Fragility": 0,
+          "CanBePlacedIndoors": true,
+          "CanBePlacedOutdoors": false,
+          "Texture": "Mods/WhiteBay.ArcticPassage/FestivalWinter",
+          "SpriteIndex": 0
+        }
+      }
     },
     {
       "Action": "Load",

@@ -33,3 +33,5 @@ python3 tests/validate_content.py
 运行tests/validate_content.py、tests/validate_air_travel.py、tests/validate_frontier.py、tests/validate_weekly_orders.py及tests/validate_guide.py。NativeValidation可使用本机实际游戏数据类型与TMX解析器检查；为其构建时同样提供GamePath。
 
 打包器使用文件白名单，排除本机日志、存档检查点、个人票券与游戏程序集。源码压缩包和GitHub仓库由同一白名单产生；不要从整个工作区递归上传。
+
+主线提示／缺失后继恢复规则可单独运行`dotnet run --project tests/HarborProgressRegression -- .`。已构建运行模块后，`dotnet run --project tests/NativeValidation -- . --runtime-hooks`只检查真实节日身份与钓鱼接口，不载入玩家存档；完整地图解析仍使用不带该选项的命令。上述检查不等于普通游玩或Windows游戏实测。

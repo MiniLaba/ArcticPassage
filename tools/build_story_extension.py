@@ -169,7 +169,7 @@ def main():
 
     add_quest("FieldReport","ItemDelivery",("Chapter 6 · Northern field notes","第六章·北方自然笔记"),
         ("Levin can turn the verified observations into a shared field record.","莱文会把核实过的观察整理成共同的野外记录。"),
-        ("Deliver the field report packet to Levin at the research station.","把野外调查记录袋交给研究站的莱文。"),
+        ("Record three animal types, one landform and the distant whale; collect the mailed field packet and deliver it to Levin.","记录3类动物、1处地貌和远海鲸影后，从邮箱领取调查记录袋，交给研究站的莱文。"),
         "ArcticPassage_Levin (O)"+REPORT_ID+" 1", "ArcticPassage_StormReadiness", 120,
         ("These are careful observations. I'll add them to the coast record.","记录很细致，我会把它们补进海岸档案。"))
     add_quest("StormReadiness","Location",("Chapter 7 · Before the first gale","第七章·第一场风雪之前"),
