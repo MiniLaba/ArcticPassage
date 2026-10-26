@@ -25,6 +25,25 @@ def main():
   dat={'AcceptedContextTags':'arcticpassage_rod_fish'}
   if kind=='Donate':dat.update(DropBox='ArcticPassage_FishCrate',DropBoxGameLocation='ArcticPassage_CommunityHouse',DropBoxIndicatorLocation='3 5',MinimumCapacity='9')
   orders['ArcticPassage_'+name]={'Name':tr('weekly.'+name+'.name',en,zh),'Requester':'ArcticPassage_Ada','Duration':'Week','Repeatable':True,'Condition':'PLAYER_HAS_MAIL Host ArcticPassage_Shed','OrderType':'ArcticPassage_Weekly','Text':tr('weekly.'+name+'.desc',descen,desczh),'Objectives':[{'Type':kind,'Text':tr('weekly.'+name+'.objective',objen,objzh),'RequiredCount':str(count),'Data':dat}],'Rewards':[{'Type':'Money','Data':{'Amount':str(reward)}}]}
+ # Story orders use the same native board, but unlock only at their chapter step.
+ orders['ArcticPassage_StormSupplies']={
+  'Name':tr('story.order.supplies.name','Gale-ready community stores','风雪前的社区补给'),
+  'Requester':'ArcticPassage_Ada','Duration':'Week','Repeatable':True,
+  'Condition':'PLAYER_HAS_MAIL Current ArcticPassage_StormSuppliesUnlocked, !PLAYER_HAS_MAIL Current ArcticPassage_StormSuppliesComplete',
+  'OrderType':'ArcticPassage_Story',
+  'Text':tr('story.order.supplies.desc','The community team needs 20 fiber for spare lashings before the next gale. Donate it to the shared box below the noticeboard.','下一场风雪前，社区团队需要20份纤维制作备用绑带。请交到公告板下方的共享补给箱。'),
+  'Objectives':[{'Type':'Donate','Text':tr('story.order.supplies.objective','Donate 20 fiber to the community supply box.','向社区补给箱交付20份纤维。'),'RequiredCount':'20','Data':{'AcceptedContextTags':'id_o_771','DropBox':'ArcticPassage_StormSupplies','DropBoxGameLocation':'ArcticPassage_CommunityHouse','DropBoxIndicatorLocation':'3 5','MinimumCapacity':'24'}}],
+  'Rewards':[{'Type':'Money','Data':{'Amount':'100'}}]
+ }
+ orders['ArcticPassage_StormFish']={
+  'Name':tr('story.order.fish.name','Fresh catch before the gale','风雪前的鲜鱼'),
+  'Requester':'ArcticPassage_Ada','Duration':'Week','Repeatable':True,
+  'Condition':'PLAYER_HAS_MAIL Current ArcticPassage_StormFishUnlocked, !PLAYER_HAS_MAIL Current ArcticPassage_StormFishComplete',
+  'OrderType':'ArcticPassage_Story',
+  'Text':tr('story.order.fish.desc','Ada needs one fresh northern rod fish for the community kitchen. Only a catch made after accepting this order counts.','艾达需要一条新鲜北方钓竿鱼送到社区厨房；只统计接单后实际钓获的鱼。'),
+  'Objectives':[{'Type':'Fish','Text':tr('story.order.fish.objective','Catch one northern rod fish after accepting.','接单后用钓竿实际钓获一条北方鱼。'),'RequiredCount':'1','Data':{'AcceptedContextTags':'arcticpassage_rod_fish'}}],
+  'Rewards':[{'Type':'Money','Data':{'Amount':'120'}}]
+ }
  patch('EditData','Data/SpecialOrders',Entries=orders)
  # Reuse the community noticeboard, preserving all four main interiors.
  patch('EditMap','Maps/ArcticPassage_CommunityHouse',MapTiles=[{'Position':{'X':5,'Y':5},'Layer':'Buildings','SetProperties':{'Action':'ArcticPassageWeekly'}},{'Position':{'X':3,'Y':5},'Layer':'Buildings','SetProperties':{'Action':'ArcticPassageFishCrate'}}])

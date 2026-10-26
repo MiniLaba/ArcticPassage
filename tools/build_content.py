@@ -109,28 +109,129 @@ for i,f in enumerate(fishdefs):
  x=i*16;c=colors[i];di.polygon([(x+2,8),(x+1,4),(x+5,6),(x+10,4),(x+14,7),(x+14,9),(x+9,12),(x+5,10),(x+1,12)],fill=c,outline='#384f60');di.line((x+6,9,x+12,9),fill='#d3d4b4');di.point((x+12,7),fill='#202e40');di.polygon([(x+7,5),(x+9,2),(x+11,5)],fill=c)
  if i==4:di.ellipse((x+4,3,x+14,13),fill=c,outline='#3b5261');di.point((x+12,6),fill='#202e40');di.point((x+12,8),fill='#202e40')
 di.rectangle((98,3,109,14),fill='#d9c392',outline='#6d685d');di.line((101,6,107,6),fill='#8e7e64');di.line((101,9,107,9),fill='#8e7e64');icons.save(PACK/'assets/items/fish.png')
-# Original residents: 4 directions x 4 walk frames. Portraits are intentionally simple first-pass art.
-people=[('Ada','艾达','#a2504a','#4c3531','#c99875'),('Mira','米拉','#4b8392','#3f3532','#bd8d6c'),('Roan','罗安','#be9955','#b98853','#deb18a')]
-for name,cn,coat,hair,skin in people:
+# Original and newly authored residents: four directions × four native walk frames.
+# New residents use deliberately different cold-weather silhouettes and work gear.
+people=[('Ada','艾达','#a2504a','#4c3531','#c99875'),('Mira','米拉','#4b8392','#3f3532','#bd8d6c'),('Roan','罗安','#be9955','#b98853','#deb18a'),
+        ('Nora','诺拉','#456b82','#3a3030','#dfb18e'),('Levin','莱文','#657961','#58483c','#d4a47d'),('Amma','阿玛','#a45d46','#392e2c','#d6a17e')]
+
+def paint_new_sprite(name, coat, hair, skin):
  im=Image.new('RGBA',(64,128));d=ImageDraw.Draw(im)
+ palettes={
+  'Nora':dict(shade='#304e63',light='#7896a6',trim='#dbe5df',accent='#d18453',pants='#354b5d',boot='#273c4b'),
+  'Levin':dict(shade='#435948',light='#89967a',trim='#c7b58c',accent='#d4bb82',pants='#4d5348',boot='#303c3c'),
+  'Amma':dict(shade='#793f39',light='#ce8060',trim='#e6ddc7',accent='#c4a76e',pants='#44464a',boot='#303b43')}
+ p=palettes[name]
  for direction in range(4):
   for frame in range(4):
    x,y=frame*16,direction*32;step=[0,1,0,-1][frame]
-   d.ellipse((x+2,y+27,x+13,y+31),fill='#28394655');d.rectangle((x+5,y+23,x+7,y+29+step),fill='#394759');d.rectangle((x+9,y+23,x+11,y+29-step),fill='#394759')
-   d.rectangle((x+3,y+13,x+12,y+24),fill=coat);d.rectangle((x+2,y+15,x+3,y+22-step),fill=coat);d.rectangle((x+12,y+15,x+13,y+22+step),fill=coat)
-   d.rectangle((x+4,y+3,x+11,y+13),fill=hair);d.rectangle((x+5,y+6,x+11,y+12),fill=skin);d.rectangle((x+3,y+2,x+12,y+6),fill=coat);d.line((x+4,y+6,x+11,y+6),fill='#dfd0af');d.line((x+4,y+14,x+11,y+14),fill='#d8b47d')
-   if direction!=2:
-    eyes=[6,10] if direction==0 else [11] if direction==1 else [5]
-    for ex in eyes:d.point((x+ex,y+9),fill='#293b48')
-   else:d.rectangle((x+4,y+7,x+11,y+11),fill=hair)
+   d.ellipse((x+2,y+28,x+13,y+31),fill='#22344260')
+   # Short, insulated trousers and broad weather boots establish a sturdy winter stance.
+   for lx,dy in [(5,step),(9,-step)]:
+    d.rectangle((x+lx,y+22,x+lx+2,y+28+dy),fill=p['pants'])
+    d.rectangle((x+lx-1,y+28+dy,x+lx+3,y+30+dy),fill=p['boot'])
+    d.line((x+lx,y+28+dy,x+lx+2,y+28+dy),fill=p['light'])
+   # Parka body with a shaded side seam, raised collar, cuffs and identifiable field equipment.
+   d.polygon([(x+4,y+12),(x+11,y+12),(x+13,y+15),(x+12,y+24),(x+3,y+24),(x+2,y+16)],fill=coat,outline=p['shade'])
+   d.line((x+4,y+14,x+4,y+22),fill=p['light']);d.line((x+11,y+15,x+11,y+22),fill=p['shade'])
+   d.line((x+4,y+13,x+11,y+13),fill=p['trim']);d.line((x+4,y+24,x+11,y+24),fill=p['accent'])
+   d.rectangle((x+2,y+16,x+3,y+21+step),fill=coat);d.rectangle((x+12,y+16,x+13,y+21-step),fill=coat)
+   # Character-specific headwear and face shapes remain legible at 16×32 pixels.
+   if name=='Nora':
+    d.rectangle((x+2,y+3,x+13,y+13),fill=p['shade']);d.rectangle((x+4,y+3,x+11,y+12),fill=p['trim'])
+    d.rectangle((x+5,y+5,x+10,y+12),fill=skin);d.rectangle((x+4,y+2,x+11,y+5),fill=coat)
+    d.line((x+3,y+7,x+3,y+12),fill=p['light']);d.line((x+12,y+7,x+12,y+12),fill=p['light'])
+    d.rectangle((x+5,y+13,x+10,y+15),fill=p['accent']);d.rectangle((x+6,y+16,x+9,y+20),fill=p['shade'])
+    d.rectangle((x+9,y+17,x+12,y+20),fill='#344b5b');d.point((x+11,y+18),fill=p['accent'])
+    # Small flight-service wing tab and radio on the parka.
+    d.line((x+5,y+17,x+7,y+16,x+8,y+17),fill=p['trim']);d.point((x+7,y+17),fill=p['accent'])
+    if direction==0:
+     d.line((x+5,y+5,x+7,y+4,x+9,y+5),fill='#b8c8c7')
+     d.point((x+6,y+9),fill='#293b48');d.point((x+9,y+9),fill='#293b48')
+    elif direction in (1,3):d.point((x+(9 if direction==1 else 6),y+9),fill='#293b48')
+    else:d.rectangle((x+5,y+6,x+10,y+11),fill=hair)
+   elif name=='Levin':
+    d.rectangle((x+4,y+3,x+11,y+12),fill=skin);d.rectangle((x+3,y+2,x+12,y+5),fill=hair)
+    d.rectangle((x+5,y+1,x+10,y+3),fill=p['shade']);d.line((x+5,y+4,x+10,y+4),fill=p['accent'])
+    d.rectangle((x+4,y+11,x+11,y+13),fill=hair);d.rectangle((x+5,y+13,x+10,y+15),fill=p['trim'])
+    d.line((x+4,y+14,x+11,y+14),fill=p['accent']);d.rectangle((x+6,y+16,x+9,y+19),fill=p['light'])
+    d.line((x+4,y+15,x+10,y+22),fill=p['accent']);d.rectangle((x+10,y+18,x+13,y+22),fill='#c8ae7c',outline=p['shade'])
+    d.point((x+11,y+20),fill=p['trim']);d.point((x+12,y+20),fill=p['shade'])
+    if direction==0:
+     d.rectangle((x+4,y+7,x+7,y+9),outline=p['trim']);d.rectangle((x+9,y+7,x+12,y+9),outline=p['trim']);d.line((x+7,y+8,x+9,y+8),fill=p['trim'])
+     d.point((x+6,y+8),fill='#293b48');d.point((x+10,y+8),fill='#293b48')
+    elif direction in (1,3):d.point((x+(9 if direction==1 else 6),y+8),fill='#293b48')
+    else:d.rectangle((x+4,y+5,x+11,y+11),fill=hair)
+   else:
+    # Amma's pale kerchief, silver side braid and warm harness-worker's coat.
+    d.rectangle((x+4,y+3,x+11,y+12),fill=skin);d.rectangle((x+3,y+2,x+12,y+5),fill=p['trim'])
+    d.rectangle((x+4,y+4,x+5,y+8),fill=hair);d.rectangle((x+10,y+4,x+11,y+8),fill=hair)
+    d.line((x+5,y+12,x+10,y+12),fill=hair);d.line((x+4,y+6,x+11,y+6),fill='#f1ead9')
+    d.rectangle((x+11,y+8,x+13,y+15),fill=hair);d.point((x+12,y+10),fill=p['trim']);d.point((x+12,y+13),fill=p['trim'])
+    d.rectangle((x+5,y+14,x+10,y+16),fill=p['trim']);d.rectangle((x+6,y+16,x+9,y+19),fill=p['accent'])
+    d.rectangle((x+4,y+18,x+7,y+21),fill=p['shade']);d.point((x+6,y+19),fill=p['trim'])
+    d.line((x+4,y+17,x+6,y+16,x+8,y+17),fill=p['trim'])
+    if direction==0:
+     d.point((x+6,y+9),fill='#293b48');d.point((x+9,y+9),fill='#293b48')
+     d.point((x+5,y+10),fill='#cf8271');d.point((x+10,y+10),fill='#cf8271')
+    elif direction in (1,3):d.point((x+(9 if direction==1 else 6),y+9),fill='#293b48')
+    else:d.rectangle((x+4,y+5,x+11,y+11),fill=hair)
  im.save(PACK/f'assets/characters/{name}.png')
+
+def paint_new_portraits(name, coat, hair, skin):
  portrait=Image.new('RGBA',(128,192));pd=ImageDraw.Draw(portrait)
+ p={'Nora':('#304e63','#7896a6','#dbe5df','#d18453'),
+    'Levin':('#435948','#89967a','#c7b58c','#d4bb82'),
+    'Amma':('#793f39','#ce8060','#e6ddc7','#c4a76e')}[name]
  for emotion in range(6):
   x=(emotion%2)*64;y=(emotion//2)*64
-  pd.ellipse((x+9,y+41,x+55,y+83),fill=coat);pd.rectangle((x+20,y+20,x+46,y+49),fill=hair);pd.ellipse((x+21,y+19,x+45,y+48),fill=skin);pd.rectangle((x+17,y+12,x+48,y+24),fill=coat);pd.rectangle((x+18,y+23,x+47,y+26),fill='#e2d3b5');pd.rectangle((x+20,y+48,x+46,y+53),fill='#e0b46f')
-  for ex in [27,39]:pd.rectangle((x+ex,y+32,x+ex+1,y+34),fill='#2e3f4c')
-  pd.line((x+30,y+42,x+36,y+(40 if emotion==1 else 42)),fill='#855449')
+  # Soft cold-sky panels are part of the portrait art itself, not a generic face placeholder.
+  pd.rectangle((x,y,x+63,y+63),fill='#d8e3e3');pd.rectangle((x,y+43,x+63,y+63),fill='#b9cbd0')
+  pd.polygon([(x+7,y+63),(x+10,y+49),(x+18,y+43),(x+46,y+43),(x+55,y+50),(x+59,y+63)],fill=coat,outline=p[0])
+  pd.polygon([(x+18,y+46),(x+27,y+42),(x+32,y+55),(x+37,y+42),(x+47,y+46),(x+41,y+61),(x+23,y+61)],fill=p[2])
+  pd.rectangle((x+28,y+39,x+36,y+49),fill=skin);pd.ellipse((x+17,y+12,x+47,y+47),fill=skin,outline='#825f51')
+  pd.rectangle((x+20,y+17,x+44,y+24),fill=hair);pd.rectangle((x+17,y+21,x+21,y+35),fill=hair);pd.rectangle((x+43,y+21,x+47,y+35),fill=hair)
+  if name=='Nora':
+   pd.pieslice((x+13,y+7,x+51,y+48),180,360,fill=p[0],outline='#263d4d');pd.rectangle((x+15,y+24,x+21,y+43),fill=p[2]);pd.rectangle((x+43,y+24,x+49,y+43),fill=p[2])
+   pd.rectangle((x+22,y+9,x+42,y+14),fill=coat);pd.rectangle((x+22,y+9,x+42,y+11),fill=p[1])
+   pd.rectangle((x+13,y+25,x+17,y+35),fill='#a9c4ce',outline=p[0]);pd.line((x+17,y+30,x+21,y+30),fill=p[0],width=2)
+   pd.polygon([(x+28,y+46),(x+36,y+46),(x+39,y+57),(x+25,y+57)],fill=p[3]);pd.rectangle((x+43,y+48,x+51,y+56),fill='#344b5b',outline=p[0]);pd.point((x+48,y+51),fill=p[2])
+   for gx in (22,39):pd.rectangle((x+gx,y+15,x+gx+4,y+18),fill='#405b6d',outline=p[2])
+  elif name=='Levin':
+   pd.rectangle((x+17,y+8,x+47,y+18),fill=p[0]);pd.rectangle((x+21,y+4,x+43,y+11),fill=coat);pd.rectangle((x+22,y+10,x+42,y+13),fill=p[3])
+   pd.polygon([(x+18,y+34),(x+24,y+39),(x+25,y+46),(x+19,y+43)],fill=hair);pd.polygon([(x+45,y+34),(x+40,y+41),(x+45,y+44)],fill=hair)
+   pd.rectangle((x+22,y+25,x+31,y+31),outline=p[2]);pd.rectangle((x+34,y+25,x+43,y+31),outline=p[2]);pd.line((x+31,y+28,x+34,y+28),fill=p[2],width=2)
+   pd.polygon([(x+24,y+44),(x+40,y+44),(x+37,y+53),(x+27,y+53)],fill=p[3]);pd.line((x+19,y+48,x+31,y+60),fill=p[3],width=3)
+   pd.rectangle((x+42,y+47,x+55,y+61),fill='#c8ae7c',outline=p[0]);pd.line((x+45,y+51,x+52,y+51),fill='#766a51')
+   pd.polygon([(x+23,y+35),(x+26,y+42),(x+31,y+45),(x+37,y+45),(x+42,y+41),(x+45,y+35)],fill=hair)
+  else:
+   pd.pieslice((x+13,y+7,x+51,y+49),175,365,fill=p[2],outline='#9b8063');pd.rectangle((x+17,y+21,x+21,y+43),fill=p[2]);pd.rectangle((x+43,y+21,x+47,y+43),fill=p[2])
+   pd.polygon([(x+42,y+31),(x+49,y+37),(x+48,y+48),(x+44,y+54),(x+41,y+47)],fill=hair,outline='#6b655f')
+   for by in (37,42,47):pd.point((x+46,y+by),fill='#ece4d2')
+   pd.polygon([(x+25,y+45),(x+39,y+45),(x+38,y+55),(x+27,y+55)],fill=p[3]);pd.line((x+28,y+48,x+36,y+48),fill='#e1c59c')
+  # Six genuine facial states: neutral, welcoming, concerned, confident, laughing and reflective.
+  eye_y=[27,27,28,26,26,27][emotion]
+  for ex in (25,39):
+   if emotion==2:pd.line((x+ex-2,y+eye_y-2,x+ex+3,y+eye_y),fill='#4e433e',width=2)
+   elif emotion==4:pd.arc((x+ex-2,y+eye_y-2,x+ex+4,y+eye_y+3),180,360,fill='#4e433e',width=2)
+   else:pd.rectangle((x+ex,y+eye_y,x+ex+2,y+eye_y+3),fill='#293b48')
+  mouth_y=36 if emotion not in (1,4) else 35
+  if emotion==2:pd.line((x+29,y+mouth_y+2,x+32,y+mouth_y,x+35,y+mouth_y+2),fill='#874e48',width=2)
+  elif emotion in (1,4):pd.arc((x+28,y+mouth_y-2,x+37,y+mouth_y+6),0,180,fill='#874e48',width=2)
+  else:pd.line((x+29,y+mouth_y,x+35,y+mouth_y),fill='#874e48',width=2)
+  pd.line((x+21,y+eye_y-4,x+28,y+eye_y-5),fill=hair,width=2);pd.line((x+36,y+eye_y-5,x+43,y+eye_y-4),fill=hair,width=2)
+  if name=='Levin':
+   pd.rectangle((x+24,y+eye_y-1,x+32,y+eye_y+4),outline=p[2]);pd.rectangle((x+36,y+eye_y-1,x+44,y+eye_y+4),outline=p[2]);pd.line((x+32,y+eye_y+1,x+36,y+eye_y+1),fill=p[2],width=2)
+  if name=='Amma':pd.line((x+21,y+35,x+23,y+38),fill='#a26960');pd.line((x+41,y+38,x+43,y+35),fill='#a26960')
  portrait.save(PACK/f'assets/portraits/{name}.png')
+
+for name,cn,coat,hair,skin in people:
+ if name in ['Nora','Levin','Amma']:
+  paint_new_sprite(name,coat,hair,skin);paint_new_portraits(name,coat,hair,skin)
+ else:
+  # Authored source sheets for the original residents remain authoritative.
+  for kind,size,folder in [('portrait',(128,192),'portraits'),('sprite',(64,128),'characters')]:
+   source=ROOT/f'art/source/{kind}-{name}-master.png'
+   if source.exists():Image.open(source).convert('RGBA').resize(size,Image.Resampling.NEAREST).save(PACK/f'assets/{folder}/{name}.png')
  # Normalize authored source sheets to the engine grid; keep masters unchanged.
  for kind,size in [('portrait',(128,192)),('sprite',(64,128))]:
   source=ROOT/f'art/source/{kind}-{name}-master.png'
@@ -306,7 +407,7 @@ for name,cue in [('CoastClimate','CoastalWind'),('TundraClimate','TundraWind')]:
   ]}
  if name=='TundraClimate':contexts[loc(name)]['CopyWeatherFromLocation']=loc('CoastClimate')
 patch('EditData','Data/LocationContexts',Entries=contexts)
-write(Path('manifest.json'),{'Name':'Arctic Passage — 霜灯港','Author':'WhiteBay Project','Version':'0.7.9','Description':'Frosthavn: an Arctic fishing port, seasonal field camp, research shelter and personal nature notes.','UniqueID':MOD,'Dependencies':[{'UniqueID':'WhiteBay.ArcticPassage.Runtime','MinimumVersion':'0.7.9','IsRequired':True}],'MinimumApiVersion':'4.5.2','ContentPackFor':{'UniqueID':'Pathoschild.ContentPatcher','MinimumVersion':'2.4.0'}})
+write(Path('manifest.json'),{'Name':'霜灯港 / Frosthavn','Author':'WhiteBay Project','Version':'0.7.10','Description':'Frosthavn: an Arctic fishing port, seasonal field camp, research shelter and personal nature notes.','UniqueID':MOD,'Dependencies':[{'UniqueID':'WhiteBay.ArcticPassage.Runtime','MinimumVersion':'0.7.10','IsRequired':True}],'MinimumApiVersion':'4.5.2','ContentPackFor':{'UniqueID':'Pathoschild.ContentPatcher','MinimumVersion':'2.4.0'}})
 locations={}
 for name,zh in [('Town','栖光湾小镇'),('Harbor','栖光湾渔港'),('Icefjord','冰山峡湾'),('Tundra','极地苔原'),('Guesthouse','栖光湾旅舍'),('Fishery','渔业收购站'),('WinterCamp','苔原营地'),('ResearchStation','营地研究站')]:
  patch('Load','Maps/'+loc(name),FromFile='assets/maps/'+name+'_{{MapSeason}}.tmx')
@@ -337,9 +438,18 @@ line_sets={
 ('Check the route before you check the clock.','先确认路线，再看时间。'),('Sea ice can look solid from a distance. We stay on shore.','海冰从远处看常常很坚实。我们留在岸上。'),('My dogs each have their own pace. A team learns to listen.','每只犬的步调不同，队伍要慢慢学着配合。'),('Summer tundra is not a forest hiding under snow.','夏天的苔原，并不是雪下面藏着一片森林。'),('Those low plants grow slowly. Stay on the marked path.','低矮植物长得很慢，尽量走标好的路。'),('For a winter journey, check the equipment notes at our tundra stop.','冬季出行前，请先查看苔原停靠处的装备说明。'),('Wild bears need distance, never food from our hands.','观察野生熊要保持距离，绝不能喂食。'),('I like the sound of boots on packed snow.','我喜欢靴子踩在压实雪上的声音。'),('A good guide knows when to turn back.','好向导知道什么时候该返程。'),('A sheltered place to rest is part of a good route.','好的路线，总得有能避风歇脚的地方。'),('The river belongs to the char before it belongs to our maps.','在我们画出地图以前，红点鲑就生活在这条河里了。'),('You can watch a fox without following it.','可以安静看狐狸，不必追着它走。'),('The hills are quiet today. That does not mean empty.','今天山坡很安静，但不代表那里没有生命。'),('I mend a strap before it breaks.','我习惯在皮带断裂前把它修好。'),('Snow houses are seasonal shelters, not every northern home.','雪屋是季节性庇护所，并不是北方所有人的日常住宅。'),('A bright summer night can make bedtime easy to forget.','夏夜太明亮，常让人忘记该睡了。'),('The path north takes you onto the tundra.','朝北走，就是苔原小路。'),('We return with the same team we set out with.','我们带着完整的队伍出发，也要一起回来。'),('A warm drink is even better after a careful journey.','稳稳当当走完一程，再喝热饮格外舒服。'),('You have learned to look before you hurry.','你已经学会在赶路之前，先仔细看看。')],
 'Roan':[
 ('Salt finds every screw I forget to grease.','忘了上油的螺钉，总会被盐雾找到。'),('I am fixing the processing shed, one board at a time.','我正在修加工棚，一块木板一块木板地修。'),('Bring the materials to me, not to the order board.','修理材料直接交给我，不用交到订单板。'),('A boat is a collection of small jobs done properly.','把每件小事做好，才有一艘可靠的船。'),('That old hull still has good years in it.','那条老船的船体，还能再用好多年。'),('We only open the fjord route after the repairs.','修理完成后，才会开放峡湾航线。'),('Willy once sent me a box of spare fittings. Useful fellow.','威利给我寄过一箱备用配件，他真是个热心人。'),('The smoker needs coal. Good fish deserves careful processing.','熏鱼机要用煤。好鱼也值得认真加工。'),('I wrote the measurement down. Somewhere very sensible.','尺寸我记下来了。放在一个很合理的地方……'),('A dry pair of gloves saves a surprising amount of trouble.','一副干手套，能省去不少麻烦。'),('Icebergs are scenery, not stepping stones.','冰山是值得看的风景，可不能当垫脚石。'),('The pier rail is there for a reason.','码头护栏可不是摆设。'),('I prefer repairing things to throwing them away.','比起扔掉，我更愿意修一修。'),('The yellow house catches the afternoon light nicely.','下午的光照在黄房子上，特别好看。'),('When the wind rises, the workbench can wait.','风起得太大，工作台上的活儿就先放一放。'),('A small leak gets a large note in my book.','再小的渗漏，我也会在本子上郑重记下来。'),('I am proud of this little harbor.','我挺为这座小港口骄傲的。'),('Thank you for lending a hand with the first shipment.','谢谢你来帮忙准备第一批货。'),('The fjord is deeper than it looks from the landing.','从登岸处看不出来，峡湾其实很深。'),('There is always another hinge to oil tomorrow.','明天，总还有一副铰链等着上油。')]}
+from resident_dialogue import NEW_DIALOGUE
+line_sets.update(NEW_DIALOGUE)
+resident_profiles={
+ 'Ada':('Fishery',5,'fall',9,'Female','Neutral'),
+ 'Mira':('Guesthouse',10,'winter',15,'Female','Neutral'),
+ 'Roan':('Guesthouse',15,'summer',21,'Male','Outgoing'),
+ 'Nora':('Guesthouse',8,'spring',8,'Female','Outgoing'),
+ 'Levin':('ResearchStation',12,'summer',4,'Male','Neutral'),
+ 'Amma':('Guesthouse',15,'fall',18,'Female','Outgoing')}
 for index,(name,cn,coat,hair,skin) in enumerate(people):
- id=loc(name);home='Fishery' if name=='Ada' else 'Guesthouse';hx=5+index*5
- characters[id]={'DisplayName':tr('npc.'+name,name,cn),'Gender':'Male' if name=='Roan' else 'Female','Age':'Adult','Manner':'Polite','SocialAnxiety':'Outgoing' if name=='Roan' else 'Neutral','BirthSeason':['fall','winter','summer'][index],'BirthDay':[9,15,21][index],'HomeRegion':'Other','CanBeRomanced':False,'CanVisitIsland':'FALSE','IntroductionsQuest':False,'PerfectionScore':False,'Home':[{'Id':'Home','Location':loc(home),'Tile':{'X':hx,'Y':12},'Direction':'down'}]}
+ id=loc(name);home,hx,birth_season,birth_day,gender,social=resident_profiles[name]
+ characters[id]={'DisplayName':tr('npc.'+name,name,cn),'Gender':gender,'Age':'Adult','Manner':'Polite','SocialAnxiety':social,'BirthSeason':birth_season,'BirthDay':birth_day,'HomeRegion':'Other','CanBeRomanced':False,'CanVisitIsland':'FALSE','IntroductionsQuest':False,'PerfectionScore':False,'Home':[{'Id':'Home','Location':loc(home),'Tile':{'X':hx,'Y':12 if home!='ResearchStation' else 14},'Direction':'down'}]}
  for target,source in [('Characters','characters'),('Portraits','portraits')]:patch('Load',target+'/'+id,FromFile=f'assets/{source}/{name}.png')
  lines={}
  keys=['Mon','Tue','Wed','Thu','Fri','Sat','Sun','Mon2','Tue2','Wed2','Thu2','Fri2','Sat2','Sun2','Mon4','Tue4','Wed4','Thu4','Fri4','Sat4']
@@ -352,11 +462,27 @@ for index,(name,cn,coat,hair,skin) in enumerate(people):
  patch('EditData','Characters/Dialogue/'+id,Entries=lines)
  if name=='Ada': schedule=f'600 {loc(home)} {hx} 12 2/800 {loc("Harbor")} 20 25 2/1200 {loc("Fishery")} 9 10 2/1600 {loc("Town")} 35 24 2/1900 {loc(home)} {hx} 12 2'
  elif name=='Mira':schedule=f'600 {loc(home)} {hx} 12 2/800 {loc("Town")} 27 10 2/1100 {loc("Tundra")} 29 34 2/1500 {loc("Town")} 24 26 2/1900 {loc(home)} {hx} 12 2'
- else:schedule=f'600 {loc(home)} {hx} 12 2/800 {loc("Harbor")} 21 32 2/1300 {loc("Harbor")} 22 25 2/1700 {loc("Town")} 30 24 2/2000 {loc(home)} {hx} 12 2'
- winter=f'600 {loc(home)} {hx} 12 2/900 {loc("Town")} {24+index*3} 24 2/1300 {loc("Harbor")} {20+index*2} 23 2/1700 {loc(home)} {hx} 12 2'
- rain=f'600 {loc(home)} {hx} 12 2/1000 {loc(home)} {hx} 10 2/1700 {loc(home)} {hx} 12 2'
+ elif name=='Roan':schedule=f'600 {loc(home)} {hx} 12 2/800 {loc("Harbor")} 21 32 2/1300 {loc("Harbor")} 22 25 2/1700 {loc("Town")} 30 24 2/2000 {loc(home)} {hx} 12 2'
+ elif name=='Nora':schedule=f'600 {loc(home)} {hx} 12 2/800 {loc("Harbor")} 24 23 2/1000 {loc("Airstrip")} 34 27 2/1500 {loc("Harbor")} 24 23 2/1900 {loc(home)} {hx} 12 2'
+ elif name=='Levin':schedule=f'600 {loc(home)} {hx} 14 2/800 {loc("Tundra")} 29 43 2/1200 {loc("WinterCamp")} 19 37 2/1700 {loc(home)} {hx} 12 2/2100 {loc(home)} {hx} 14 2'
+ else:schedule=f'600 {loc(home)} {hx} 12 2/900 {loc("WinterCamp")} 49 23 2/1200 {loc("SledTrail")} 25 24 2/1600 {loc("Town")} 36 23 2/1900 {loc(home)} {hx} 12 2'
+ if name in ['Nora','Levin','Amma']:
+  winter_camp={'Nora':(31,25),'Levin':(19,37),'Amma':(49,23)}[name]
+  winter=f'600 {loc(home)} {hx} {14 if home=="ResearchStation" else 12} 2/900 {loc("WinterCamp")} {winter_camp[0]} {winter_camp[1]} 2/1300 {loc("Harbor")} 24 23 2/1700 {loc(home)} {hx} {14 if home=="ResearchStation" else 12} 2'
+  rain=f'600 {loc(home)} {hx} {14 if home=="ResearchStation" else 12} 2/1000 {loc(home)} {hx} 10 2/1700 {loc(home)} {hx} 12 2'
+ else:
+  winter=f'600 {loc(home)} {hx} 12 2/900 {loc("Town")} {24+index*3} 24 2/1300 {loc("Harbor")} {20+index*2} 23 2/1700 {loc(home)} {hx} 12 2'
+  rain=f'600 {loc(home)} {hx} 12 2/1000 {loc(home)} {hx} 10 2/1700 {loc(home)} {hx} 12 2'
  write(Path('assets/data/'+name+'_schedule.json'),{'spring':schedule,'summer':schedule,'fall':schedule,'winter':winter,'rain':rain,'rain2':rain});patch('Load','Characters/schedules/'+id,FromFile='assets/data/'+name+'_schedule.json')
- gifts[id]=tr('gift.'+name+'.love','That is very thoughtful. Thank you!','真用心，谢谢你！')+'/'+obj('ArcticChar')+' 348/'+tr('gift.'+name+'.like','I can make good use of this.','这个用得上。')+'/'+obj('AtlanticCod')+' 334 388/'+tr('gift.'+name+'.dislike','I do not have much use for this.','我不太用得上这个。')+'/92/'+tr('gift.'+name+'.hate','Please keep that away from the workbench.','别把这个放在工作台边。')+'/168 169 170 171 172/'+tr('gift.'+name+'.neutral','Thank you for thinking of me.','谢谢你惦记着我。')+'//'
+ gift_items={
+  'Ada':(obj('PanCod'),'ArcticPassage_Capelin ArcticPassage_NorthernShrimp 334','92','168 169 170 171 172'),
+  'Mira':(obj('FishPotatoStew'),'ArcticPassage_ArcticChar ArcticPassage_SnowCrab 395','92','168 169 170 171 172'),
+  'Roan':(obj('ShrimpChowder'),'ArcticPassage_AtlanticCod ArcticPassage_PolarCod 388','92','168 169 170 171 172'),
+  'Nora':(obj('FishPotatoStew'),'ArcticPassage_PolarCod ArcticPassage_Capelin 395','92','168 169 170 171 172'),
+  'Levin':(obj('CharSoup'),'ArcticPassage_ArcticChar 422 74','92','168 169 170 171 172'),
+  'Amma':(obj('ShrimpChowder'),'ArcticPassage_SnowCrab ArcticPassage_Capelin 216','92','168 169 170 171 172')}
+ loved,liked,disliked,hated=gift_items[name]
+ gifts[id]=tr('gift.'+name+'.love','That is very thoughtful. Thank you!','真用心，谢谢你！')+'/'+loved+'/'+tr('gift.'+name+'.like','I can make good use of this.','这个用得上。')+'/'+liked+'/'+tr('gift.'+name+'.dislike','I do not have much use for this.','我不太用得上这个。')+'/'+disliked+'/'+tr('gift.'+name+'.hate','Please keep that away from the workbench.','别把这个放在工作台边。')+'/'+hated+'/'+tr('gift.'+name+'.neutral','Thank you for thinking of me.','谢谢你惦记着我。')+'//'
 patch('EditData','Data/Characters',Entries=characters);patch('EditData','Data/NPCGiftTastes',Entries=gifts)
 from build_processing import build_processing
 build_processing(ROOT,PACK,patch,tr,loc,obj,objects)
@@ -382,7 +508,8 @@ mail={'ArcticPassage_Invitation':tr('mail.invitation','Farmer,^A boat at the bea
 patch('EditData','Data/mail',Entries=mail)
 # Coal reward is a separate one-time trigger to avoid multiple mail attachments.
 patch('EditData','Data/TriggerActions',Entries={loc('Coal'):{'Id':loc('Coal'),'Trigger':'LocationChanged','Condition':'PLAYER_HAS_MAIL Current ArcticPassage_Shed','Actions':['AddItem (O)382 10']}})
-patch('EditMap','Maps/'+loc('Harbor'),MapTiles=[{'Position':{'X':43,'Y':24},'Layer':'Buildings','SetProperties':{'Action':'Warp 35 34 '+loc('Icefjord')}}],When={'HasFlag |contains=ArcticPassage_Boat':True})
+patch('EditMap','Maps/'+loc('Harbor'),MapTiles=[{'Position':{'X':43,'Y':24},'Layer':'Buildings','SetProperties':{'Action':'ArcticPassageFjordOutbound'}}],When={'HasFlag |contains=ArcticPassage_Boat':True})
+patch('EditMap','Maps/'+loc('Icefjord'),MapTiles=[{'Position':{'X':8,'Y':28},'Layer':'Buildings','SetProperties':{'Action':'ArcticPassageFjordReturn'}}])
 # The repaired workshop updates its existing inspection board.
 patch('EditMap','Maps/'+loc('Harbor'),MapTiles=[{'Position':{'X':23,'Y':36},'Layer':'Buildings','SetProperties':{'Action':'Message ArcticPassage_WorkshopReady'}}],When={'HasFlag |contains=ArcticPassage_Shed':True})
 # Native shop barter: submit fish by buying an order receipt, receive gold immediately.
@@ -424,7 +551,61 @@ patch('EditData','Strings/StringsFromMaps',Entries={'ArcticPassage_'+k:v for k,v
 # Brief native arrival scene. Its start/skip does not carry any progression or item rewards.
 intro1=tr('event.arrival1','Welcome to Lumenhaven. We have a room for you in the red house.','欢迎来到栖光湾。红房子里替你留了房间。')
 intro2=tr('event.arrival2','Bring your rod to the harbor. A few well-kept fish will get our first shipment started.','带上钓竿来港口吧。几条保存得当的鱼，就能开始我们的第一批货。')
+write(Path('assets/data/Town_events.json'),{})
+patch('Load','Data/Events/'+loc('Town'),FromFile='assets/data/Town_events.json')
 patch('EditData','Data/Events/'+loc('Town'),Entries={loc('Welcome'):'continue/24 24/farmer 24 24 2 '+loc('Ada')+' 25 24 3/pause 400/speak '+loc('Ada')+' "'+intro1+'"/speak '+loc('Ada')+' "'+intro2+'"/end'})
+# Each added resident has a native, friendship-gated personal scene at a place
+# tied to their work. The game's event ledger persists completion in the save.
+personal_events={
+ 'Fishery':('Ada','ArcticPassage_AdaColdChain','900 1500',
+   'The ledger says the first crate stayed cold from pier to counter. That small detail is how a harbor earns trust.',
+   '账本记着，第一箱鱼从栈桥到柜台都保持了低温。港口能不能让人放心，就看这些小事。',
+   'You kept the label facing out and the drain clear. I will put your name beside this morning’s careful work.',
+   '你把标签朝外贴好，也留出了排水口。我会在今天的记录旁写下你的名字。',
+   '12 14/farmer 12 14 2 '+loc('Ada')+' 14 14 3'),
+ 'Tundra':('Mira','ArcticPassage_MiraTrailSigns','900 1600',
+   'The tracks cross the marked path and disappear among the stones. We can learn from them without following or feeding the animal.',
+   '足迹横过标好的小路，消失在石缝之间。不追赶、不投喂，我们也能从中学到很多。',
+   'You left the stones where they were. That is good field practice; the next thaw may tell us more.',
+   '你没有挪动那些石头。这才是合适的野外观察；等下次融雪，也许还会有新发现。',
+   '28 34/farmer 28 34 2 '+loc('Mira')+' 29 34 3'),
+ 'Harbor':('Roan','ArcticPassage_RoanSignalLamp','900 1700',
+   'The harbor lamp was loose in its bracket. I tightened it before dusk; a small light matters when the landing is hard to see.',
+   '港口的灯在支架里松了。我赶在天黑前把它拧紧；岸线看不清时，这一点灯光很重要。',
+   'You held the ladder steady and kept the pier clear. That is good repair work, even without a wrench in your hand.',
+   '你扶稳了梯子，也把栈桥通道留了出来。即使手里没有扳手，这也是在帮忙修理。',
+   '22 24/farmer 22 25 2 '+loc('Roan')+' 20 25 3'),
+ 'Airstrip':('Nora','ArcticPassage_NoraWindCheck','900 1700',
+   'The wind sock has gone still, but I still check the ice haze before clearing a flight. A safe return is part of every departure.',
+   '风向袋停下来了，我还是要再看一遍海冰上方的雾霭，才能放行。每次出发，都得先想好怎么安全回来。',
+   'You noticed the thin line of open water on my chart. Good eyes. I will mark it before the evening report.',
+   '你注意到了图上那条细细的开水带。眼力不错，我会在晚间报告前把它标清楚。',
+   '32 27/farmer 32 28 2 '+loc('Nora')+' 34 27 3'),
+ 'ResearchStation':('Levin','ArcticPassage_LevinFieldNotes','1000 1800',
+   'I drew the ice edge from solid ground and marked where the view was uncertain. A careful record should leave room for what we do not know.',
+   '我站在稳固的岸上描下冰缘，也标出了看不准的地方。严谨的记录，要给未知留出位置。',
+   'You spotted the same ridge in the meltwater sketch. I will add your observation to the field notes, with your name beside it.',
+   '你在融水草图里也认出了同一道脊线。我会把你的观察添进野外记录，并写上你的名字。',
+   '14 8/farmer 15 8 2 '+loc('Levin')+' 17 8 3'),
+ 'WinterCamp':('Amma','ArcticPassage_AmmaTeamCheck','900 1700',
+   'Before a run, I check each paw, buckle and line. The team sets the pace; if one dog is tired, we all turn back.',
+   '出发前，我会逐只检查爪子、扣环和牵引绳。队伍决定步速；只要有一只累了，我们就一起返程。',
+   'You held the loose line clear of the path. Thank you. Everyone gets water and a quiet rest before we go out again.',
+   '你把松开的牵引绳收到了路边。谢谢。再出发以前，大家都要先喝水、安静休息。',
+   '18 36/farmer 18 37 2 '+loc('Amma')+' 20 37 3')}
+for area,(name,event_id,time_range,line1_en,line1_zh,line2_en,line2_zh,actors) in personal_events.items():
+ event_file='assets/data/'+area+'_events.json'
+ write(Path(event_file),{})
+ patch('Load','Data/Events/'+loc(area),FromFile=event_file)
+ first=tr('event.'+name+'.personal.1',line1_en,line1_zh)
+ second=tr('event.'+name+'.personal.2',line2_en,line2_zh)
+ key=f'{event_id}/f {loc(name)} 500/t {time_range}'
+ if name=='Nora':key+='/w sunny'
+ script='continue/'+actors+'/pause 350/speak '+loc(name)+' "'+first+'"/pause 250/speak '+loc(name)+' "'+second+'"/end'
+ if area=='Harbor':harbor_personal_event=(key,script)
+ else:
+  patch('Load','Data/Events/'+loc(area),FromFile=event_file)
+  patch('EditData','Data/Events/'+loc(area),Entries={key:script})
 write(Path('content.json'),{'Format':'2.4.0','DynamicTokens':[{'Name':'MapSeason','Value':'spring'}]+[{'Name':'MapSeason','Value':season,'When':{'Season':season}} for season in ['spring','summer','fall','winter']]+[{'Name':'HarborTrapType','Value':'shrimp'},{'Name':'HarborTrapType','Value':'crab','When':{'Season':'winter'}}],'Changes':changes})
 write(Path('i18n/default.json'),EN);write(Path('i18n/zh.json'),ZH)
 # Compact machine-readable design data and navigation anchors for independent validation.
@@ -442,3 +623,21 @@ from build_ice_fishing import main as build_ice_fishing
 build_ice_fishing()
 from build_sled_travel import main as build_sled_travel
 build_sled_travel()
+from build_snow_shelter import main as build_snow_shelter
+build_snow_shelter()
+from build_daily_orders import main as build_daily_orders
+build_daily_orders()
+# The harbor facility builder registers the custom event asset. Append Roan's
+# personal scene only after that Load patch so the empty base cannot replace it.
+content=json.loads((PACK/'content.json').read_text())
+content['Changes'].append({'Action':'EditData','Target':'Data/Events/'+loc('Harbor'),
+ 'LogName':'Resident personal event: Roan signal lamp','Entries':{harbor_personal_event[0]:harbor_personal_event[1]}})
+(PACK/'content.json').write_text(json.dumps(content,ensure_ascii=False,indent=2)+'\n')
+from build_research import main as build_research
+build_research()
+from build_secrets import main as build_secrets
+build_secrets()
+from build_festivals import main as build_festivals
+build_festivals()
+from build_story_extension import main as build_story_extension
+build_story_extension()

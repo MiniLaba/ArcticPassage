@@ -3,6 +3,7 @@ from pathlib import Path
 import os
 import shutil
 import subprocess
+import sys
 from PIL import Image
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -10,6 +11,7 @@ WORKSPACE=ROOT.parent
 PROJECT=ROOT/'Code/ArcticPassage'
 env=dict(os.environ, DOTNET_CLI_HOME=str(WORKSPACE/'.development/cli'),
          NUGET_PACKAGES=str(WORKSPACE/'.development/nuget'), DOTNET_CLI_TELEMETRY_OPTOUT='1')
+subprocess.run([sys.executable, str(ROOT/'tools/build_wildlife_art.py')], check=True)
 subprocess.run([str(WORKSPACE/'.development/dotnet/dotnet'),'build',
                 str(PROJECT/'ArcticPassage.Runtime.csproj'),'-c','Release'],env=env,check=True)
 assembly=PROJECT/'bin/Release/net6.0/ArcticPassage.Runtime.dll'

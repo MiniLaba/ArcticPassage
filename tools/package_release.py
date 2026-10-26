@@ -10,7 +10,7 @@ import zipfile
 
 R = Path(__file__).resolve().parents[1]
 PUBLIC_ROOT_FILES = ('README.md', 'INSTALL.zh-CN.md', 'LICENSE', 'CREDITS.md', 'CHANGELOG.md', '.gitignore')
-PUBLIC_DOCS = ('PLAYER_STATUS.md', 'BUILDING.md', 'RELEASE_0.7.9.md', 'MapPlan.md', 'RealWorldReferences.md', 'ArtDirection040.md', 'AudioDesign.md', 'SeafoodDesign063.md', 'build-index.json')
+PUBLIC_DOCS = ('PLAYER_STATUS.md', 'BUILDING.md', 'WINDOWS_COMPATIBILITY.md', 'RELEASE_0.7.9.md', 'RELEASE_0.7.10.md', 'MapPlan.md', 'RealWorldReferences.md', 'ArtDirection040.md', 'AudioDesign.md', 'SeafoodDesign063.md', 'build-index.json')
 EXCLUDE_PARTS = {'bin', 'obj', '__pycache__', '.git', '.DS_Store', 'ephemera', 'archive', 'review-060'}
 
 
@@ -26,7 +26,7 @@ def source_files():
         yield R / name
     for name in PUBLIC_DOCS:
         yield R / 'docs' / name
-    for directory in ('ContentPack', 'Code', 'tools', 'art/source', 'art/music', 'art/prompts', 'docs/licenses', 'docs/images', 'tests/NativeValidation', 'tests/RuntimeFixture'):
+    for directory in ('.github/workflows', 'ContentPack', 'Code', 'tools', 'art/source', 'art/music', 'art/prompts', 'docs/licenses', 'docs/images', 'tests/NativeValidation', 'tests/RuntimeFixture', 'tests/QualityTradeRegression'):
         yield from tree_files(R / directory)
     yield from sorted((R / 'tests').glob('validate_*.py'))
 
@@ -50,7 +50,8 @@ def main():
     player_entries += [(assembly, own_dll)]
     player_entries += [(p, 'ArcticPassage.Runtime/' + p.relative_to(project / 'Runtime').as_posix()) for p in tree_files(project / 'Runtime')]
     player_entries += [(R / name, name) for name in ('README.md', 'INSTALL.zh-CN.md', 'LICENSE', 'CREDITS.md', 'CHANGELOG.md')]
-    player_entries += [(R / 'docs/PLAYER_STATUS.md', 'docs/PLAYER_STATUS.md')]
+    player_entries += [(R / 'docs' / name, 'docs/' + name)
+                       for name in ('PLAYER_STATUS.md', 'WINDOWS_COMPATIBILITY.md', 'RELEASE_0.7.10.md')]
     player_entries += [(p, p.relative_to(R).as_posix()) for p in tree_files(R / 'docs/licenses')]
 
     public_sources = list(source_files())

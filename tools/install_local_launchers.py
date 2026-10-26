@@ -6,7 +6,11 @@ import json
 
 ROOT = Path(__file__).resolve().parents[1]
 WORKSPACE = ROOT.parent
-BUNDLE = WORKSPACE / '北境航路.app'
+BUNDLE = WORKSPACE / '霜灯港.app'
+# One-time local rename; keep the bundle identifier and all save IDs intact.
+legacy_bundle = WORKSPACE / '北境航路.app'
+if not BUNDLE.exists() and legacy_bundle.exists():
+    legacy_bundle.rename(BUNDLE)
 HOST = BUNDLE / 'Contents/MacOS/StardewModdingAPI'
 assert HOST.exists(), 'Existing local SMAPI app host required'
 plist = BUNDLE / 'Contents/Info.plist'
@@ -35,12 +39,22 @@ for source in [*(WORKSPACE / '.development/PlayableMods').iterdir(), qa_target]:
         assert not target.exists(), target
         target.symlink_to(source.resolve(), target_is_directory=True)
 for source, target in [
-    ('play.command', WORKSPACE / '启动北境航路·正常游玩.command'),
-    ('preview.command', WORKSPACE / '启动北境航路·开发预览.command'),
+    ('play.command', WORKSPACE / '启动霜灯港·正常游玩.command'),
+    ('preview.command', WORKSPACE / '启动霜灯港·开发预览.command'),
 ]:
     shutil.copyfile(ROOT / 'tools/macos' / source, target)
     target.chmod(0o755)
+legacy_dir = WORKSPACE / '.development/legacy-launchers'
+legacy_dir.mkdir(exist_ok=True)
+for name in ['启动北境航路·正常游玩.command', '启动北境航路·开发预览.command']:
+    old = WORKSPACE / name
+    if old.exists():
+        destination = legacy_dir / name
+        assert not destination.exists(), 'Legacy launcher already archived; resolve without overwriting'
+        old.rename(destination)
 data['CFBundleExecutable'] = 'StardewModdingAPI'
+data['CFBundleDisplayName'] = '霜灯港'
+data['CFBundleName'] = '霜灯港'
 version = json.loads((ROOT / 'ContentPack/manifest.json').read_text())['Version']
 data['CFBundleShortVersionString'] = version
 data['CFBundleVersion'] = version

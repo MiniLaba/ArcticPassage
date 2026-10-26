@@ -35,7 +35,7 @@ def configure_camp(m):
             m.warp(0, y, 'Tundra', 53, 23)
         m.action('collision', 31, 24, 'Warp 12 14 ArcticPassage_ResearchStation')
         m.action('collision', 13, 23, 'Message ArcticPassage_CampRoute')
-        m.action('collision', 20, 35, 'Message ArcticPassage_SnowShelter')
+        m.action('collision', 20, 35, 'ArcticPassageSnowShelter')
         m.points = {'spawn': [2, 24], 'station_approach': [31, 25], 'shelter_approach': [19, 37]}
         m.scene_roofs = [(24, 14, 36, 19)]
     debug = m.scene_image.copy(); d = ImageDraw.Draw(debug, 'RGBA')

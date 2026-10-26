@@ -5,7 +5,8 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <AssemblyName>ArcticPassage.Runtime</AssemblyName>
-    <Version>0.7.9</Version>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Version>0.7.10</Version>
     <GamePath Condition="'$(GamePath)' == ''">$(MSBuildThisFileDirectory)../../../.development/TestGame</GamePath>
   </PropertyGroup>
   <ItemGroup>

@@ -112,6 +112,18 @@ internal sealed class SledTravel
         if(Game1.currentSeason!="winter" || Context.IsMultiplayer || from<0 || to<0 || to>=Stops.Length || from==to
             || Game1.currentLocation.Name!="ArcticPassage_"+Stops[from].Name
             || (stage!=5 && !(stage==4 && from==0 && to==1)))return;
+        if(WildlifeSightings.PolarBearActive && (from==2 || to==2))
+        {
+            Say("wildlifeClosed");
+            monitor.Log("SLED wildlife safety hold: glacier stop paused for today's distant polar-bear sighting; marked walking return remains open",LogLevel.Info);
+            return;
+        }
+        if(PolarForecast.BlocksSledDeparture(PolarWeather.Today))
+        {
+            Game1.drawObjectDialogue(helper.Translation.Get("weather.sledClosed"));
+            monitor.Log("WEATHER safe hold: sled departure suspended for whiteout; no supplies or progress changed",LogLevel.Info);
+            return;
+        }
         if(Game1.getLocationFromName("ArcticPassage_"+Stops[to].Name)==null){Say("unavailable");return;}
         try{Game1.activeClickableMenu=new Trip(this,from,to);monitor.Log($"SLED departure {from}->{to}; stage={stage}; no fare",LogLevel.Info);}
         catch(Exception ex){monitor.Log("Sled assets unavailable: "+ex,LogLevel.Error);Say("unavailable");}

@@ -227,7 +227,7 @@
     <image source="WinterCamp_fall_Buildings_20_35.png" width="16" height="16" />
     <tile id="0">
       <properties>
-        <property name="Action" value="Message ArcticPassage_SnowShelter" />
+        <property name="Action" value="ArcticPassageSnowShelter" />
       </properties>
     </tile>
   </tileset>
@@ -18895,7 +18895,7 @@
     </object>
     <object name="TileData" x="320" y="560" width="16" height="16">
       <properties>
-        <property name="Action" type="string" value="Message ArcticPassage_SnowShelter" />
+        <property name="Action" type="string" value="ArcticPassageSnowShelter" />
       </properties>
     </object>
     <object name="TileData" x="800" y="368" width="16" height="16">

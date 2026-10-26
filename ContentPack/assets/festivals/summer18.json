@@ -1,0 +1,16 @@
+{
+  "name": "{{i18n:festival.summer.name}}",
+  "conditions": "ArcticPassage_Icefjord/1800 2600",
+  "locationDisplayName": "{{i18n:festival.summer.place}}",
+  "startedMessage": "{{i18n:festival.summer.started}}",
+  "set-up_y1": "neutral/-1000 -1000/farmer 35 34 2/changeToTemporaryMap ArcticPassage_Icefjord/viewport -1000 -1000/globalFadeToClear",
+  "set-up_y2": "neutral/-1000 -1000/farmer 35 34 2/changeToTemporaryMap ArcticPassage_Icefjord/viewport -1000 -1000/globalFadeToClear",
+  "ArcticPassage_Ada": "{{i18n:festival.summer.dialogue.Ada}}",
+  "ArcticPassage_Mira": "{{i18n:festival.summer.dialogue.Mira}}",
+  "ArcticPassage_Roan": "{{i18n:festival.summer.dialogue.Roan}}",
+  "ArcticPassage_Nora": "{{i18n:festival.summer.dialogue.Nora}}",
+  "ArcticPassage_Levin": "{{i18n:festival.summer.dialogue.Levin}}",
+  "ArcticPassage_Amma": "{{i18n:festival.summer.dialogue.Amma}}",
+  "Set-Up_additionalCharacters_y1": "ArcticPassage_Ada 17 33 down/ArcticPassage_Mira 22 33 down/ArcticPassage_Roan 27 33 down/ArcticPassage_Nora 32 33 down/ArcticPassage_Levin 37 33 down/ArcticPassage_Amma 39 34 down",
+  "Set-Up_additionalCharacters_y2": "ArcticPassage_Ada 17 33 down/ArcticPassage_Mira 22 33 down/ArcticPassage_Roan 27 33 down/ArcticPassage_Nora 32 33 down/ArcticPassage_Levin 37 33 down/ArcticPassage_Amma 39 34 down"
+}

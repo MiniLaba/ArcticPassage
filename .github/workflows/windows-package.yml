@@ -1,0 +1,53 @@
+name: Windows package compatibility
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: Candidate release containing the install ZIP
+        required: true
+        default: v0.7.10
+  push:
+    branches: [codex/windows-compatibility]
+
+permissions:
+  contents: read
+
+jobs:
+  windows-package:
+    runs-on: windows-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      RELEASE_TAG: ${{ inputs.release_tag || 'v0.7.10' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Download this repository's candidate install package
+        shell: pwsh
+        run: |
+          for ($attempt = 1; $attempt -le 20; $attempt++) {
+            gh release download $env:RELEASE_TAG --repo $env:GITHUB_REPOSITORY --pattern '*-install.zip' --dir candidate --clobber
+            if ($LASTEXITCODE -eq 0) { break }
+            if ($attempt -eq 20) { throw 'Candidate install ZIP is not available' }
+            Start-Sleep -Seconds 15
+          }
+      - name: Audit and extract on Windows
+        shell: pwsh
+        run: |
+          $zip = (Get-ChildItem candidate/*-install.zip).FullName
+          python tests/validate_windows_package.py $zip | Tee-Object windows-package-report.txt
+          if ($LASTEXITCODE -ne 0) { throw 'Package audit failed' }
+          $destination = Join-Path $env:RUNNER_TEMP 'Frosthavn-Mods'
+          Expand-Archive -LiteralPath $zip -DestinationPath $destination
+          $dll = Join-Path $destination 'ArcticPassage.Runtime/ArcticPassage.Runtime.dll'
+          $identity = [System.Reflection.AssemblyName]::GetAssemblyName($dll)
+          if ($identity.Name -ne 'ArcticPassage.Runtime') { throw 'Wrong assembly identity' }
+          "PASS Windows extraction and CLR assembly metadata: $identity" | Tee-Object windows-package-report.txt -Append
+          'This runner does not contain the licensed game. Game startup, graphics, audio and save compatibility are NOT tested.' | Tee-Object windows-package-report.txt -Append
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: windows-package-report
+          path: windows-package-report.txt

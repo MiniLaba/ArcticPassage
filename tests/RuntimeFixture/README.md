@@ -2,7 +2,7 @@
 
 只用于隔离开发环境，不属于生产内容包。自动载入专用ArcticQA_451755789，语言中文、缩放75%、时钟固定正午。角色不存在时保留标题菜单；其他玩家不应用预览修改。
 
-主源码为本目录，目标net6；项目GamePath默认指向工作区.development/TestGame，可用MSBuild属性覆盖。设置DOTNET_CLI_HOME和NUGET_PACKAGES到工作区后构建ArcticQA.csproj，将DLL与manifest复制到.development/QA/InstalledArcticQA。2026-10-20已把QA从默认TestGame/Mods迁出；PreviewMods/ArcticQA链接到该目录。正常应用默认目录和PlayableMods均不含QA，发行安装包不带此DLL。仅「启动北境航路·开发预览.command」显式使用PreviewMods。所有*.enabled测试旗标也改放InstalledArcticQA；不要按历史日志路径重新把QA装回默认Mods。
+主源码为本目录，目标net6；项目GamePath默认指向工作区.development/TestGame，可用MSBuild属性覆盖。设置DOTNET_CLI_HOME和NUGET_PACKAGES到工作区后构建ArcticQA.csproj，将DLL与manifest复制到.development/QA/InstalledArcticQA。2026-10-20已把QA从默认TestGame/Mods迁出；PreviewMods/ArcticQA链接到该目录。正常应用默认目录和PlayableMods均不含QA，发行安装包不带此DLL。仅「启动霜灯港·开发预览.command」显式使用PreviewMods。所有*.enabled测试旗标也改放InstalledArcticQA；不要按历史日志路径重新把QA装回默认Mods。
 
 - F6：循环六地点；0.4已桌面验证，0.6新图还需实际镜头验收。
 - F7/F8/F9：米拉对话、晾鱼架收取、收购柜台的相邻定位；定位不等于互动已通过。
@@ -35,3 +35,8 @@ recovery-preview.enabled优先载入ArcticRecoveryQA_451755789（备份的秋28�
 保存后加recovery-reload.enabled，退出重启只核对日期/箱子/港口对照，不重新注入。F11只定位箱子，W/X才是实际打开。结束关闭两旗标恢复春季。开启生产运行模块时SeafoodAudit只测试当前真实日期；运行模块会主动纠正模拟过季标签，旧版2048次临时类型抽取仍仅为历史证据。
 
 0.7.1新增F4仅定位补给柜台；F5记录只读背包/金币/配方，菜单变化和鱼竿状态变化自动记录。不会自动购买/提竿或强制捕获。正式键盘柜台在运行模块中，QA不实现交易功能。
+
+
+## 雪块模型隔离检查
+
+`shelter-preview.enabled`只放在独立QA暂存目录并使用开发预览入口；读取ArcticWinterQA，临时命名ArcticShelterQA，准备冬季站位且冻结时钟。检查真实地图动作及游戏菜单控制处理器：非冬、错放、取消、三层完成、重玩、失效日期／季节与钱包／背包不变。处理器由反射调用，不冒充桌面按键；另以CUA真实按键实拍。测试不保存，退出后关闭此开关，普通入口不含QA。详见docs/SnowShelter_R02.md。

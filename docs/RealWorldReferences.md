@@ -28,6 +28,15 @@
 
 新增 Icefjord / Tundra 四季原图。冰峡湾采用不重复的大块浮冰、低裸岩头地和观测栈道；苔原采用蜿蜒溪流、单一木桥、低矮矮灌丛与小水塘。夏秋陆地去雪，冬季保留开放主河槽以维持既有玩法；这项水文安排是游戏化简化。原图尺寸及构图保持季节对齐，碰撞按实际输出的地标重新标定。
 
+## 2026-10-26野生动物与目击范围
+
+- [格陵兰自然资源研究所：陆生哺乳动物](https://natur.gl/leksikon/land-animals/?lang=en)：核对白狐、北极兔、驯鹿和麝牛等真实陆生动物。游戏本轮采用任务书已有的北极狐、格陵兰驯鹿与偏远北极熊，不将偏北／偏东地区的物种随意安排到港口近旁。
+- [格陵兰自然资源研究所：鸟类与哺乳动物研究部门](https://natur.gl/about-us/dpt-mammals-and-birds/?lang=en)：核对研究部门监测的海象、鲸、海鸟、驯鹿和麝牛类别；作为观察题材的交叉参考。
+- [格陵兰自然资源研究所：格陵兰鲨](https://natur.gl/arter/groenlandshaj/)及[格陵兰海域调查资料](https://www.nafo.int/Portals/0/PDFs/sc/2018/scr18-037.pdf)：用于将鲨鱼表现限定为外海深水中的罕见科研目击，不作普通鱼获、售卖或战利品。
+- [Visit Greenland：格陵兰鲸类](https://visitgreenland.com/articles/whales/)：说明多种鲸类在夏季无冰水域出现，座头鲸可在峡湾和近岸水域见到。因此游戏将夏季鲸影放在峡湾外海，且不变成可钓物。
+
+物种动画、出现日期与观察半径均为游戏机制，不是种群数量或某一真实城镇的出现概率。地图只安排远望或安全岸上观察；不添加喂熊、驯养、狩猎、熊袭击或取得海洋哺乳动物材料。风雪封航和晴夜极光日历也属于玩法调度，不作为气候统计。
+
 ## 2026-10-17整体复核
 
 本轮重新查看伊卢利萨特目的地、城镇观景点和NSIDC照片资料，新增挪威极地研究所关于低伏植物/风暴露/雪床的资料：https://npolar.no/en/themes/vegetation-svalbard/ 。其用途仅是植物形态参考，不把斯瓦尔巴种群移植成迪斯科湾名录。Visit Greenland的Sermermiut栈道实景见 https://traveltrade.visitgreenland.com/latest-news/wellness-tourism/ 。完整逐项整改与设计判断见ArcticReview060.md；照片仅参考，不分发。全部17张新资源由内置imagegen原创编辑并保留提示词。

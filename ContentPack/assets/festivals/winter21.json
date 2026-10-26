@@ -1,0 +1,16 @@
+{
+  "name": "{{i18n:festival.winter.name}}",
+  "conditions": "ArcticPassage_Town/1800 2600",
+  "locationDisplayName": "{{i18n:festival.winter.place}}",
+  "startedMessage": "{{i18n:festival.winter.started}}",
+  "set-up_y1": "neutral/-1000 -1000/farmer 36 23 2/changeToTemporaryMap ArcticPassage_Town/viewport -1000 -1000/globalFadeToClear",
+  "set-up_y2": "neutral/-1000 -1000/farmer 36 23 2/changeToTemporaryMap ArcticPassage_Town/viewport -1000 -1000/globalFadeToClear",
+  "ArcticPassage_Ada": "{{i18n:festival.winter.dialogue.Ada}}",
+  "ArcticPassage_Mira": "{{i18n:festival.winter.dialogue.Mira}}",
+  "ArcticPassage_Roan": "{{i18n:festival.winter.dialogue.Roan}}",
+  "ArcticPassage_Nora": "{{i18n:festival.winter.dialogue.Nora}}",
+  "ArcticPassage_Levin": "{{i18n:festival.winter.dialogue.Levin}}",
+  "ArcticPassage_Amma": "{{i18n:festival.winter.dialogue.Amma}}",
+  "Set-Up_additionalCharacters_y1": "ArcticPassage_Ada 18 23 down/ArcticPassage_Mira 24 23 down/ArcticPassage_Roan 30 23 down/ArcticPassage_Nora 42 23 down/ArcticPassage_Levin 48 23 down/ArcticPassage_Amma 50 23 down",
+  "Set-Up_additionalCharacters_y2": "ArcticPassage_Ada 18 23 down/ArcticPassage_Mira 24 23 down/ArcticPassage_Roan 30 23 down/ArcticPassage_Nora 42 23 down/ArcticPassage_Levin 48 23 down/ArcticPassage_Amma 50 23 down"
+}

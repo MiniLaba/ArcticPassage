@@ -116,9 +116,12 @@ def main():
         shop = p.get('Entries',{}).get('ArcticPassage_Supplies')
         if shop is None: continue
         items = shop['Items']
-        ids = {'RepairWood','RepairStone','RepairIron','CrabPot','BaitMaker'}
+        ids = {'RepairWood','RepairStone','RepairIron','CrabPot','BaitMaker','BambooRod'}
         items[:] = [i for i in items if i.get('Id') not in ids and not i.get('Id','').startswith('LocalRepairIron_')]
         items.extend([
+            # The required halibut excludes training rods. Keep a normal rod
+            # available locally once the player reaches harbor construction.
+            {'Id':'BambooRod','ItemId':'(T)BambooPole','Price':500,'Condition':'PLAYER_HAS_MAIL Current ArcticPassage_Shed'},
             {'Id':'RepairWood','ItemId':'(O)388','Price':15,'AvailableStock':40},
             {'Id':'RepairStone','ItemId':'(O)390','Price':30,'AvailableStock':40},
             {'Id':'RepairIron','ItemId':'(O)335','Price':1000,'AvailableStock':2,'Condition':'PLAYER_HAS_MAIL Current ArcticPassage_Shed'},

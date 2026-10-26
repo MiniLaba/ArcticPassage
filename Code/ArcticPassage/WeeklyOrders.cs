@@ -11,6 +11,7 @@ namespace ArcticPassage.Runtime;
 internal sealed class WeeklyOrders
 {
     internal const string BoardType = "ArcticPassage_Weekly";
+    internal const string StoryBoardType = "ArcticPassage_Story";
     private const string WeekKey = "WhiteBay.ArcticPassage/ContractWeek";
     private readonly IModHelper helper;
     private readonly IMonitor monitor;
@@ -51,6 +52,7 @@ internal sealed class WeeklyOrders
         SpecialOrder.UpdateAvailableSpecialOrders(BoardType, changed);
         if (!changed) return;
         Game1.player.team.acceptedSpecialOrderTypes.Remove(BoardType);
+        Game1.player.team.acceptedSpecialOrderTypes.Remove(StoryBoardType);
         Game1.MasterPlayer.modData[WeekKey] = week;
         monitor.Log($"WEEKLY refreshed native Arctic board week={week}", LogLevel.Trace);
     }
@@ -60,7 +62,12 @@ internal sealed class WeeklyOrders
         if (!Game1.MasterPlayer.mailReceived.Contains("ArcticPassage_Shed"))
         { Game1.drawObjectDialogue(helper.Translation.Get("weekly.locked")); return true; }
         Refresh();
-        var board = new SpecialOrdersBoard(BoardType);
+        bool story = (who.mailReceived.Contains("ArcticPassage_StormSuppliesUnlocked")
+            && !who.mailReceived.Contains("ArcticPassage_StormSuppliesComplete"))
+            || (who.mailReceived.Contains("ArcticPassage_StormFishUnlocked")
+                && !who.mailReceived.Contains("ArcticPassage_StormFishComplete"));
+        if (story) SpecialOrder.UpdateAvailableSpecialOrders(StoryBoardType, true);
+        var board = new SpecialOrdersBoard(story ? StoryBoardType : BoardType);
         choice = 0; Game1.activeClickableMenu = board; opened = board;
         monitor.Log("WEEKLY opened native board; no contract accepted on opening", LogLevel.Trace);
         return true;
@@ -68,12 +75,16 @@ internal sealed class WeeklyOrders
     private bool OpenCrate(GameLocation location, string[] args, Farmer who, Point tile)
     {
         if (location.Name != "ArcticPassage_CommunityHouse" || tile != new Point(3, 5)) return false;
-        if (!who.team.specialOrders.Any(o => o.UsesDropBox("ArcticPassage_FishCrate")))
+        string dropBox = who.team.specialOrders.Any(o => o.UsesDropBox("ArcticPassage_StormSupplies"))
+            ? "ArcticPassage_StormSupplies"
+            : who.team.specialOrders.Any(o => o.UsesDropBox("ArcticPassage_FishCrate"))
+                ? "ArcticPassage_FishCrate" : "";
+        if (dropBox.Length == 0)
         { Game1.drawObjectDialogue(helper.Translation.Get("weekly.crate.empty")); return true; }
         waitingForCrate = true;
         crateSlot = 0;
-        location.performAction("DropBox ArcticPassage_FishCrate", who, new xTile.Dimensions.Location(3, 5));
-        monitor.Log("WEEKLY requested native fish crate lock", LogLevel.Trace);
+        location.performAction("DropBox " + dropBox, who, new xTile.Dimensions.Location(3, 5));
+        monitor.Log($"WEEKLY requested native drop box lock id={dropBox}", LogLevel.Trace);
         return true;
     }
     private void OnButton(object? sender, ButtonPressedEventArgs e)

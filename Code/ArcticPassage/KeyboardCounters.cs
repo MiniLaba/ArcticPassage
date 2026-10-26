@@ -61,6 +61,23 @@ internal sealed class KeyboardCounters
         // Use the public native interaction path: its stock, recipe, price,
         // sale eligibility, trade and inventory-capacity rules all still run.
         shop.receiveLeftClick(bounds.Value.Center.X, bounds.Value.Center.Y, true);
+        // Keyboard purchases have no pointer to carry the new item. Complete
+        // the same native inventory click in an empty, unlocked slot. If the
+        // backpack is full, leave the held item and manual Tab controls intact.
+        if (!inventory && ReferenceEquals(Game1.activeClickableMenu, shop)
+            && shop.GetChildMenu() == null && shop.heldItem != null)
+        {
+            int capacity = Math.Min(Game1.player.MaxItems, Math.Min(Game1.player.Items.Count, shop.inventory.inventory.Count));
+            for (int i = 0; i < capacity; i++)
+            {
+                if (Game1.player.Items[i] != null) continue;
+                string purchased = shop.heldItem.QualifiedItemId;
+                var target = shop.inventory.inventory[i].bounds.Center;
+                shop.receiveLeftClick(target.X, target.Y, true);
+                monitor.Log($"KEYBOARD COUNTER native stow {purchased} slot={i} held={shop.heldItem?.QualifiedItemId ?? "none"}", LogLevel.Trace);
+                break;
+            }
+        }
         monitor.Log($"KEYBOARD COUNTER {shop.ShopId} {(inventory ? "inventory" : "offer")} {item}: gold {gold} -> {Game1.player.Money}", LogLevel.Trace);
         slot = Math.Clamp(slot, 0, Math.Max(0, Game1.player.MaxItems - 1));
         offer = Math.Clamp(offer, 0, Math.Max(0, shop.forSale.Count - 1));

@@ -45,7 +45,8 @@ def configure_scene(m):
  m.action('collision',18,21,'Warp 12 14 ArcticPassage_Guesthouse')
  m.action('collision',33,21,'Warp 12 14 ArcticPassage_Fishery')
  m.action('sign',40,24,'Warp 28 33 Beach')
- m.action('sign',26,24,'Message ArcticPassage_TownGuide')
+ # Keep both waterfront-lane rows clear; the guide stands beside the lane.
+ m.action('sign',25,25,'Message ArcticPassage_TownGuide')
  m.action('collision',22,21,'Message ArcticPassage_InnGuide')
  for y in [22,23]:m.warp(57,y,'Harbor',24,23)
  for x in [26,27]:m.warp(x,0,'Tundra',29,43)
@@ -179,7 +180,7 @@ def configure_wild(m):
  if m.name=='Icefjord':
   attach_iceberg(m,(42,27))
   # Use the notice already painted in the original, without overlaying a second sign.
-  m.action('collision',8,28,'Warp 42 24 ArcticPassage_Harbor')
+  m.action('collision',8,28,'ArcticPassageFjordReturn')
   m.action('collision',35,30,'Message ArcticPassage_DeepWater')
   m.action('collision',9,21,'Message ArcticPassage_WhaleNote')
   m.points={'spawn':[35,34],'fishing':[39,34],'return_approach':[9,29]}

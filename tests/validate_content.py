@@ -94,11 +94,38 @@ for p in patches:
  if p['Action']=='Load':
   for season in ['spring','summer','fall','winter']:require((P/p['FromFile'].replace('{{Season}}',season).replace('{{MapSeason}}',season)).exists(),'Missing content asset')
 record('All Content Patcher Load sources exist')
-for name in ['Ada','Mira','Roan']:
+resident_data=entries('Data/Characters');gift_data=entries('Data/NPCGiftTastes')
+object_data=entries('Data/Objects')
+for name in ['Ada','Mira','Roan','Nora','Levin','Amma']:
  target='Characters/Dialogue/ArcticPassage_'+name
- require(len(entries(target))==23,'Dialogue translations must resolve through EditData: '+name)
+ lines=entries(target)
+ required={'Mon','Tue','Wed','Thu','Fri','Sat','Sun','Mon2','Tue2','Wed2','Thu2','Fri2','Sat2','Sun2','Mon4','Tue4','Wed4','Thu4','Fri4','Sat4','Introduction','Rainy_Day_0','winter_Mon'}
+ require(required.issubset(lines),'Twenty daily lines and introduction/rain/winter translations must resolve through EditData: '+name)
  require('{{' not in (P/f'assets/data/{name}_dialogue.json').read_text(),'Unresolved tokens in raw dialogue Load: '+name)
-record('Three resident dialogue dictionaries resolve translations through EditData, not raw Load')
+ npc='ArcticPassage_'+name
+ require(npc in resident_data and npc in gift_data,'Missing resident or gift tastes: '+name)
+ require(resident_data[npc].get('Home'),'Missing native resident home: '+name)
+ sprite=Image.open(P/f'assets/characters/{name}.png');portrait=Image.open(P/f'assets/portraits/{name}.png')
+ require(sprite.size==(64,128) and portrait.size==(128,192),'Wrong sprite-sheet dimensions: '+name)
+record('Six resident dialogue dictionaries, native homes, gift tastes and sprite sheets resolve; each has 20 daily lines plus introduction/rain/winter text')
+for name,area,event_id in [('Ada','Fishery','ArcticPassage_AdaColdChain'),('Mira','Tundra','ArcticPassage_MiraTrailSigns'),('Roan','Harbor','ArcticPassage_RoanSignalLamp'),('Nora','Airstrip','ArcticPassage_NoraWindCheck'),('Levin','ResearchStation','ArcticPassage_LevinFieldNotes'),('Amma','WinterCamp','ArcticPassage_AmmaTeamCheck')]:
+ npc='ArcticPassage_'+name
+ gift=gift_data[npc].split('/')
+ require(len(gift)>=11,'Malformed native gift tastes: '+name)
+ require(gift[1] in object_data and len(gift[3].split())>0,'Personalized favorite meal missing from gift tastes: '+name)
+ target='Data/Events/ArcticPassage_'+area;ev=entries(target)
+ matches=[(k,v) for k,v in ev.items() if k.startswith(event_id+'/')]
+ require(len(matches)==1,'Expected exactly one personal event: '+name)
+ key,script=matches[0]
+ require(key.startswith(event_id+'/f '+npc+' 500/t '),'Event lacks its two-heart and time gate: '+name)
+ require(script.startswith('continue/') and '/speak '+npc+' ' in script and script.endswith('/end'),'Malformed personal event script: '+name)
+ require('{{i18n:event.'+name+'.personal.1}}' in script and '{{i18n:event.'+name+'.personal.2}}' in script,'Missing bilingual personal event text: '+name)
+ parts=script.split('/');start=tuple(map(int,parts[1].split()[:2]));actors=parts[2].split()
+ farmer=tuple(map(int,actors[1:3]));resident=tuple(map(int,actors[5:7]))
+ for season in ['spring','summer','fall','winter']:
+  mp=maps[area+'_'+season]['walk']
+  require(start in mp and farmer in mp and resident in mp,f'Personal event places an actor on blocked tile: {name} {season}')
+record('All six residents have individually favored local meals and a two-heart native event with reachable staging in every season')
 en=json.loads((P/'i18n/default.json').read_text());zh=json.loads((P/'i18n/zh.json').read_text());require(set(en)==set(zh),'Translation parity');text=(P/'content.json').read_text()+''.join(f.read_text() for f in (P/'assets/data').glob('*.json'))
 for key in re.findall(r'\{\{i18n:([^}]+)\}\}',text):require(key in en,'Missing translation '+key)
 record(f'{len(en)} translation keys complete in English and simplified Chinese')
@@ -139,14 +166,21 @@ for season in ['spring','summer','fall','winter']:
   require(q not in seen,'Quest cycle');require(q in quests,'Missing follow-up '+q);seen.add(q);parts=quests[q].split('/');require(len(parts)>=9,'Quest format');q=parts[5].replace('{{Season}}',season).replace('{{MapSeason}}',season)
  require(len(seen)>=4,'Quest chain too short')
 record('Four season-specific starts each lead through a complete six-quest chain without cycles')
-shops=entries('Data/Shops');orders=shops['ArcticPassage_Orders']['Items'];require(len(orders)==12,'Four seasons x three orders')
+shops=entries('Data/Shops');orders=[offer for offer in shops['ArcticPassage_Orders']['Items'] if not offer['Id'].startswith(('StoryExport_','LongExport_'))];require(len(orders)==12,'Four seasons x three base daily orders')
 for o in orders:
- require(o['AvailableStock']==1 and o['TradeItemAmount']>0,'Unlimited/negative order');raw=objects[o['TradeItemId'][3:]]['Price']*o['TradeItemAmount'];pay=int(o['ActionsOnPurchase'][0].split()[1]);require(raw<pay<raw*1.7,'Order balance')
+ require(o['AvailableStock']==1 and o['TradeItemAmount']>0,'Unlimited/negative order');raw=objects[o['TradeItemId'][3:]]['Price']*o['TradeItemAmount'];pay=int(o['ActionsOnPurchase'][0].split()[1])
+ if o['Id'].endswith('_Restaurant'):
+  require(pay==round(raw*2.2),'Quality-gated restaurant payout and friendship premium')
+ else:require(raw<pay<raw*1.7,'Daily order balance')
 for order in shops['ArcticPassage_Orders']['Items']:
  flags=[a.split()[2] for a in order['ActionsOnPurchase'] if a.startswith('AddMail Current ')]
- require(len(flags)==1 and all(t in flags[0] for t in ['{{Year}}','{{Season}}','{{Day}}']),'Order receipt must survive reload and be unique per calendar day')
+ require(len(flags)==1,'Every order must write exactly one saved payment receipt')
+ if order['Id'].startswith('StoryExport_'):
+  require(flags[0]=='ArcticPassage_PortTradeComplete','First export needs a permanent once-per-save receipt')
+ else:
+  require(all(t in flags[0] for t in ['{{Year}}','{{Season}}','{{Day}}']),'Daily order receipt must survive reload and be unique per calendar day')
  require('!PLAYER_HAS_MAIL Current '+flags[0] in order['Condition'],'Paid order remains eligible after reload')
-record('Daily barter orders consume fish, pay a bounded premium and have a dated persistent stock limit')
+record('Daily barter orders consume fish, pay a bounded order premium (quality-gated restaurant premium included) and have a dated persistent stock limit')
 processing=entries('Data/Machines')['(BC)ArcticPassage_DryingRack']
 require(processing['AdditionalConsumedItems']==[] and processing['OnlyCompleteOvernight'],'Drying must be fuel free and complete overnight')
 require(len(processing['OutputRules'])==3,'Drying fish whitelist')

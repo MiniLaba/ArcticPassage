@@ -1,13 +1,13 @@
 {
-  "Name": "Arctic Passage — 霜灯港",
+  "Name": "霜灯港 / Frosthavn",
   "Author": "WhiteBay Project",
-  "Version": "0.7.9",
+  "Version": "0.7.10",
   "Description": "Frosthavn: an Arctic fishing port, seasonal field camp, research shelter and personal nature notes.",
   "UniqueID": "WhiteBay.ArcticPassage",
   "Dependencies": [
     {
       "UniqueID": "WhiteBay.ArcticPassage.Runtime",
-      "MinimumVersion": "0.7.9",
+      "MinimumVersion": "0.7.10",
       "IsRequired": true
     }
   ],

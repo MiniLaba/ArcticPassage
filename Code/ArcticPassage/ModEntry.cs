@@ -28,13 +28,19 @@ public sealed class ModEntry : Mod
         _ = new NightLighting(helper, Monitor);
         _ = new FieldGuide(helper, Monitor);
         _ = new KeyboardNotices(helper, Monitor);
+        _ = new PolarWeather(helper, Monitor);
+        _ = new KeyboardRoutes(helper, Monitor);
         _ = new WeeklyOrders(helper, Monitor);
+        _ = new FestivalRuntime(helper, Monitor);
         // CP refreshes season tokens after native overnight object updates.
         // Read the real new date at the fish-type boundary so winter 1 never
         // inherits autumn shrimp. Native bait, RNG and catch handling remain.
         var harmony = new Harmony(ModManifest.UniqueID);
+        _ = new DailyOrders(helper, Monitor, harmony);
         _ = new IceFishing(helper, Monitor, harmony);
         _ = new SledTravel(helper, Monitor);
+        _ = new SnowShelterLesson(helper, Monitor);
+        _ = new StoryChapterRuntime(helper, Monitor, harmony);
         // Native spring critters are independent of random-ambience settings.
         // Keep native cloud shadows, but reserve wildlife for authored Arctic species.
         foreach (string method in new[] { "addButterflies", "addBirdies", "addBunnies", "addSquirrels", "addWoodpecker", "addOpossums", "addOwl" })

@@ -81,7 +81,7 @@ public partial class ModEntry: Mod {
   helper.Events.GameLoop.SaveLoaded += (_,_)=>{
    if(Game1.player.Name!="ArcticQA") return;
    loaded=true; ticks=0; Game1.options.pauseWhenOutOfFocus=System.IO.File.Exists(System.IO.Path.Combine(Helper.DirectoryPath,"interactive-fishing.enabled"));
-   if(ShipmentFlag("weekly-preview.enabled") || ShipmentFlag("repair-preview.enabled") || ShipmentFlag("ice-preview.enabled") || ShipmentFlag("sled-preview.enabled"))return;
+   if(ShipmentFlag("daily-preview.enabled") || ShipmentFlag("weekly-preview.enabled") || ShipmentFlag("repair-preview.enabled") || ShipmentFlag("ice-preview.enabled") || ShipmentFlag("sled-preview.enabled") || ShipmentFlag("shelter-preview.enabled"))return;
    if(Game1.GetSaveGameName(false)!="ArcticFlowQA")Game1.player.eventsSeen.Add("ArcticPassage_Welcome");
    Monitor.Log("Existing dedicated preview save loaded through native SaveGame.Load; native save target="+Game1.GetSaveGameName(false),LogLevel.Info);
    if(ShipmentFlag("shipment-preview.enabled"))return;
@@ -148,7 +148,7 @@ public partial class ModEntry: Mod {
    started=true;
    string folder=System.IO.File.Exists(System.IO.Path.Combine(Helper.DirectoryPath,"flow-preview.enabled"))?"ArcticFlowQA_451755789":(System.IO.File.Exists(System.IO.Path.Combine(Helper.DirectoryPath,"npc-day.enabled")) || System.IO.File.Exists(System.IO.Path.Combine(Helper.DirectoryPath,"night-preview.enabled")))?"ArcticNPCQA_451755789":System.IO.File.Exists(System.IO.Path.Combine(Helper.DirectoryPath,"recovery-preview.enabled"))?"ArcticRecoveryQA_451755789":System.IO.File.Exists(System.IO.Path.Combine(Helper.DirectoryPath,"winter-preview.enabled"))?"ArcticWinterQA_451755789":"ArcticQA_451755789";
    if(System.IO.File.Exists(System.IO.Path.Combine(Helper.DirectoryPath,"camp-winter.enabled")))folder="ArcticWinterQA_451755789";
-   if(ShipmentFlag("ice-preview.enabled") || ShipmentFlag("sled-preview.enabled"))folder="ArcticWinterQA_451755789";
+   if(ShipmentFlag("ice-preview.enabled") || ShipmentFlag("sled-preview.enabled") || ShipmentFlag("shelter-preview.enabled"))folder="ArcticWinterQA_451755789";
    if(ShipmentFlag("shipment-preview.enabled"))folder=ShipmentFlag("shipment-reload.enabled")?"ArcticShipmentQA_451755789":"ArcticWinterQA_451755789";
    if(!System.IO.File.Exists(System.IO.Path.Combine(Constants.SavesPath,folder,folder))){Monitor.Log("Preview save missing; use the normal load/new game menu.",LogLevel.Warn);return;}
    try { SaveGame.Load(folder); Game1.activeClickableMenu=null; Monitor.Log("Loading dedicated preview save: "+folder,LogLevel.Info); }
@@ -157,6 +157,8 @@ public partial class ModEntry: Mod {
   if(loaded && Context.IsWorldReady && Game1.player.Name=="ArcticQA" && Game1.GetSaveGameName(false)!="ArcticFlowQA" && Game1.GetSaveGameName(false)!="ArcticShipmentQA" && (Game1.GetSaveGameName(false)!="ArcticNPCQA" || npcDayFinished || System.IO.File.Exists(System.IO.Path.Combine(Helper.DirectoryPath,"night-preview.enabled"))))Game1.gameTimeInterval=0;
   if(loaded && Context.IsWorldReady && ticks>180 && stage==0) {
    stage=1;
+   if(ShipmentFlag("daily-preview.enabled")) {PrepareDailyOrderAudit();return;}
+   if(ShipmentFlag("shelter-preview.enabled")) {PrepareShelterAudit();return;}
    if(ShipmentFlag("sled-preview.enabled")) {PrepareSledAudit();return;}
    if(ShipmentFlag("ice-preview.enabled")) {PrepareIceAudit();return;}
    if(ShipmentFlag("repair-preview.enabled")) {PrepareRepairAudit();return;}

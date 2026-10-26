@@ -211,7 +211,7 @@
     <image source="Icefjord_winter_Buildings_8_28.png" width="16" height="16" />
     <tile id="0">
       <properties>
-        <property name="Action" value="Warp 42 24 ArcticPassage_Harbor" />
+        <property name="Action" value="ArcticPassageFjordReturn" />
       </properties>
     </tile>
   </tileset>
@@ -27610,7 +27610,7 @@
   <objectgroup name="Buildings" visible="0">
     <object name="TileData" x="128" y="448" width="16" height="16">
       <properties>
-        <property name="Action" type="string" value="Warp 42 24 ArcticPassage_Harbor" />
+        <property name="Action" type="string" value="ArcticPassageFjordReturn" />
       </properties>
     </object>
     <object name="TileData" x="560" y="480" width="16" height="16">

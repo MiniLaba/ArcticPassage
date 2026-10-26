@@ -1310,6 +1310,168 @@
       "FromFile": "assets/data/Roan_schedule.json"
     },
     {
+      "LogName": "Characters/ArcticPassage_Nora",
+      "Action": "Load",
+      "Target": "Characters/ArcticPassage_Nora",
+      "FromFile": "assets/characters/Nora.png"
+    },
+    {
+      "LogName": "Portraits/ArcticPassage_Nora",
+      "Action": "Load",
+      "Target": "Portraits/ArcticPassage_Nora",
+      "FromFile": "assets/portraits/Nora.png"
+    },
+    {
+      "LogName": "Characters/Dialogue/ArcticPassage_Nora",
+      "Action": "Load",
+      "Target": "Characters/Dialogue/ArcticPassage_Nora",
+      "FromFile": "assets/data/Nora_dialogue.json"
+    },
+    {
+      "LogName": "Characters/Dialogue/ArcticPassage_Nora",
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/ArcticPassage_Nora",
+      "Entries": {
+        "Mon": "{{i18n:dialogue.Nora.Mon}}",
+        "Tue": "{{i18n:dialogue.Nora.Tue}}",
+        "Wed": "{{i18n:dialogue.Nora.Wed}}",
+        "Thu": "{{i18n:dialogue.Nora.Thu}}",
+        "Fri": "{{i18n:dialogue.Nora.Fri}}",
+        "Sat": "{{i18n:dialogue.Nora.Sat}}",
+        "Sun": "{{i18n:dialogue.Nora.Sun}}",
+        "Mon2": "{{i18n:dialogue.Nora.Mon2}}",
+        "Tue2": "{{i18n:dialogue.Nora.Tue2}}",
+        "Wed2": "{{i18n:dialogue.Nora.Wed2}}",
+        "Thu2": "{{i18n:dialogue.Nora.Thu2}}",
+        "Fri2": "{{i18n:dialogue.Nora.Fri2}}",
+        "Sat2": "{{i18n:dialogue.Nora.Sat2}}",
+        "Sun2": "{{i18n:dialogue.Nora.Sun2}}",
+        "Mon4": "{{i18n:dialogue.Nora.Mon4}}",
+        "Tue4": "{{i18n:dialogue.Nora.Tue4}}",
+        "Wed4": "{{i18n:dialogue.Nora.Wed4}}",
+        "Thu4": "{{i18n:dialogue.Nora.Thu4}}",
+        "Fri4": "{{i18n:dialogue.Nora.Fri4}}",
+        "Sat4": "{{i18n:dialogue.Nora.Sat4}}",
+        "Introduction": "{{i18n:dialogue.Nora.intro}}",
+        "Rainy_Day_0": "{{i18n:dialogue.Nora.rain}}",
+        "winter_Mon": "{{i18n:dialogue.Nora.winter}}"
+      }
+    },
+    {
+      "LogName": "Characters/schedules/ArcticPassage_Nora",
+      "Action": "Load",
+      "Target": "Characters/schedules/ArcticPassage_Nora",
+      "FromFile": "assets/data/Nora_schedule.json"
+    },
+    {
+      "LogName": "Characters/ArcticPassage_Levin",
+      "Action": "Load",
+      "Target": "Characters/ArcticPassage_Levin",
+      "FromFile": "assets/characters/Levin.png"
+    },
+    {
+      "LogName": "Portraits/ArcticPassage_Levin",
+      "Action": "Load",
+      "Target": "Portraits/ArcticPassage_Levin",
+      "FromFile": "assets/portraits/Levin.png"
+    },
+    {
+      "LogName": "Characters/Dialogue/ArcticPassage_Levin",
+      "Action": "Load",
+      "Target": "Characters/Dialogue/ArcticPassage_Levin",
+      "FromFile": "assets/data/Levin_dialogue.json"
+    },
+    {
+      "LogName": "Characters/Dialogue/ArcticPassage_Levin",
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/ArcticPassage_Levin",
+      "Entries": {
+        "Mon": "{{i18n:dialogue.Levin.Mon}}",
+        "Tue": "{{i18n:dialogue.Levin.Tue}}",
+        "Wed": "{{i18n:dialogue.Levin.Wed}}",
+        "Thu": "{{i18n:dialogue.Levin.Thu}}",
+        "Fri": "{{i18n:dialogue.Levin.Fri}}",
+        "Sat": "{{i18n:dialogue.Levin.Sat}}",
+        "Sun": "{{i18n:dialogue.Levin.Sun}}",
+        "Mon2": "{{i18n:dialogue.Levin.Mon2}}",
+        "Tue2": "{{i18n:dialogue.Levin.Tue2}}",
+        "Wed2": "{{i18n:dialogue.Levin.Wed2}}",
+        "Thu2": "{{i18n:dialogue.Levin.Thu2}}",
+        "Fri2": "{{i18n:dialogue.Levin.Fri2}}",
+        "Sat2": "{{i18n:dialogue.Levin.Sat2}}",
+        "Sun2": "{{i18n:dialogue.Levin.Sun2}}",
+        "Mon4": "{{i18n:dialogue.Levin.Mon4}}",
+        "Tue4": "{{i18n:dialogue.Levin.Tue4}}",
+        "Wed4": "{{i18n:dialogue.Levin.Wed4}}",
+        "Thu4": "{{i18n:dialogue.Levin.Thu4}}",
+        "Fri4": "{{i18n:dialogue.Levin.Fri4}}",
+        "Sat4": "{{i18n:dialogue.Levin.Sat4}}",
+        "Introduction": "{{i18n:dialogue.Levin.intro}}",
+        "Rainy_Day_0": "{{i18n:dialogue.Levin.rain}}",
+        "winter_Mon": "{{i18n:dialogue.Levin.winter}}"
+      }
+    },
+    {
+      "LogName": "Characters/schedules/ArcticPassage_Levin",
+      "Action": "Load",
+      "Target": "Characters/schedules/ArcticPassage_Levin",
+      "FromFile": "assets/data/Levin_schedule.json"
+    },
+    {
+      "LogName": "Characters/ArcticPassage_Amma",
+      "Action": "Load",
+      "Target": "Characters/ArcticPassage_Amma",
+      "FromFile": "assets/characters/Amma.png"
+    },
+    {
+      "LogName": "Portraits/ArcticPassage_Amma",
+      "Action": "Load",
+      "Target": "Portraits/ArcticPassage_Amma",
+      "FromFile": "assets/portraits/Amma.png"
+    },
+    {
+      "LogName": "Characters/Dialogue/ArcticPassage_Amma",
+      "Action": "Load",
+      "Target": "Characters/Dialogue/ArcticPassage_Amma",
+      "FromFile": "assets/data/Amma_dialogue.json"
+    },
+    {
+      "LogName": "Characters/Dialogue/ArcticPassage_Amma",
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/ArcticPassage_Amma",
+      "Entries": {
+        "Mon": "{{i18n:dialogue.Amma.Mon}}",
+        "Tue": "{{i18n:dialogue.Amma.Tue}}",
+        "Wed": "{{i18n:dialogue.Amma.Wed}}",
+        "Thu": "{{i18n:dialogue.Amma.Thu}}",
+        "Fri": "{{i18n:dialogue.Amma.Fri}}",
+        "Sat": "{{i18n:dialogue.Amma.Sat}}",
+        "Sun": "{{i18n:dialogue.Amma.Sun}}",
+        "Mon2": "{{i18n:dialogue.Amma.Mon2}}",
+        "Tue2": "{{i18n:dialogue.Amma.Tue2}}",
+        "Wed2": "{{i18n:dialogue.Amma.Wed2}}",
+        "Thu2": "{{i18n:dialogue.Amma.Thu2}}",
+        "Fri2": "{{i18n:dialogue.Amma.Fri2}}",
+        "Sat2": "{{i18n:dialogue.Amma.Sat2}}",
+        "Sun2": "{{i18n:dialogue.Amma.Sun2}}",
+        "Mon4": "{{i18n:dialogue.Amma.Mon4}}",
+        "Tue4": "{{i18n:dialogue.Amma.Tue4}}",
+        "Wed4": "{{i18n:dialogue.Amma.Wed4}}",
+        "Thu4": "{{i18n:dialogue.Amma.Thu4}}",
+        "Fri4": "{{i18n:dialogue.Amma.Fri4}}",
+        "Sat4": "{{i18n:dialogue.Amma.Sat4}}",
+        "Introduction": "{{i18n:dialogue.Amma.intro}}",
+        "Rainy_Day_0": "{{i18n:dialogue.Amma.rain}}",
+        "winter_Mon": "{{i18n:dialogue.Amma.winter}}"
+      }
+    },
+    {
+      "LogName": "Characters/schedules/ArcticPassage_Amma",
+      "Action": "Load",
+      "Target": "Characters/schedules/ArcticPassage_Amma",
+      "FromFile": "assets/data/Amma_schedule.json"
+    },
+    {
       "LogName": "Data/Characters",
       "Action": "EditData",
       "Target": "Data/Characters",
@@ -1388,6 +1550,81 @@
               "Direction": "down"
             }
           ]
+        },
+        "ArcticPassage_Nora": {
+          "DisplayName": "{{i18n:npc.Nora}}",
+          "Gender": "Female",
+          "Age": "Adult",
+          "Manner": "Polite",
+          "SocialAnxiety": "Outgoing",
+          "BirthSeason": "spring",
+          "BirthDay": 8,
+          "HomeRegion": "Other",
+          "CanBeRomanced": false,
+          "CanVisitIsland": "FALSE",
+          "IntroductionsQuest": false,
+          "PerfectionScore": false,
+          "Home": [
+            {
+              "Id": "Home",
+              "Location": "ArcticPassage_Guesthouse",
+              "Tile": {
+                "X": 8,
+                "Y": 12
+              },
+              "Direction": "down"
+            }
+          ]
+        },
+        "ArcticPassage_Levin": {
+          "DisplayName": "{{i18n:npc.Levin}}",
+          "Gender": "Male",
+          "Age": "Adult",
+          "Manner": "Polite",
+          "SocialAnxiety": "Neutral",
+          "BirthSeason": "summer",
+          "BirthDay": 4,
+          "HomeRegion": "Other",
+          "CanBeRomanced": false,
+          "CanVisitIsland": "FALSE",
+          "IntroductionsQuest": false,
+          "PerfectionScore": false,
+          "Home": [
+            {
+              "Id": "Home",
+              "Location": "ArcticPassage_ResearchStation",
+              "Tile": {
+                "X": 12,
+                "Y": 14
+              },
+              "Direction": "down"
+            }
+          ]
+        },
+        "ArcticPassage_Amma": {
+          "DisplayName": "{{i18n:npc.Amma}}",
+          "Gender": "Female",
+          "Age": "Adult",
+          "Manner": "Polite",
+          "SocialAnxiety": "Outgoing",
+          "BirthSeason": "fall",
+          "BirthDay": 18,
+          "HomeRegion": "Other",
+          "CanBeRomanced": false,
+          "CanVisitIsland": "FALSE",
+          "IntroductionsQuest": false,
+          "PerfectionScore": false,
+          "Home": [
+            {
+              "Id": "Home",
+              "Location": "ArcticPassage_Guesthouse",
+              "Tile": {
+                "X": 15,
+                "Y": 12
+              },
+              "Direction": "down"
+            }
+          ]
         }
       }
     },
@@ -1396,9 +1633,12 @@
       "Action": "EditData",
       "Target": "Data/NPCGiftTastes",
       "Entries": {
-        "ArcticPassage_Ada": "{{i18n:gift.Ada.love}}/ArcticPassage_ArcticChar 348/{{i18n:gift.Ada.like}}/ArcticPassage_AtlanticCod 334 388/{{i18n:gift.Ada.dislike}}/92/{{i18n:gift.Ada.hate}}/168 169 170 171 172/{{i18n:gift.Ada.neutral}}//",
-        "ArcticPassage_Mira": "{{i18n:gift.Mira.love}}/ArcticPassage_ArcticChar 348/{{i18n:gift.Mira.like}}/ArcticPassage_AtlanticCod 334 388/{{i18n:gift.Mira.dislike}}/92/{{i18n:gift.Mira.hate}}/168 169 170 171 172/{{i18n:gift.Mira.neutral}}//",
-        "ArcticPassage_Roan": "{{i18n:gift.Roan.love}}/ArcticPassage_ArcticChar 348/{{i18n:gift.Roan.like}}/ArcticPassage_AtlanticCod 334 388/{{i18n:gift.Roan.dislike}}/92/{{i18n:gift.Roan.hate}}/168 169 170 171 172/{{i18n:gift.Roan.neutral}}//"
+        "ArcticPassage_Ada": "{{i18n:gift.Ada.love}}/ArcticPassage_PanCod/{{i18n:gift.Ada.like}}/ArcticPassage_Capelin ArcticPassage_NorthernShrimp 334/{{i18n:gift.Ada.dislike}}/92/{{i18n:gift.Ada.hate}}/168 169 170 171 172/{{i18n:gift.Ada.neutral}}//",
+        "ArcticPassage_Mira": "{{i18n:gift.Mira.love}}/ArcticPassage_FishPotatoStew/{{i18n:gift.Mira.like}}/ArcticPassage_ArcticChar ArcticPassage_SnowCrab 395/{{i18n:gift.Mira.dislike}}/92/{{i18n:gift.Mira.hate}}/168 169 170 171 172/{{i18n:gift.Mira.neutral}}//",
+        "ArcticPassage_Roan": "{{i18n:gift.Roan.love}}/ArcticPassage_ShrimpChowder/{{i18n:gift.Roan.like}}/ArcticPassage_AtlanticCod ArcticPassage_PolarCod 388/{{i18n:gift.Roan.dislike}}/92/{{i18n:gift.Roan.hate}}/168 169 170 171 172/{{i18n:gift.Roan.neutral}}//",
+        "ArcticPassage_Nora": "{{i18n:gift.Nora.love}}/ArcticPassage_FishPotatoStew/{{i18n:gift.Nora.like}}/ArcticPassage_PolarCod ArcticPassage_Capelin 395/{{i18n:gift.Nora.dislike}}/92/{{i18n:gift.Nora.hate}}/168 169 170 171 172/{{i18n:gift.Nora.neutral}}//",
+        "ArcticPassage_Levin": "{{i18n:gift.Levin.love}}/ArcticPassage_CharSoup/{{i18n:gift.Levin.like}}/ArcticPassage_ArcticChar 422 74/{{i18n:gift.Levin.dislike}}/92/{{i18n:gift.Levin.hate}}/168 169 170 171 172/{{i18n:gift.Levin.neutral}}//",
+        "ArcticPassage_Amma": "{{i18n:gift.Amma.love}}/ArcticPassage_ShrimpChowder/{{i18n:gift.Amma.like}}/ArcticPassage_SnowCrab ArcticPassage_Capelin 216/{{i18n:gift.Amma.dislike}}/92/{{i18n:gift.Amma.hate}}/168 169 170 171 172/{{i18n:gift.Amma.neutral}}//"
       }
     },
     {
@@ -1574,7 +1814,7 @@
         "ArcticPassage_Shed": "ItemDelivery/{{i18n:quest.Shed.title}}/{{i18n:quest.Shed.desc}}/{{i18n:quest.Shed.hint}}/ArcticPassage_Roan (O)388 40/ArcticPassage_BoatRepair/250/-1/false/{{i18n:quest.shed.reply}}#$action AddMail Current ArcticPassage_WoodDelivered received",
         "ArcticPassage_BoatRepair": "ItemDelivery/{{i18n:quest.BoatRepair.title}}/{{i18n:quest.BoatRepair.desc}}/{{i18n:quest.BoatRepair.hint}}/ArcticPassage_Roan (O)335 2/ArcticPassage_FjordVisit/300/-1/false/{{i18n:quest.boat.reply}}#$action AddMail Current ArcticPassage_IronDelivered received",
         "ArcticPassage_FjordVisit": "Location/{{i18n:quest.FjordVisit.title}}/{{i18n:quest.FjordVisit.desc}}/{{i18n:quest.FjordVisit.hint}}/ArcticPassage_Icefjord/ArcticPassage_DeepCatch/200/-1/false",
-        "ArcticPassage_DeepCatch": "ItemDelivery/{{i18n:quest.DeepCatch.title}}/{{i18n:quest.DeepCatch.desc}}/{{i18n:quest.DeepCatch.hint}}/ArcticPassage_Ada (O)ArcticPassage_Halibut 1/-1/700/-1/false/{{i18n:quest.deep.reply}}"
+        "ArcticPassage_DeepCatch": "ItemDelivery/{{i18n:quest.DeepCatch.title}}/{{i18n:quest.DeepCatch.desc}}/{{i18n:quest.DeepCatch.hint}}/ArcticPassage_Ada (O)ArcticPassage_Halibut 1/ArcticPassage_FieldReport/700/-1/false/{{i18n:quest.deep.reply}}"
       }
     },
     {
@@ -1647,13 +1887,30 @@
           },
           "Layer": "Buildings",
           "SetProperties": {
-            "Action": "Warp 35 34 ArcticPassage_Icefjord"
+            "Action": "ArcticPassageFjordOutbound"
           }
         }
       ],
       "When": {
         "HasFlag |contains=ArcticPassage_Boat": true
       }
+    },
+    {
+      "LogName": "Maps/ArcticPassage_Icefjord",
+      "Action": "EditMap",
+      "Target": "Maps/ArcticPassage_Icefjord",
+      "MapTiles": [
+        {
+          "Position": {
+            "X": 8,
+            "Y": 28
+          },
+          "Layer": "Buildings",
+          "SetProperties": {
+            "Action": "ArcticPassageFjordReturn"
+          }
+        }
+      ]
     },
     {
       "LogName": "Maps/ArcticPassage_Harbor",
@@ -1741,7 +1998,7 @@
               "AvailableStock": 1,
               "AvailableStockLimit": "Player",
               "ActionsOnPurchase": [
-                "AddMoney 202",
+                "AddMoney 286",
                 "AddMail Current ArcticPassage_Order_Restaurant_{{Year}}_{{Season}}_{{Day}} received"
               ]
             },
@@ -1783,7 +2040,7 @@
               "AvailableStock": 1,
               "AvailableStockLimit": "Player",
               "ActionsOnPurchase": [
-                "AddMoney 372",
+                "AddMoney 528",
                 "AddMail Current ArcticPassage_Order_Restaurant_{{Year}}_{{Season}}_{{Day}} received"
               ]
             },
@@ -1825,7 +2082,7 @@
               "AvailableStock": 1,
               "AvailableStockLimit": "Player",
               "ActionsOnPurchase": [
-                "AddMoney 372",
+                "AddMoney 528",
                 "AddMail Current ArcticPassage_Order_Restaurant_{{Year}}_{{Season}}_{{Day}} received"
               ]
             },
@@ -1867,7 +2124,7 @@
               "AvailableStock": 1,
               "AvailableStockLimit": "Player",
               "ActionsOnPurchase": [
-                "AddMoney 264",
+                "AddMoney 374",
                 "AddMail Current ArcticPassage_Order_Restaurant_{{Year}}_{{Season}}_{{Day}} received"
               ]
             },
@@ -1883,6 +2140,90 @@
               "ActionsOnPurchase": [
                 "AddMoney 110",
                 "AddMail Current ArcticPassage_Order_Research_{{Year}}_{{Season}}_{{Day}} received"
+              ]
+            },
+            {
+              "Id": "StoryExport_AtlanticCod",
+              "ItemId": "(O)ArcticPassage_PortTradeReceipt",
+              "Condition": "PLAYER_HAS_MAIL Current ArcticPassage_PortOrderUnlocked, !PLAYER_HAS_MAIL Current ArcticPassage_PortTradeComplete",
+              "TradeItemId": "(O)ArcticPassage_DriedAtlanticCod",
+              "TradeItemAmount": 1,
+              "Price": 0,
+              "AvailableStock": 1,
+              "AvailableStockLimit": "Player",
+              "ActionsOnPurchase": [
+                "AddMoney 250",
+                "AddMail Current ArcticPassage_PortTradeComplete received"
+              ]
+            },
+            {
+              "Id": "LongExport_AtlanticCod",
+              "ItemId": "(O)ArcticPassage_ExportReceipt",
+              "Condition": "PLAYER_HAS_MAIL Current ArcticPassage_PortTradeComplete, !PLAYER_HAS_MAIL Current ArcticPassage_Order_Export_{{Year}}_{{Season}}_{{Day}}",
+              "TradeItemId": "(O)ArcticPassage_DriedAtlanticCod",
+              "TradeItemAmount": 1,
+              "Price": 0,
+              "AvailableStock": 1,
+              "AvailableStockLimit": "Player",
+              "ActionsOnPurchase": [
+                "AddMoney 250",
+                "AddMail Current ArcticPassage_Order_Export_{{Year}}_{{Season}}_{{Day}} received"
+              ]
+            },
+            {
+              "Id": "StoryExport_PolarCod",
+              "ItemId": "(O)ArcticPassage_PortTradeReceipt",
+              "Condition": "PLAYER_HAS_MAIL Current ArcticPassage_PortOrderUnlocked, !PLAYER_HAS_MAIL Current ArcticPassage_PortTradeComplete",
+              "TradeItemId": "(O)ArcticPassage_DriedPolarCod",
+              "TradeItemAmount": 1,
+              "Price": 0,
+              "AvailableStock": 1,
+              "AvailableStockLimit": "Player",
+              "ActionsOnPurchase": [
+                "AddMoney 180",
+                "AddMail Current ArcticPassage_PortTradeComplete received"
+              ]
+            },
+            {
+              "Id": "LongExport_PolarCod",
+              "ItemId": "(O)ArcticPassage_ExportReceipt",
+              "Condition": "PLAYER_HAS_MAIL Current ArcticPassage_PortTradeComplete, !PLAYER_HAS_MAIL Current ArcticPassage_Order_Export_{{Year}}_{{Season}}_{{Day}}",
+              "TradeItemId": "(O)ArcticPassage_DriedPolarCod",
+              "TradeItemAmount": 1,
+              "Price": 0,
+              "AvailableStock": 1,
+              "AvailableStockLimit": "Player",
+              "ActionsOnPurchase": [
+                "AddMoney 180",
+                "AddMail Current ArcticPassage_Order_Export_{{Year}}_{{Season}}_{{Day}} received"
+              ]
+            },
+            {
+              "Id": "StoryExport_Capelin",
+              "ItemId": "(O)ArcticPassage_PortTradeReceipt",
+              "Condition": "PLAYER_HAS_MAIL Current ArcticPassage_PortOrderUnlocked, !PLAYER_HAS_MAIL Current ArcticPassage_PortTradeComplete",
+              "TradeItemId": "(O)ArcticPassage_DriedCapelin",
+              "TradeItemAmount": 1,
+              "Price": 0,
+              "AvailableStock": 1,
+              "AvailableStockLimit": "Player",
+              "ActionsOnPurchase": [
+                "AddMoney 140",
+                "AddMail Current ArcticPassage_PortTradeComplete received"
+              ]
+            },
+            {
+              "Id": "LongExport_Capelin",
+              "ItemId": "(O)ArcticPassage_ExportReceipt",
+              "Condition": "PLAYER_HAS_MAIL Current ArcticPassage_PortTradeComplete, !PLAYER_HAS_MAIL Current ArcticPassage_Order_Export_{{Year}}_{{Season}}_{{Day}}",
+              "TradeItemId": "(O)ArcticPassage_DriedCapelin",
+              "TradeItemAmount": 1,
+              "Price": 0,
+              "AvailableStock": 1,
+              "AvailableStockLimit": "Player",
+              "ActionsOnPurchase": [
+                "AddMoney 140",
+                "AddMail Current ArcticPassage_Order_Export_{{Year}}_{{Season}}_{{Day}} received"
               ]
             }
           ]
@@ -1968,6 +2309,12 @@
               "ItemId": "(O)78",
               "Price": 100,
               "AvailableStock": 5
+            },
+            {
+              "Id": "BambooRod",
+              "ItemId": "(T)BambooPole",
+              "Price": 500,
+              "Condition": "PLAYER_HAS_MAIL Current ArcticPassage_Shed"
             },
             {
               "Id": "RepairWood",
@@ -2153,10 +2500,122 @@
     },
     {
       "LogName": "Data/Events/ArcticPassage_Town",
+      "Action": "Load",
+      "Target": "Data/Events/ArcticPassage_Town",
+      "FromFile": "assets/data/Town_events.json"
+    },
+    {
+      "LogName": "Data/Events/ArcticPassage_Town",
       "Action": "EditData",
       "Target": "Data/Events/ArcticPassage_Town",
       "Entries": {
         "ArcticPassage_Welcome": "continue/24 24/farmer 24 24 2 ArcticPassage_Ada 25 24 3/pause 400/speak ArcticPassage_Ada \"{{i18n:event.arrival1}}\"/speak ArcticPassage_Ada \"{{i18n:event.arrival2}}\"/end"
+      }
+    },
+    {
+      "LogName": "Data/Events/ArcticPassage_Fishery",
+      "Action": "Load",
+      "Target": "Data/Events/ArcticPassage_Fishery",
+      "FromFile": "assets/data/Fishery_events.json"
+    },
+    {
+      "LogName": "Data/Events/ArcticPassage_Fishery",
+      "Action": "Load",
+      "Target": "Data/Events/ArcticPassage_Fishery",
+      "FromFile": "assets/data/Fishery_events.json"
+    },
+    {
+      "LogName": "Data/Events/ArcticPassage_Fishery",
+      "Action": "EditData",
+      "Target": "Data/Events/ArcticPassage_Fishery",
+      "Entries": {
+        "ArcticPassage_AdaColdChain/f ArcticPassage_Ada 500/t 900 1500": "continue/12 14/farmer 12 14 2 ArcticPassage_Ada 14 14 3/pause 350/speak ArcticPassage_Ada \"{{i18n:event.Ada.personal.1}}\"/pause 250/speak ArcticPassage_Ada \"{{i18n:event.Ada.personal.2}}\"/end"
+      }
+    },
+    {
+      "LogName": "Data/Events/ArcticPassage_Tundra",
+      "Action": "Load",
+      "Target": "Data/Events/ArcticPassage_Tundra",
+      "FromFile": "assets/data/Tundra_events.json"
+    },
+    {
+      "LogName": "Data/Events/ArcticPassage_Tundra",
+      "Action": "Load",
+      "Target": "Data/Events/ArcticPassage_Tundra",
+      "FromFile": "assets/data/Tundra_events.json"
+    },
+    {
+      "LogName": "Data/Events/ArcticPassage_Tundra",
+      "Action": "EditData",
+      "Target": "Data/Events/ArcticPassage_Tundra",
+      "Entries": {
+        "ArcticPassage_MiraTrailSigns/f ArcticPassage_Mira 500/t 900 1600": "continue/28 34/farmer 28 34 2 ArcticPassage_Mira 29 34 3/pause 350/speak ArcticPassage_Mira \"{{i18n:event.Mira.personal.1}}\"/pause 250/speak ArcticPassage_Mira \"{{i18n:event.Mira.personal.2}}\"/end"
+      }
+    },
+    {
+      "LogName": "Data/Events/ArcticPassage_Harbor",
+      "Action": "Load",
+      "Target": "Data/Events/ArcticPassage_Harbor",
+      "FromFile": "assets/data/Harbor_events.json"
+    },
+    {
+      "LogName": "Data/Events/ArcticPassage_Airstrip",
+      "Action": "Load",
+      "Target": "Data/Events/ArcticPassage_Airstrip",
+      "FromFile": "assets/data/Airstrip_events.json"
+    },
+    {
+      "LogName": "Data/Events/ArcticPassage_Airstrip",
+      "Action": "Load",
+      "Target": "Data/Events/ArcticPassage_Airstrip",
+      "FromFile": "assets/data/Airstrip_events.json"
+    },
+    {
+      "LogName": "Data/Events/ArcticPassage_Airstrip",
+      "Action": "EditData",
+      "Target": "Data/Events/ArcticPassage_Airstrip",
+      "Entries": {
+        "ArcticPassage_NoraWindCheck/f ArcticPassage_Nora 500/t 900 1700/w sunny": "continue/32 27/farmer 32 28 2 ArcticPassage_Nora 34 27 3/pause 350/speak ArcticPassage_Nora \"{{i18n:event.Nora.personal.1}}\"/pause 250/speak ArcticPassage_Nora \"{{i18n:event.Nora.personal.2}}\"/end"
+      }
+    },
+    {
+      "LogName": "Data/Events/ArcticPassage_ResearchStation",
+      "Action": "Load",
+      "Target": "Data/Events/ArcticPassage_ResearchStation",
+      "FromFile": "assets/data/ResearchStation_events.json"
+    },
+    {
+      "LogName": "Data/Events/ArcticPassage_ResearchStation",
+      "Action": "Load",
+      "Target": "Data/Events/ArcticPassage_ResearchStation",
+      "FromFile": "assets/data/ResearchStation_events.json"
+    },
+    {
+      "LogName": "Data/Events/ArcticPassage_ResearchStation",
+      "Action": "EditData",
+      "Target": "Data/Events/ArcticPassage_ResearchStation",
+      "Entries": {
+        "ArcticPassage_LevinFieldNotes/f ArcticPassage_Levin 500/t 1000 1800": "continue/14 8/farmer 15 8 2 ArcticPassage_Levin 17 8 3/pause 350/speak ArcticPassage_Levin \"{{i18n:event.Levin.personal.1}}\"/pause 250/speak ArcticPassage_Levin \"{{i18n:event.Levin.personal.2}}\"/end"
+      }
+    },
+    {
+      "LogName": "Data/Events/ArcticPassage_WinterCamp",
+      "Action": "Load",
+      "Target": "Data/Events/ArcticPassage_WinterCamp",
+      "FromFile": "assets/data/WinterCamp_events.json"
+    },
+    {
+      "LogName": "Data/Events/ArcticPassage_WinterCamp",
+      "Action": "Load",
+      "Target": "Data/Events/ArcticPassage_WinterCamp",
+      "FromFile": "assets/data/WinterCamp_events.json"
+    },
+    {
+      "LogName": "Data/Events/ArcticPassage_WinterCamp",
+      "Action": "EditData",
+      "Target": "Data/Events/ArcticPassage_WinterCamp",
+      "Entries": {
+        "ArcticPassage_AmmaTeamCheck/f ArcticPassage_Amma 500/t 900 1700": "continue/18 36/farmer 18 37 2 ArcticPassage_Amma 20 37 3/pause 350/speak ArcticPassage_Amma \"{{i18n:event.Amma.personal.1}}\"/pause 250/speak ArcticPassage_Amma \"{{i18n:event.Amma.personal.2}}\"/end"
       }
     },
     {
@@ -2277,6 +2736,54 @@
       "Action": "EditData",
       "Entries": {
         "ArcticPassage_Airport": "{{i18n:flight.airport}}"
+      }
+    },
+    {
+      "Action": "Load",
+      "Target": "Maps/ArcticPassage_Harbor",
+      "LogName": "R01 facilities: Maps/ArcticPassage_Harbor",
+      "FromFile": "assets/maps/HarborReady_{{MapSeason}}.tmx",
+      "When": {
+        "HasFlag |contains=ArcticPassage_Shed": true
+      }
+    },
+    {
+      "Action": "EditMap",
+      "Target": "Maps/ArcticPassage_Guesthouse",
+      "LogName": "R01 facilities: Maps/ArcticPassage_Guesthouse",
+      "MapTiles": [
+        {
+          "Position": {
+            "X": 17,
+            "Y": 7
+          },
+          "Layer": "Buildings",
+          "SetProperties": {
+            "Action": "Mailbox"
+          }
+        }
+      ]
+    },
+    {
+      "Action": "EditData",
+      "Target": "Strings/StringsFromMaps",
+      "LogName": "R01 facilities: Strings/StringsFromMaps",
+      "Entries": {
+        "ArcticPassage_Workshop": "{{i18n:r01.workshop}}"
+      }
+    },
+    {
+      "Action": "Load",
+      "Target": "Data/Events/ArcticPassage_Harbor",
+      "LogName": "R01 facilities: Data/Events/ArcticPassage_Harbor",
+      "FromFile": "assets/data/Harbor_events.json"
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/Events/ArcticPassage_Harbor",
+      "LogName": "R01 facilities: Data/Events/ArcticPassage_Harbor",
+      "Entries": {
+        "ArcticPassage_WorkshopOpening/LocalMail ArcticPassage_Shed/Time 600 2200": "continue/21 33/farmer 21 35 0 ArcticPassage_Roan 21 33 2/skippable/pause 500/playSound crafting/pause 500/speak ArcticPassage_Roan \"{{i18n:r01.opening.1}}\"/pause 500/speak ArcticPassage_Roan \"{{i18n:r01.opening.2}}\"/speak ArcticPassage_Roan \"{{i18n:r01.opening.3}}\"/end"
       }
     },
     {
@@ -2435,146 +2942,6 @@
       }
     },
     {
-      "Action": "Load",
-      "Target": "Maps/ArcticPassage_Harbor",
-      "LogName": "R01 facilities: Maps/ArcticPassage_Harbor",
-      "FromFile": "assets/maps/HarborReady_{{MapSeason}}.tmx",
-      "When": {
-        "HasFlag |contains=ArcticPassage_Shed": true
-      }
-    },
-    {
-      "Action": "EditMap",
-      "Target": "Maps/ArcticPassage_Guesthouse",
-      "LogName": "R01 facilities: Maps/ArcticPassage_Guesthouse",
-      "MapTiles": [
-        {
-          "Position": {
-            "X": 17,
-            "Y": 7
-          },
-          "Layer": "Buildings",
-          "SetProperties": {
-            "Action": "Mailbox"
-          }
-        }
-      ]
-    },
-    {
-      "Action": "EditData",
-      "Target": "Strings/StringsFromMaps",
-      "LogName": "R01 facilities: Strings/StringsFromMaps",
-      "Entries": {
-        "ArcticPassage_Workshop": "{{i18n:r01.workshop}}"
-      }
-    },
-    {
-      "Action": "Load",
-      "Target": "Data/Events/ArcticPassage_Harbor",
-      "LogName": "R01 facilities: Data/Events/ArcticPassage_Harbor",
-      "FromFile": "assets/data/Harbor_events.json"
-    },
-    {
-      "Action": "EditData",
-      "Target": "Data/Events/ArcticPassage_Harbor",
-      "LogName": "R01 facilities: Data/Events/ArcticPassage_Harbor",
-      "Entries": {
-        "ArcticPassage_WorkshopOpening/LocalMail ArcticPassage_Shed/Time 600 2200": "continue/21 33/farmer 21 35 0 ArcticPassage_Roan 21 33 2/skippable/pause 500/playSound crafting/pause 500/speak ArcticPassage_Roan \"{{i18n:r01.opening.1}}\"/pause 500/speak ArcticPassage_Roan \"{{i18n:r01.opening.2}}\"/speak ArcticPassage_Roan \"{{i18n:r01.opening.3}}\"/end"
-      }
-    },
-    {
-      "Action": "EditData",
-      "Target": "Data/SpecialOrders",
-      "LogName": "R01 weekly: Data/SpecialOrders",
-      "Entries": {
-        "ArcticPassage_CoastalLog": {
-          "Name": "{{i18n:weekly.CoastalLog.name}}",
-          "Requester": "ArcticPassage_Ada",
-          "Duration": "Week",
-          "Repeatable": true,
-          "Condition": "PLAYER_HAS_MAIL Host ArcticPassage_Shed",
-          "OrderType": "ArcticPassage_Weekly",
-          "Text": "{{i18n:weekly.CoastalLog.desc}}",
-          "Objectives": [
-            {
-              "Type": "Fish",
-              "Text": "{{i18n:weekly.CoastalLog.objective}}",
-              "RequiredCount": "6",
-              "Data": {
-                "AcceptedContextTags": "arcticpassage_rod_fish"
-              }
-            }
-          ],
-          "Rewards": [
-            {
-              "Type": "Money",
-              "Data": {
-                "Amount": "600"
-              }
-            }
-          ]
-        },
-        "ArcticPassage_FreshCrates": {
-          "Name": "{{i18n:weekly.FreshCrates.name}}",
-          "Requester": "ArcticPassage_Ada",
-          "Duration": "Week",
-          "Repeatable": true,
-          "Condition": "PLAYER_HAS_MAIL Host ArcticPassage_Shed",
-          "OrderType": "ArcticPassage_Weekly",
-          "Text": "{{i18n:weekly.FreshCrates.desc}}",
-          "Objectives": [
-            {
-              "Type": "Donate",
-              "Text": "{{i18n:weekly.FreshCrates.objective}}",
-              "RequiredCount": "6",
-              "Data": {
-                "AcceptedContextTags": "arcticpassage_rod_fish",
-                "DropBox": "ArcticPassage_FishCrate",
-                "DropBoxGameLocation": "ArcticPassage_CommunityHouse",
-                "DropBoxIndicatorLocation": "3 5",
-                "MinimumCapacity": "9"
-              }
-            }
-          ],
-          "Rewards": [
-            {
-              "Type": "Money",
-              "Data": {
-                "Amount": "650"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "Action": "EditMap",
-      "Target": "Maps/ArcticPassage_CommunityHouse",
-      "LogName": "R01 weekly: Maps/ArcticPassage_CommunityHouse",
-      "MapTiles": [
-        {
-          "Position": {
-            "X": 5,
-            "Y": 5
-          },
-          "Layer": "Buildings",
-          "SetProperties": {
-            "Action": "ArcticPassageWeekly"
-          }
-        },
-        {
-          "Position": {
-            "X": 3,
-            "Y": 5
-          },
-          "Layer": "Buildings",
-          "SetProperties": {
-            "Action": "ArcticPassageFishCrate"
-          }
-        }
-      ]
-    },
-    {
       "LogName": "R03 ice: existing platform marker",
       "Action": "EditMap",
       "Target": "Maps/ArcticPassage_Icefjord",
@@ -2714,6 +3081,606 @@
         "ArcticPassage_SledSupplies": "Basic/{{i18n:sled.quest.Supplies}}/{{i18n:sled.supplies}}/{{i18n:sled.supplies}}//-1/0/-1/false",
         "ArcticPassage_SledRepair": "Basic/{{i18n:sled.quest.Repair}}/{{i18n:sled.repair}}/{{i18n:sled.repair}}//-1/0/-1/false",
         "ArcticPassage_SledTrial": "Basic/{{i18n:sled.quest.Trial}}/{{i18n:sled.trial}}/{{i18n:sled.trial}}//-1/0/-1/false"
+      }
+    },
+    {
+      "Action": "EditMap",
+      "Target": "Maps/ArcticPassage_WinterCamp",
+      "LogName": "R02 snow-block model",
+      "MapTiles": [
+        {
+          "Position": {
+            "X": 20,
+            "Y": 35
+          },
+          "Layer": "Buildings",
+          "SetProperties": {
+            "Action": "ArcticPassageSnowShelter"
+          }
+        }
+      ]
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/Objects",
+      "LogName": "R01 daily: spring",
+      "Fields": {
+        "ArcticPassage_RegularReceipt": {
+          "Description": "{{i18n:order.Regular.spring.desc}}"
+        },
+        "ArcticPassage_RestaurantReceipt": {
+          "Description": "{{i18n:order.Restaurant.spring.desc}}"
+        },
+        "ArcticPassage_ResearchReceipt": {
+          "Description": "{{i18n:order.Research.spring.desc}}"
+        }
+      },
+      "When": {
+        "Season": "spring"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/Objects",
+      "LogName": "R01 daily: summer",
+      "Fields": {
+        "ArcticPassage_RegularReceipt": {
+          "Description": "{{i18n:order.Regular.summer.desc}}"
+        },
+        "ArcticPassage_RestaurantReceipt": {
+          "Description": "{{i18n:order.Restaurant.summer.desc}}"
+        },
+        "ArcticPassage_ResearchReceipt": {
+          "Description": "{{i18n:order.Research.summer.desc}}"
+        }
+      },
+      "When": {
+        "Season": "summer"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/Objects",
+      "LogName": "R01 daily: fall",
+      "Fields": {
+        "ArcticPassage_RegularReceipt": {
+          "Description": "{{i18n:order.Regular.fall.desc}}"
+        },
+        "ArcticPassage_RestaurantReceipt": {
+          "Description": "{{i18n:order.Restaurant.fall.desc}}"
+        },
+        "ArcticPassage_ResearchReceipt": {
+          "Description": "{{i18n:order.Research.fall.desc}}"
+        }
+      },
+      "When": {
+        "Season": "fall"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/Objects",
+      "LogName": "R01 daily: winter",
+      "Fields": {
+        "ArcticPassage_RegularReceipt": {
+          "Description": "{{i18n:order.Regular.winter.desc}}"
+        },
+        "ArcticPassage_RestaurantReceipt": {
+          "Description": "{{i18n:order.Restaurant.winter.desc}}"
+        },
+        "ArcticPassage_ResearchReceipt": {
+          "Description": "{{i18n:order.Research.winter.desc}}"
+        }
+      },
+      "When": {
+        "Season": "winter"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/Events/ArcticPassage_Harbor",
+      "LogName": "Resident personal event: Roan signal lamp",
+      "Entries": {
+        "ArcticPassage_RoanSignalLamp/f ArcticPassage_Roan 500/t 900 1700": "continue/22 24/farmer 22 25 2 ArcticPassage_Roan 20 25 3/pause 350/speak ArcticPassage_Roan \"{{i18n:event.Roan.personal.1}}\"/pause 250/speak ArcticPassage_Roan \"{{i18n:event.Roan.personal.2}}\"/end"
+      }
+    },
+    {
+      "Action": "Load",
+      "Target": "Mods/WhiteBay.ArcticPassage/FieldAtlasDisplay",
+      "LogName": "R05 fieldwork reward: Mods/WhiteBay.ArcticPassage/FieldAtlasDisplay",
+      "FromFile": "assets/items/field-atlas-display.png"
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/BigCraftables",
+      "LogName": "R05 fieldwork reward: Data/BigCraftables",
+      "Entries": {
+        "ArcticPassage_FieldAtlasDisplay": {
+          "Name": "ArcticPassage_FieldAtlasDisplay",
+          "DisplayName": "{{i18n:research.reward.name}}",
+          "Description": "{{i18n:research.reward.desc}}",
+          "Price": 0,
+          "Fragility": 0,
+          "CanBePlacedIndoors": true,
+          "CanBePlacedOutdoors": false,
+          "Texture": "Mods/WhiteBay.ArcticPassage/FieldAtlasDisplay",
+          "SpriteIndex": 0
+        }
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/mail",
+      "LogName": "R05 fieldwork reward: Data/mail",
+      "Entries": {
+        "ArcticPassage_ResearchDisplay": "{{i18n:mail.researchReward}}"
+      }
+    },
+    {
+      "Action": "Load",
+      "Target": "Mods/WhiteBay.ArcticPassage/OldShipModel",
+      "LogName": "R08 authored discoveries: Mods/WhiteBay.ArcticPassage/OldShipModel",
+      "FromFile": "assets/items/old-ship-model.png"
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/BigCraftables",
+      "LogName": "R08 authored discoveries: Data/BigCraftables",
+      "Entries": {
+        "ArcticPassage_OldShipModel": {
+          "Name": "ArcticPassage_OldShipModel",
+          "DisplayName": "{{i18n:secret.shipModel.name}}",
+          "Description": "{{i18n:secret.shipModel.desc}}",
+          "Price": 0,
+          "Fragility": 0,
+          "CanBePlacedIndoors": true,
+          "CanBePlacedOutdoors": false,
+          "Texture": "Mods/WhiteBay.ArcticPassage/OldShipModel",
+          "SpriteIndex": 0
+        }
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/mail",
+      "LogName": "R08 authored discoveries: Data/mail",
+      "Entries": {
+        "ArcticPassage_OldShipModelMail": "{{i18n:mail.oldShipModel}}"
+      }
+    },
+    {
+      "Action": "Load",
+      "Target": "Data/Festivals/spring9",
+      "FromFile": "assets/festivals/spring9.json",
+      "LogName": "R08 native festivals: spring9"
+    },
+    {
+      "Action": "Load",
+      "Target": "Mods/WhiteBay.ArcticPassage/FestivalSpring",
+      "FromFile": "assets/items/harbor-knot.png",
+      "LogName": "R08 native festivals: Mods/WhiteBay.ArcticPassage/FestivalSpring"
+    },
+    {
+      "Action": "Load",
+      "Target": "Data/Festivals/summer18",
+      "FromFile": "assets/festivals/summer18.json",
+      "LogName": "R08 native festivals: summer18"
+    },
+    {
+      "Action": "Load",
+      "Target": "Mods/WhiteBay.ArcticPassage/FestivalSummer",
+      "FromFile": "assets/items/midnight-sun-display.png",
+      "LogName": "R08 native festivals: Mods/WhiteBay.ArcticPassage/FestivalSummer"
+    },
+    {
+      "Action": "Load",
+      "Target": "Data/Festivals/winter21",
+      "FromFile": "assets/festivals/winter21.json",
+      "LogName": "R08 native festivals: winter21"
+    },
+    {
+      "Action": "Load",
+      "Target": "Mods/WhiteBay.ArcticPassage/FestivalWinter",
+      "FromFile": "assets/items/winter-lantern.png",
+      "LogName": "R08 native festivals: Mods/WhiteBay.ArcticPassage/FestivalWinter"
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/Festivals/FestivalDates",
+      "LogName": "R08 native festivals: Data/Festivals/FestivalDates",
+      "Entries": {
+        "spring9": "{{i18n:festival.spring.name}}",
+        "summer18": "{{i18n:festival.summer.name}}",
+        "winter21": "{{i18n:festival.winter.name}}"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/BigCraftables",
+      "LogName": "R08 native festivals: Data/BigCraftables",
+      "Entries": {
+        "ArcticPassage_HarborKnot": {
+          "Name": "ArcticPassage_HarborKnot",
+          "DisplayName": "{{i18n:festival.reward.spring.name}}",
+          "Description": "{{i18n:festival.reward.spring.desc}}",
+          "Price": 0,
+          "Fragility": 0,
+          "CanBePlacedIndoors": true,
+          "CanBePlacedOutdoors": false,
+          "Texture": "Mods/WhiteBay.ArcticPassage/FestivalSpring",
+          "SpriteIndex": 0
+        },
+        "ArcticPassage_MidnightSunDisplay": {
+          "Name": "ArcticPassage_MidnightSunDisplay",
+          "DisplayName": "{{i18n:festival.reward.summer.name}}",
+          "Description": "{{i18n:festival.reward.summer.desc}}",
+          "Price": 0,
+          "Fragility": 0,
+          "CanBePlacedIndoors": true,
+          "CanBePlacedOutdoors": false,
+          "Texture": "Mods/WhiteBay.ArcticPassage/FestivalSummer",
+          "SpriteIndex": 0
+        },
+        "ArcticPassage_WinterLantern": {
+          "Name": "ArcticPassage_WinterLantern",
+          "DisplayName": "{{i18n:festival.reward.winter.name}}",
+          "Description": "{{i18n:festival.reward.winter.desc}}",
+          "Price": 0,
+          "Fragility": 0,
+          "CanBePlacedIndoors": true,
+          "CanBePlacedOutdoors": false,
+          "Texture": "Mods/WhiteBay.ArcticPassage/FestivalWinter",
+          "SpriteIndex": 0
+        }
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/SpecialOrders",
+      "LogName": "R01 weekly: Data/SpecialOrders",
+      "Entries": {
+        "ArcticPassage_CoastalLog": {
+          "Name": "{{i18n:weekly.CoastalLog.name}}",
+          "Requester": "ArcticPassage_Ada",
+          "Duration": "Week",
+          "Repeatable": true,
+          "Condition": "PLAYER_HAS_MAIL Host ArcticPassage_Shed",
+          "OrderType": "ArcticPassage_Weekly",
+          "Text": "{{i18n:weekly.CoastalLog.desc}}",
+          "Objectives": [
+            {
+              "Type": "Fish",
+              "Text": "{{i18n:weekly.CoastalLog.objective}}",
+              "RequiredCount": "6",
+              "Data": {
+                "AcceptedContextTags": "arcticpassage_rod_fish"
+              }
+            }
+          ],
+          "Rewards": [
+            {
+              "Type": "Money",
+              "Data": {
+                "Amount": "600"
+              }
+            }
+          ]
+        },
+        "ArcticPassage_FreshCrates": {
+          "Name": "{{i18n:weekly.FreshCrates.name}}",
+          "Requester": "ArcticPassage_Ada",
+          "Duration": "Week",
+          "Repeatable": true,
+          "Condition": "PLAYER_HAS_MAIL Host ArcticPassage_Shed",
+          "OrderType": "ArcticPassage_Weekly",
+          "Text": "{{i18n:weekly.FreshCrates.desc}}",
+          "Objectives": [
+            {
+              "Type": "Donate",
+              "Text": "{{i18n:weekly.FreshCrates.objective}}",
+              "RequiredCount": "6",
+              "Data": {
+                "AcceptedContextTags": "arcticpassage_rod_fish",
+                "DropBox": "ArcticPassage_FishCrate",
+                "DropBoxGameLocation": "ArcticPassage_CommunityHouse",
+                "DropBoxIndicatorLocation": "3 5",
+                "MinimumCapacity": "9"
+              }
+            }
+          ],
+          "Rewards": [
+            {
+              "Type": "Money",
+              "Data": {
+                "Amount": "650"
+              }
+            }
+          ]
+        },
+        "ArcticPassage_StormSupplies": {
+          "Name": "{{i18n:story.order.supplies.name}}",
+          "Requester": "ArcticPassage_Ada",
+          "Duration": "Week",
+          "Repeatable": true,
+          "Condition": "PLAYER_HAS_MAIL Current ArcticPassage_StormSuppliesUnlocked, !PLAYER_HAS_MAIL Current ArcticPassage_StormSuppliesComplete",
+          "OrderType": "ArcticPassage_Story",
+          "Text": "{{i18n:story.order.supplies.desc}}",
+          "Objectives": [
+            {
+              "Type": "Donate",
+              "Text": "{{i18n:story.order.supplies.objective}}",
+              "RequiredCount": "20",
+              "Data": {
+                "AcceptedContextTags": "id_o_771",
+                "DropBox": "ArcticPassage_StormSupplies",
+                "DropBoxGameLocation": "ArcticPassage_CommunityHouse",
+                "DropBoxIndicatorLocation": "3 5",
+                "MinimumCapacity": "24"
+              }
+            }
+          ],
+          "Rewards": [
+            {
+              "Type": "Money",
+              "Data": {
+                "Amount": "100"
+              }
+            }
+          ]
+        },
+        "ArcticPassage_StormFish": {
+          "Name": "{{i18n:story.order.fish.name}}",
+          "Requester": "ArcticPassage_Ada",
+          "Duration": "Week",
+          "Repeatable": true,
+          "Condition": "PLAYER_HAS_MAIL Current ArcticPassage_StormFishUnlocked, !PLAYER_HAS_MAIL Current ArcticPassage_StormFishComplete",
+          "OrderType": "ArcticPassage_Story",
+          "Text": "{{i18n:story.order.fish.desc}}",
+          "Objectives": [
+            {
+              "Type": "Fish",
+              "Text": "{{i18n:story.order.fish.objective}}",
+              "RequiredCount": "1",
+              "Data": {
+                "AcceptedContextTags": "arcticpassage_rod_fish"
+              }
+            }
+          ],
+          "Rewards": [
+            {
+              "Type": "Money",
+              "Data": {
+                "Amount": "120"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "Action": "EditMap",
+      "Target": "Maps/ArcticPassage_CommunityHouse",
+      "LogName": "R01 weekly: Maps/ArcticPassage_CommunityHouse",
+      "MapTiles": [
+        {
+          "Position": {
+            "X": 5,
+            "Y": 5
+          },
+          "Layer": "Buildings",
+          "SetProperties": {
+            "Action": "ArcticPassageWeekly"
+          }
+        },
+        {
+          "Position": {
+            "X": 3,
+            "Y": 5
+          },
+          "Layer": "Buildings",
+          "SetProperties": {
+            "Action": "ArcticPassageFishCrate"
+          }
+        }
+      ]
+    },
+    {
+      "Action": "Load",
+      "Target": "Mods/WhiteBay.ArcticPassage/FieldReport",
+      "LogName": "R07 chapters 6-10: Mods/WhiteBay.ArcticPassage/FieldReport",
+      "FromFile": "assets/items/field-report.png"
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/Objects",
+      "LogName": "R07 chapters 6-10: Data/Objects",
+      "Entries": {
+        "ArcticPassage_FieldReport": {
+          "Name": "ArcticPassage_FieldReport",
+          "DisplayName": "{{i18n:story.report.name}}",
+          "Description": "{{i18n:story.report.desc}}",
+          "Type": "Basic",
+          "Category": -999,
+          "Price": 0,
+          "Edibility": -300,
+          "Texture": "Mods/WhiteBay.ArcticPassage/FieldReport",
+          "SpriteIndex": 0,
+          "CanBeGivenAsGift": false,
+          "CanBeTrashed": false,
+          "ExcludeFromFishingCollection": true,
+          "ExcludeFromShippingCollection": true
+        }
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/Objects",
+      "LogName": "R07 chapters 6-10: Data/Objects",
+      "Entries": {
+        "ArcticPassage_PortTradeReceipt": {
+          "Name": "ArcticPassage_PortTradeReceipt",
+          "DisplayName": "{{i18n:story.trade.first.name}}",
+          "Description": "{{i18n:story.trade.desc}}",
+          "Type": "Basic",
+          "Category": -999,
+          "Price": 0,
+          "Edibility": -300,
+          "Texture": "Mods/WhiteBay.ArcticPassage/FieldReport",
+          "SpriteIndex": 0,
+          "CanBeGivenAsGift": false,
+          "ExcludeFromShippingCollection": true
+        },
+        "ArcticPassage_ExportReceipt": {
+          "Name": "ArcticPassage_ExportReceipt",
+          "DisplayName": "{{i18n:story.trade.daily.name}}",
+          "Description": "{{i18n:story.trade.desc}}",
+          "Type": "Basic",
+          "Category": -999,
+          "Price": 0,
+          "Edibility": -300,
+          "Texture": "Mods/WhiteBay.ArcticPassage/FieldReport",
+          "SpriteIndex": 0,
+          "CanBeGivenAsGift": false,
+          "ExcludeFromShippingCollection": true
+        }
+      }
+    },
+    {
+      "Action": "Load",
+      "Target": "Mods/WhiteBay.ArcticPassage/IceShelterModel",
+      "LogName": "R07 chapters 6-10: Mods/WhiteBay.ArcticPassage/IceShelterModel",
+      "FromFile": "assets/items/ice-shelter-model.png"
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/BigCraftables",
+      "LogName": "R07 chapters 6-10: Data/BigCraftables",
+      "Entries": {
+        "ArcticPassage_IceShelterModel": {
+          "Name": "ArcticPassage_IceShelterModel",
+          "DisplayName": "{{i18n:story.iceModel.name}}",
+          "Description": "{{i18n:story.iceModel.desc}}",
+          "Price": 0,
+          "Fragility": 0,
+          "CanBePlacedIndoors": true,
+          "CanBePlacedOutdoors": false,
+          "Texture": "Mods/WhiteBay.ArcticPassage/IceShelterModel",
+          "SpriteIndex": 0
+        }
+      }
+    },
+    {
+      "Action": "Load",
+      "Target": "Mods/WhiteBay.ArcticPassage/WindbreakScreen",
+      "LogName": "R07 chapters 6-10: Mods/WhiteBay.ArcticPassage/WindbreakScreen",
+      "FromFile": "assets/items/windbreak-screen.png"
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/BigCraftables",
+      "LogName": "R07 chapters 6-10: Data/BigCraftables",
+      "Entries": {
+        "ArcticPassage_WindbreakScreen": {
+          "Name": "ArcticPassage_WindbreakScreen",
+          "DisplayName": "{{i18n:story.windbreak.name}}",
+          "Description": "{{i18n:story.windbreak.desc}}",
+          "Price": 0,
+          "Fragility": 0,
+          "CanBePlacedIndoors": true,
+          "CanBePlacedOutdoors": false,
+          "Texture": "Mods/WhiteBay.ArcticPassage/WindbreakScreen",
+          "SpriteIndex": 0
+        }
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/Quests",
+      "LogName": "R07 chapters 6-10: Data/Quests",
+      "Entries": {
+        "ArcticPassage_FieldReport": "ItemDelivery/{{i18n:story.quest.FieldReport.title}}/{{i18n:story.quest.FieldReport.desc}}/{{i18n:story.quest.FieldReport.hint}}/ArcticPassage_Levin (O)ArcticPassage_FieldReport 1/ArcticPassage_StormReadiness/120/-1/false/{{i18n:story.quest.FieldReport.reply}}",
+        "ArcticPassage_StormReadiness": "Location/{{i18n:story.quest.StormReadiness.title}}/{{i18n:story.quest.StormReadiness.desc}}/{{i18n:story.quest.StormReadiness.hint}}/ArcticPassage_CommunityHouse/ArcticPassage_StormSupplies/80/-1/false/{{i18n:story.quest.StormReadiness.reply}}",
+        "ArcticPassage_StormSupplies": "Basic/{{i18n:story.quest.StormSupplies.title}}/{{i18n:story.quest.StormSupplies.desc}}/{{i18n:story.quest.StormSupplies.hint}}//ArcticPassage_StormFish/100/-1/false/{{i18n:story.quest.StormSupplies.reply}}",
+        "ArcticPassage_StormFish": "Basic/{{i18n:story.quest.StormFish.title}}/{{i18n:story.quest.StormFish.desc}}/{{i18n:story.quest.StormFish.hint}}//ArcticPassage_StormRoute/140/-1/false/{{i18n:story.quest.StormFish.reply}}",
+        "ArcticPassage_StormRoute": "Basic/{{i18n:story.quest.StormRoute.title}}/{{i18n:story.quest.StormRoute.desc}}/{{i18n:story.quest.StormRoute.hint}}//ArcticPassage_CampVisit/180/-1/false/{{i18n:story.quest.StormRoute.reply}}",
+        "ArcticPassage_CampVisit": "Location/{{i18n:story.quest.CampVisit.title}}/{{i18n:story.quest.CampVisit.desc}}/{{i18n:story.quest.CampVisit.hint}}/ArcticPassage_WinterCamp/ArcticPassage_ShelterLesson/160/-1/false/{{i18n:story.quest.CampVisit.reply}}",
+        "ArcticPassage_ShelterLesson": "Basic/{{i18n:story.quest.ShelterLesson.title}}/{{i18n:story.quest.ShelterLesson.desc}}/{{i18n:story.quest.ShelterLesson.hint}}//ArcticPassage_IceCatch/90/-1/false/{{i18n:story.quest.ShelterLesson.reply}}",
+        "ArcticPassage_IceCatch": "Basic/{{i18n:story.quest.IceCatch.title}}/{{i18n:story.quest.IceCatch.desc}}/{{i18n:story.quest.IceCatch.hint}}//ArcticPassage_MultiWaterCatch/180/-1/false/{{i18n:story.quest.IceCatch.reply}}",
+        "ArcticPassage_MultiWaterCatch": "Basic/{{i18n:story.quest.MultiWaterCatch.title}}/{{i18n:story.quest.MultiWaterCatch.desc}}/{{i18n:story.quest.MultiWaterCatch.hint}}//ArcticPassage_DriedOrder/160/-1/false/{{i18n:story.quest.MultiWaterCatch.reply}}",
+        "ArcticPassage_DriedOrder": "Basic/{{i18n:story.quest.DriedOrder.title}}/{{i18n:story.quest.DriedOrder.desc}}/{{i18n:story.quest.DriedOrder.hint}}//ArcticPassage_FinalePreparation/320/-1/false/{{i18n:story.quest.DriedOrder.reply}}",
+        "ArcticPassage_FinalePreparation": "ItemDelivery/{{i18n:story.quest.FinalePreparation.title}}/{{i18n:story.quest.FinalePreparation.desc}}/{{i18n:story.quest.FinalePreparation.hint}}/ArcticPassage_Nora (O)388 10/ArcticPassage_WarmHarbor/120/-1/false/{{i18n:story.quest.FinalePreparation.reply}}",
+        "ArcticPassage_WarmHarbor": "Basic/{{i18n:story.quest.WarmHarbor.title}}/{{i18n:story.quest.WarmHarbor.desc}}/{{i18n:story.quest.WarmHarbor.hint}}//-1/500/-1/false/{{i18n:story.quest.WarmHarbor.reply}}"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Characters/Dialogue/ArcticPassage_Mira",
+      "LogName": "R07 chapters 6-10: Characters/Dialogue/ArcticPassage_Mira",
+      "Entries": {
+        "ArcticPassage_StormRoute": "{{i18n:story.routeConfirm}}"
+      }
+    },
+    {
+      "Action": "Load",
+      "Target": "Maps/ArcticPassage_FinaleWinter",
+      "LogName": "R07 chapters 6-10: Maps/ArcticPassage_FinaleWinter",
+      "FromFile": "assets/maps/Town_winter.tmx"
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/Events/ArcticPassage_Town",
+      "LogName": "R07 chapters 6-10: Data/Events/ArcticPassage_Town",
+      "Entries": {
+        "ArcticPassage_HarborHomecoming/m ArcticPassage_FinaleReady/t 1800 2400": "continue/30 23/farmer 29 23 0 ArcticPassage_Nora 30 23 2 ArcticPassage_Roan 32 24 0 ArcticPassage_Ada 33 23 2 ArcticPassage_Mira 31 24 0 ArcticPassage_Levin 35 23 2 ArcticPassage_Amma 34 24 0/skippable/changeToTemporaryMap ArcticPassage_FinaleWinter/viewport 30 23/pause 700/speak ArcticPassage_Nora \"{{i18n:story.finale.nora}}\"/pause 200/speak ArcticPassage_Roan \"{{i18n:story.finale.roan}}\"/pause 200/speak ArcticPassage_Ada \"{{i18n:story.finale.ada}}\"/pause 200/speak ArcticPassage_Mira \"{{i18n:story.finale.mira}}\"/pause 200/speak ArcticPassage_Levin \"{{i18n:story.finale.levin}}\"/pause 200/speak ArcticPassage_Amma \"{{i18n:story.finale.amma}}\"/pause 200/speak ArcticPassage_Nora \"{{i18n:story.finale.end}}\"/pause 200/pause 800/end"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/mail",
+      "LogName": "R07 chapters 6-10: Data/mail",
+      "Entries": {
+        "ArcticPassage_FieldReportLetter": "{{i18n:story.mail.field}}",
+        "ArcticPassage_Chapter10Letter": "{{i18n:story.mail.finale}}",
+        "ArcticPassage_IceLessonReward": "{{i18n:story.mail.iceModel}}",
+        "ArcticPassage_StormRouteReward": "{{i18n:story.mail.windbreak}}"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/SpecialOrders",
+      "LogName": "R07 chapters 6-10: Data/SpecialOrders",
+      "Entries": {
+        "ArcticPassage_ExportBoxes": {
+          "Name": "{{i18n:story.export.name}}",
+          "Requester": "ArcticPassage_Ada",
+          "Duration": "Week",
+          "Repeatable": true,
+          "Condition": "PLAYER_HAS_MAIL Current ArcticPassage_PortTradeComplete",
+          "OrderType": "ArcticPassage_Weekly",
+          "Text": "{{i18n:story.export.desc}}",
+          "Objectives": [
+            {
+              "Type": "Donate",
+              "Text": "{{i18n:story.export.objective}}",
+              "RequiredCount": "4",
+              "Data": {
+                "AcceptedContextTags": "arcticpassage_fish_product",
+                "DropBox": "ArcticPassage_FishCrate",
+                "DropBoxGameLocation": "ArcticPassage_CommunityHouse",
+                "DropBoxIndicatorLocation": "3 5",
+                "MinimumCapacity": "9"
+              }
+            }
+          ],
+          "Rewards": [
+            {
+              "Type": "Money",
+              "Data": {
+                "Amount": "750"
+              }
+            }
+          ]
+        }
       }
     }
   ]
