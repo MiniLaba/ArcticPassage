@@ -73,7 +73,7 @@ def audit(path):
     source_root = ROOT / 'Code/ArcticPassage'
     if source_root.exists():
         for source in source_root.glob('*.cs'):
-            require(not re.search(r'\b(DllImport|LibraryImport|ComImport)\b', source.read_text()),
+            require(not re.search(r'\b(DllImport|LibraryImport|ComImport)\b', source.read_text(encoding="utf-8")),
                     f'Unreviewed platform-native dependency: {source.name}')
 
     def exact(name):
