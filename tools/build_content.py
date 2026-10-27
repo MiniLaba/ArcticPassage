@@ -178,51 +178,17 @@ def paint_new_sprite(name, coat, hair, skin):
  im.save(PACK/f'assets/characters/{name}.png')
 
 def paint_new_portraits(name, coat, hair, skin):
- portrait=Image.new('RGBA',(128,192));pd=ImageDraw.Draw(portrait)
- p={'Nora':('#304e63','#7896a6','#dbe5df','#d18453'),
-    'Levin':('#435948','#89967a','#c7b58c','#d4bb82'),
-    'Amma':('#793f39','#ce8060','#e6ddc7','#c4a76e')}[name]
+ # The code-authored expression masters are shared with the website portraits.
+ # Resize each frame independently: filtering across sheet borders can mix faces.
+ source=ROOT/f'art/source/portrait-{name}-master.png'
+ master=Image.open(source).convert('RGB')
+ assert master.size==(1024,1536),f'Invalid expression master: {source}'
+ sheet=Image.new('RGB',(128,192))
  for emotion in range(6):
-  x=(emotion%2)*64;y=(emotion//2)*64
-  # Soft cold-sky panels are part of the portrait art itself, not a generic face placeholder.
-  pd.rectangle((x,y,x+63,y+63),fill='#d8e3e3');pd.rectangle((x,y+43,x+63,y+63),fill='#b9cbd0')
-  pd.polygon([(x+7,y+63),(x+10,y+49),(x+18,y+43),(x+46,y+43),(x+55,y+50),(x+59,y+63)],fill=coat,outline=p[0])
-  pd.polygon([(x+18,y+46),(x+27,y+42),(x+32,y+55),(x+37,y+42),(x+47,y+46),(x+41,y+61),(x+23,y+61)],fill=p[2])
-  pd.rectangle((x+28,y+39,x+36,y+49),fill=skin);pd.ellipse((x+17,y+12,x+47,y+47),fill=skin,outline='#825f51')
-  pd.rectangle((x+20,y+17,x+44,y+24),fill=hair);pd.rectangle((x+17,y+21,x+21,y+35),fill=hair);pd.rectangle((x+43,y+21,x+47,y+35),fill=hair)
-  if name=='Nora':
-   pd.pieslice((x+13,y+7,x+51,y+48),180,360,fill=p[0],outline='#263d4d');pd.rectangle((x+15,y+24,x+21,y+43),fill=p[2]);pd.rectangle((x+43,y+24,x+49,y+43),fill=p[2])
-   pd.rectangle((x+22,y+9,x+42,y+14),fill=coat);pd.rectangle((x+22,y+9,x+42,y+11),fill=p[1])
-   pd.rectangle((x+13,y+25,x+17,y+35),fill='#a9c4ce',outline=p[0]);pd.line((x+17,y+30,x+21,y+30),fill=p[0],width=2)
-   pd.polygon([(x+28,y+46),(x+36,y+46),(x+39,y+57),(x+25,y+57)],fill=p[3]);pd.rectangle((x+43,y+48,x+51,y+56),fill='#344b5b',outline=p[0]);pd.point((x+48,y+51),fill=p[2])
-   for gx in (22,39):pd.rectangle((x+gx,y+15,x+gx+4,y+18),fill='#405b6d',outline=p[2])
-  elif name=='Levin':
-   pd.rectangle((x+17,y+8,x+47,y+18),fill=p[0]);pd.rectangle((x+21,y+4,x+43,y+11),fill=coat);pd.rectangle((x+22,y+10,x+42,y+13),fill=p[3])
-   pd.polygon([(x+18,y+34),(x+24,y+39),(x+25,y+46),(x+19,y+43)],fill=hair);pd.polygon([(x+45,y+34),(x+40,y+41),(x+45,y+44)],fill=hair)
-   pd.rectangle((x+22,y+25,x+31,y+31),outline=p[2]);pd.rectangle((x+34,y+25,x+43,y+31),outline=p[2]);pd.line((x+31,y+28,x+34,y+28),fill=p[2],width=2)
-   pd.polygon([(x+24,y+44),(x+40,y+44),(x+37,y+53),(x+27,y+53)],fill=p[3]);pd.line((x+19,y+48,x+31,y+60),fill=p[3],width=3)
-   pd.rectangle((x+42,y+47,x+55,y+61),fill='#c8ae7c',outline=p[0]);pd.line((x+45,y+51,x+52,y+51),fill='#766a51')
-   pd.polygon([(x+23,y+35),(x+26,y+42),(x+31,y+45),(x+37,y+45),(x+42,y+41),(x+45,y+35)],fill=hair)
-  else:
-   pd.pieslice((x+13,y+7,x+51,y+49),175,365,fill=p[2],outline='#9b8063');pd.rectangle((x+17,y+21,x+21,y+43),fill=p[2]);pd.rectangle((x+43,y+21,x+47,y+43),fill=p[2])
-   pd.polygon([(x+42,y+31),(x+49,y+37),(x+48,y+48),(x+44,y+54),(x+41,y+47)],fill=hair,outline='#6b655f')
-   for by in (37,42,47):pd.point((x+46,y+by),fill='#ece4d2')
-   pd.polygon([(x+25,y+45),(x+39,y+45),(x+38,y+55),(x+27,y+55)],fill=p[3]);pd.line((x+28,y+48,x+36,y+48),fill='#e1c59c')
-  # Six genuine facial states: neutral, welcoming, concerned, confident, laughing and reflective.
-  eye_y=[27,27,28,26,26,27][emotion]
-  for ex in (25,39):
-   if emotion==2:pd.line((x+ex-2,y+eye_y-2,x+ex+3,y+eye_y),fill='#4e433e',width=2)
-   elif emotion==4:pd.arc((x+ex-2,y+eye_y-2,x+ex+4,y+eye_y+3),180,360,fill='#4e433e',width=2)
-   else:pd.rectangle((x+ex,y+eye_y,x+ex+2,y+eye_y+3),fill='#293b48')
-  mouth_y=36 if emotion not in (1,4) else 35
-  if emotion==2:pd.line((x+29,y+mouth_y+2,x+32,y+mouth_y,x+35,y+mouth_y+2),fill='#874e48',width=2)
-  elif emotion in (1,4):pd.arc((x+28,y+mouth_y-2,x+37,y+mouth_y+6),0,180,fill='#874e48',width=2)
-  else:pd.line((x+29,y+mouth_y,x+35,y+mouth_y),fill='#874e48',width=2)
-  pd.line((x+21,y+eye_y-4,x+28,y+eye_y-5),fill=hair,width=2);pd.line((x+36,y+eye_y-5,x+43,y+eye_y-4),fill=hair,width=2)
-  if name=='Levin':
-   pd.rectangle((x+24,y+eye_y-1,x+32,y+eye_y+4),outline=p[2]);pd.rectangle((x+36,y+eye_y-1,x+44,y+eye_y+4),outline=p[2]);pd.line((x+32,y+eye_y+1,x+36,y+eye_y+1),fill=p[2],width=2)
-  if name=='Amma':pd.line((x+21,y+35,x+23,y+38),fill='#a26960');pd.line((x+41,y+38,x+43,y+35),fill='#a26960')
- portrait.save(PACK/f'assets/portraits/{name}.png')
+  x=(emotion%2)*512;y=(emotion//2)*512
+  frame=master.crop((x,y,x+512,y+512)).resize((64,64),Image.Resampling.LANCZOS)
+  sheet.paste(frame,((emotion%2)*64,(emotion//2)*64))
+ sheet.quantize(colors=96,dither=Image.Dither.NONE).convert('RGBA').save(PACK/f'assets/portraits/{name}.png')
 
 for name,cn,coat,hair,skin in people:
  if name in ['Nora','Levin','Amma']:
@@ -236,7 +202,8 @@ for name,cn,coat,hair,skin in people:
  for kind,size in [('portrait',(128,192)),('sprite',(64,128))]:
   source=ROOT/f'art/source/{kind}-{name}-master.png'
   if source.exists():
-   Image.open(source).convert('RGBA').resize(size,Image.Resampling.NEAREST).save(PACK/f'assets/{"portraits" if kind=="portrait" else "characters"}/{name}.png')
+   if kind=='portrait' and name in ['Nora','Levin','Amma']:paint_new_portraits(name,coat,hair,skin)
+   else:Image.open(source).convert('RGBA').resize(size,Image.Resampling.NEAREST).save(PACK/f'assets/{"portraits" if kind=="portrait" else "characters"}/{name}.png')
 class Map:
  def __init__(self,name,w,h,season):
   self.name=name;self.w=w;self.h=h;self.season=season;self.a=ATLASES[season];self.layers={n:[[0]*w for _ in range(h)] for n in ['Back','Buildings','Front','AlwaysFront']};self.over={};self.warps=[];self.points={};self.properties={'Outdoors':'T','PassOutSafe':'T'}

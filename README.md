@@ -2,14 +2,14 @@
 
 《星露谷物语》电脑端的北极渔港扩展：月月鸟航空、雪跑道、彩色木屋、岩岸峡湾、苔原、冬季冰钓和犬队交通。
 
-**本机候选：0.7.10 核心开发预览；GitHub公开版仍为0.7.9。完整扩展仍在开发，单人优先。** 已实测macOS、游戏1.6.15、SMAPI4.5.2、Content Patcher2.9.1；其他电脑系统尚未完成实机验证。
+**当前发布：0.7.10，面向电脑端单人游玩。** 已实测macOS、游戏1.6.15、SMAPI4.5.2、Content Patcher2.9.1；其他电脑系统尚未完成实机验证。
 
-[GitHub公开0.7.9安装包](https://github.com/MiniLaba/ArcticPassage/releases/tag/v0.7.9) · [中文安装指南](INSTALL.zh-CN.md) · [当前内容与限制](docs/PLAYER_STATUS.md) · [更新记录](CHANGELOG.md) · [Windows兼容范围](docs/WINDOWS_COMPATIBILITY.md)
+[GitHub 0.7.10 安装包](https://github.com/MiniLaba/ArcticPassage/releases/tag/v0.7.10) · [中文安装指南](INSTALL.zh-CN.md) · [当前内容与限制](docs/PLAYER_STATUS.md) · [更新记录](CHANGELOG.md) · [Windows兼容范围](docs/WINDOWS_COMPATIBILITY.md)
 
 ## 安装
 
 1. 安装[SMAPI](https://smapi.io/)和[Content Patcher](https://www.nexusmods.com/stardewvalley/mods/1915)。
-2. 本机候选使用随附的`ArcticPassage-0.7.10-install.zip`；GitHub发布页当前仍提供`ArcticPassage-0.7.9-install.zip`。
+2. 从发布页下载`ArcticPassage-0.7.10-install.zip`。
 3. 解压，将`ArcticPassage`、`ArcticPassage.Runtime`两个文件夹一起放入游戏的`Mods`目录。
 4. 通过SMAPI启动游戏，查看月月鸟邀请信；到巴士站按B、Enter出发。没有收到信时先正常过夜。
 
@@ -26,6 +26,7 @@ Mods/
 
 ## 已接入内容
 
+- 诺拉、莱文、阿玛采用全新代码绘制肖像与六种表情，官网与游戏使用相同造型；手记在小窗口下支持滚轮选择。
 - 月月鸟邀请与机票、24秒北极飞行和雪跑道降落、免费返乡。
 - 八处室外与四主要室内，四季地图；镇区、渔港、峡湾、苔原、营地、机场、山路、冰川；六位居民的住所、季节日程、对白和友情事件资料。
 - 九种海产、四料理、原生钓鱼/蟹笼、熏鱼机兼容、两夜风干加工。

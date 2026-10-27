@@ -23,3 +23,6 @@
 - 0.6.3九海产与四料理位图使用内置imagegen，原图art/source/*063*，完整提示词art/prompts/seafood-063；程序只做技术排版。物种形态与捕捞方式资料见docs/SeafoodDesign063.md。
 
 - 0.7项目自有SMAPI运行模块采用MIT。使用SMAPI随附的Harmony，仅引用本机0Harmony.dll，不将其或游戏程序集放入安装包。
+
+
+2026-10-27：诺拉、莱文、阿玛的新肖像为项目原创 SVG 代码绘图，源文件与六表情原图位于 art/source/code-portraits；生成程序为 tools/draw_resident_portraits.py 与 render_resident_portraits.mjs。官网和游戏使用同一套造型，不依赖新增生图。

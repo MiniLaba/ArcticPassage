@@ -1,8 +1,8 @@
 # 霜灯港玩家安装指南
 
-适用：**霜灯港 / Frosthavn 0.7.10 本机核心开发预览版**。这是《星露谷物语》的模组，需要你已安装电脑版本游戏；本版仍在开发，建议先用备份或单独体验存档。
+适用：**霜灯港 / Frosthavn 0.7.10**。这是《星露谷物语》的模组，需要你已安装电脑版本游戏；面向单人游玩，建议先用备份或单独体验存档。
 
-0.7.10安装包已上传GitHub候选草稿，公开预览仍为0.7.9。收到0.7.10候选ZIP时，按下面相同的两个目录安装步骤操作；草稿不代表正式发行或完整通关验收。
+请下载0.7.10玩家安装包，并同时安装其中两个模组目录。已实测环境与尚未验证的范围见下文。
 
 ## 1. 下载这三个部分
 
@@ -11,7 +11,7 @@
 | 星露谷物语 | 本版实际测试为电脑端 **1.6.15** |
 | SMAPI 模组加载器 | [官方网站](https://smapi.io/)，需要 **4.5.2 或更高兼容版本** |
 | Content Patcher | [官方 Nexus 页面](https://www.nexusmods.com/stardewvalley/mods/1915)，本版测试 **2.9.1**；清单最低2.4.0，旧版未测试 |
-| 本模组 | [GitHub 发布页](https://github.com/MiniLaba/ArcticPassage/releases/tag/v0.7.9)中的 **ArcticPassage-0.7.9-install.zip** |
+| 本模组 | [GitHub 发布页](https://github.com/MiniLaba/ArcticPassage/releases/tag/v0.7.10)中的 **ArcticPassage-0.7.10-install.zip** |
 
 下载时展开发布页的 **Assets / 资源**。玩家选择名字带 **install.zip** 的文件；`source.zip`、GitHub自动生成的`Source code`是开发源码，不能直接当作玩家安装包。
 
@@ -27,7 +27,7 @@
 
 ## 3. 安装霜灯港
 
-解压收到的`ArcticPassage-0.7.10-install.zip`（公开旧版包为0.7.9），把其中这两个完整文件夹一起放入`Mods`：
+解压收到的`ArcticPassage-0.7.10-install.zip`，把其中这两个完整文件夹一起放入`Mods`：
 
 ```text
 Stardew Valley/
