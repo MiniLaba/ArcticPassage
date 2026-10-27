@@ -38,6 +38,18 @@ if(args.Contains("--runtime-hooks")) {
  if(caught==null || pool?.GetParameters()[6].ParameterType!=typeof(string) || bobber==null
   || typeof(StardewValley.Event).GetField("drawTool",BindingFlags.Instance|BindingFlags.NonPublic|BindingFlags.Public)?.FieldType!=typeof(bool)
   || typeof(StardewValley.Event).GetMethod("canPlayerUseTool")==null)throw new Exception("Missing installed-game hook signature");
+ var guide=runtime.GetType("ArcticPassage.Runtime.FieldGuide+GuideMenu",true)!;
+ var visible=guide.GetMethod("VisibleRows",BindingFlags.NonPublic|BindingFlags.Static)!;
+ foreach(int height in new[]{180, 280, 489}) foreach(int total in new[]{4, 7, 9, 10}) foreach(int selected in Enumerable.Range(0,total)) {
+  int rowHeight=Math.Max(total==4?48:total==7?40:34,(height-34)/total);
+  var area=new Microsoft.Xna.Framework.Rectangle(0,0,700,height);
+  var window=((int First,int Count))visible.Invoke(null,new object[]{area,total,rowHeight,selected})!;
+  if(window.First<0 || window.Count<1 || window.First+window.Count>total || selected<window.First
+   || selected>=window.First+window.Count || 30+window.Count*rowHeight>height)
+   throw new Exception($"Guide rows inaccessible: height={height}, total={total}, selected={selected}, window={window}");
+ }
+ if(guide.GetMethod("receiveScrollWheelAction")?.DeclaringType!=guide)throw new Exception("Guide mouse wheel navigation missing");
+ Console.WriteLine("PASS compact guide lists keep the selected row visible and within the content area at three viewport heights.");
  Console.WriteLine("PASS shipped runtime recognizes all three real native festival identities and rejects nonfestival/Valley events.");
  Console.WriteLine("PASS native festival fishing, fish-pool and bobber hook signatures match the installed game.");
  Console.WriteLine("LIMIT reflection/API validation only; no festival was played and no save was loaded or written.");

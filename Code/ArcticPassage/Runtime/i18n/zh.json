@@ -12,7 +12,7 @@
   "guide.tab.0": "今日行程",
   "guide.tab.1": "区域路线",
   "guide.tab.2": "自然笔记",
-  "guide.keys": "K / Esc：关闭　1—7 / 左右：翻页　上下：选择　R：记录附近线索",
+  "guide.keys": "K / Esc：关闭　1—7 / 左右：翻页　滚轮 / 上下：选择　R：记录",
   "guide.tooFar": "请先走到笔记列出的观察地点，再记录眼前的景物。",
   "guide.already": "这处景物已经记在手记里了。",
   "guide.recorded": "已记下：",

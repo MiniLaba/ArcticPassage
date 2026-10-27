@@ -250,6 +250,28 @@ internal sealed class FieldGuide
             return Game1.smallFont.MeasureString(wrapped).Y * scale;
         }
         private Rectangle Tab(int i) => new(xPositionOnScreen + 36 + i * ((width - 72) / 7), yPositionOnScreen + 91, (width - 72) / 7 - 6, 40);
+        // Keep the selected entry visible when the game's UI scale leaves too
+        // little vertical room for the entire list. The same window is used
+        // for drawing and hit testing, so clipped rows cannot steal clicks.
+        private static (int First, int Count) VisibleRows(Rectangle area, int total, int rowHeight, int selected)
+        {
+            int count = Math.Clamp((area.Height - 30) / rowHeight, 1, total);
+            int first = Math.Clamp(selected - count + 1, 0, total - count);
+            return (first, count);
+        }
+        public override void receiveScrollWheelAction(int direction)
+        {
+            if (direction == 0) return;
+            int step = direction > 0 ? -1 : 1;
+            switch (Page)
+            {
+                case 3: WildlifeIndex = Math.Clamp(WildlifeIndex + step, 0, WildlifeSightings.All.Length - 1); break;
+                case 4: PhenomenonIndex = Math.Clamp(PhenomenonIndex + step, 0, PolarPhenomena.Ids.Length - 1); break;
+                case 5: ResearchIndex = Math.Clamp(ResearchIndex + step, 0, FieldResearch.Fish.Length - 1); break;
+                case 6: SecretIndex = Math.Clamp(SecretIndex + step, 0, SecretDiscoveries.All.Length - 1); break;
+                default: base.receiveScrollWheelAction(direction); break;
+            }
+        }
         public override void receiveLeftClick(int x, int y, bool playSound = true)
         {
             for (int i = 0; i < 7; i++) if (Tab(i).Contains(x, y)) { Page = i; return; }
@@ -267,30 +289,34 @@ internal sealed class FieldGuide
             if (Page == 3)
             {
                 int rowHeight = Math.Max(34, (area.Height - 34) / WildlifeSightings.All.Length);
-                for (int i = 0; i < WildlifeSightings.All.Length; i++)
-                    if (new Rectangle(area.X, area.Y + 30 + i * rowHeight, 318, rowHeight - 3).Contains(x, y)) { WildlifeIndex = i; return; }
+                var (first, count) = VisibleRows(area, WildlifeSightings.All.Length, rowHeight, WildlifeIndex);
+                for (int i = first; i < first + count; i++)
+                    if (new Rectangle(area.X, area.Y + 30 + (i - first) * rowHeight, 318, rowHeight - 3).Contains(x, y)) { WildlifeIndex = i; return; }
                 if (new Rectangle(area.Right - 240, area.Bottom - 48, 240, 44).Contains(x, y))
                 { guide.RecordWildlife(WildlifeIndex); return; }
             }
             if (Page == 4)
             {
                 int rowHeight = Math.Max(48, (area.Height - 34) / PolarPhenomena.Ids.Length);
-                for (int i = 0; i < PolarPhenomena.Ids.Length; i++)
-                    if (new Rectangle(area.X, area.Y + 30 + i * rowHeight, 318, rowHeight - 3).Contains(x, y)) { PhenomenonIndex = i; return; }
+                var (first, count) = VisibleRows(area, PolarPhenomena.Ids.Length, rowHeight, PhenomenonIndex);
+                for (int i = first; i < first + count; i++)
+                    if (new Rectangle(area.X, area.Y + 30 + (i - first) * rowHeight, 318, rowHeight - 3).Contains(x, y)) { PhenomenonIndex = i; return; }
                 if (new Rectangle(area.Right - 240, area.Bottom - 48, 240, 44).Contains(x, y))
                 { guide.RecordPhenomenon(PhenomenonIndex); return; }
             }
             if (Page == 5)
             {
                 int rowHeight = Math.Max(34, (area.Height - 34) / FieldResearch.Fish.Length);
-                for (int i = 0; i < FieldResearch.Fish.Length; i++)
-                    if (new Rectangle(area.X, area.Y + 30 + i * rowHeight, 318, rowHeight - 3).Contains(x, y)) { ResearchIndex = i; return; }
+                var (first, count) = VisibleRows(area, FieldResearch.Fish.Length, rowHeight, ResearchIndex);
+                for (int i = first; i < first + count; i++)
+                    if (new Rectangle(area.X, area.Y + 30 + (i - first) * rowHeight, 318, rowHeight - 3).Contains(x, y)) { ResearchIndex = i; return; }
             }
             if (Page == 6)
             {
                 int rowHeight = Math.Max(40, (area.Height - 34) / SecretDiscoveries.All.Length);
-                for (int i = 0; i < SecretDiscoveries.All.Length; i++)
-                    if (new Rectangle(area.X, area.Y + 30 + i * rowHeight, 318, rowHeight - 3).Contains(x, y)) { SecretIndex = i; return; }
+                var (first, count) = VisibleRows(area, SecretDiscoveries.All.Length, rowHeight, SecretIndex);
+                for (int i = first; i < first + count; i++)
+                    if (new Rectangle(area.X, area.Y + 30 + (i - first) * rowHeight, 318, rowHeight - 3).Contains(x, y)) { SecretIndex = i; return; }
                 if (new Rectangle(area.Right - 240, area.Bottom - 48, 240, 44).Contains(x, y))
                 { guide.RecordSecret(SecretIndex); return; }
             }
@@ -416,10 +442,11 @@ internal sealed class FieldGuide
             int rowHeight = Math.Max(34, (a.Height - 34) / WildlifeSightings.All.Length);
             Text(b, guide.helper.Translation.Get("guide.wildlife.progress", new { count = WildlifeSightings.Count, total = WildlifeSightings.All.Length }),
                 a.X, a.Y, listWidth, muted, .65f);
-            for (int i = 0; i < WildlifeSightings.All.Length; i++)
+            var (first, count) = VisibleRows(a, WildlifeSightings.All.Length, rowHeight, WildlifeIndex);
+            for (int i = first; i < first + count; i++)
             {
                 WildlifeSightings.Species species = WildlifeSightings.All[i];
-                Rectangle row = new(a.X, a.Y + 30 + i * rowHeight, listWidth, rowHeight - 3);
+                Rectangle row = new(a.X, a.Y + 30 + (i - first) * rowHeight, listWidth, rowHeight - 3);
                 bool selected = WildlifeIndex == i;
                 Box(b, row, selected ? ink : new Color(217, 222, 207));
                 string mark = WildlifeSightings.Has(species.Id) ? "+ " : "· ";
@@ -446,10 +473,11 @@ internal sealed class FieldGuide
             int rowHeight = Math.Max(48, (a.Height - 34) / PolarPhenomena.Ids.Length);
             Text(b, guide.helper.Translation.Get("guide.phenomena.progress", new { count = PolarPhenomena.Count, total = PolarPhenomena.Ids.Length }),
                 a.X, a.Y, listWidth, muted, .65f);
-            for (int i = 0; i < PolarPhenomena.Ids.Length; i++)
+            var (first, count) = VisibleRows(a, PolarPhenomena.Ids.Length, rowHeight, PhenomenonIndex);
+            for (int i = first; i < first + count; i++)
             {
                 string id = PolarPhenomena.Ids[i];
-                Rectangle row = new(a.X, a.Y + 30 + i * rowHeight, listWidth, rowHeight - 4);
+                Rectangle row = new(a.X, a.Y + 30 + (i - first) * rowHeight, listWidth, rowHeight - 4);
                 bool selected = PhenomenonIndex == i;
                 Box(b, row, selected ? ink : new Color(217, 222, 207));
                 Text(b, (PolarPhenomena.Has(id) ? "+ " : "· ") + guide.T("phenomena." + id + ".name"),
@@ -474,10 +502,11 @@ internal sealed class FieldGuide
             int listWidth = 318;
             int rowHeight = Math.Max(34, (a.Height - 34) / FieldResearch.Fish.Length);
             Text(b, guide.T("research.fishHeader"), a.X, a.Y, listWidth, muted, .65f);
-            for (int i = 0; i < FieldResearch.Fish.Length; i++)
+            var (first, count) = VisibleRows(a, FieldResearch.Fish.Length, rowHeight, ResearchIndex);
+            for (int i = first; i < first + count; i++)
             {
                 string id = FieldResearch.Fish[i];
-                Rectangle row = new(a.X, a.Y + 30 + i * rowHeight, listWidth, rowHeight - 3);
+                Rectangle row = new(a.X, a.Y + 30 + (i - first) * rowHeight, listWidth, rowHeight - 3);
                 bool selected = ResearchIndex == i;
                 Box(b, row, selected ? ink : new Color(217, 222, 207));
                 Text(b, (FieldResearch.HasFishEvidence(id) ? "+ " : "· ") + guide.T("research.fish." + id),
@@ -512,10 +541,11 @@ internal sealed class FieldGuide
             int rowHeight = Math.Max(40, (a.Height - 34) / SecretDiscoveries.All.Length);
             Text(b, guide.helper.Translation.Get("guide.secret.progress", new { count = SecretDiscoveries.Count, total = SecretDiscoveries.All.Length }),
                 a.X, a.Y, listWidth, muted, .65f);
-            for (int i = 0; i < SecretDiscoveries.All.Length; i++)
+            var (first, count) = VisibleRows(a, SecretDiscoveries.All.Length, rowHeight, SecretIndex);
+            for (int i = first; i < first + count; i++)
             {
                 var entry = SecretDiscoveries.All[i];
-                Rectangle row = new(a.X, a.Y + 30 + i * rowHeight, listWidth, rowHeight - 3);
+                Rectangle row = new(a.X, a.Y + 30 + (i - first) * rowHeight, listWidth, rowHeight - 3);
                 bool selected = SecretIndex == i;
                 Box(b, row, selected ? ink : new Color(217, 222, 207));
                 string title = SecretDiscoveries.Has(entry.Id) ? guide.T("secret." + entry.Id + ".name") : guide.T("secret.unknown");

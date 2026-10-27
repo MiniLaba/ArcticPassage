@@ -12,7 +12,7 @@
   "guide.tab.0": "Today",
   "guide.tab.1": "Routes",
   "guide.tab.2": "Nature notes",
-  "guide.keys": "K / Esc: close   1–7 / left-right: pages   up-down: select   R: record nearby clues",
+  "guide.keys": "K / Esc: close   1–7 / left-right: pages   wheel / up-down: select   R: record",
   "guide.tooFar": "Stand beside a listed landmark before recording it.",
   "guide.already": "This observation is already in your notebook.",
   "guide.recorded": "Recorded:",
