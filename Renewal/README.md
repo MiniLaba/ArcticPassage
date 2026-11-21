@@ -4,7 +4,7 @@
 
 1. 克隆 ArcticPassage 仓库。文本、Tiled 地图、地图矢量稿、程序和轻量素材可以直接编辑。
 2. 从 [开发资产归档](https://github.com/MiniLaba/ArcticPassage/releases/tag/handoff-2026-11-21)下载需要的 ZIP，核对 [SHA-256 及逐文件清单](assets-manifest.json)，解压到**仓库根目录**。各 ZIP 可以单独解开。它们保留工程相对路径。
-3. 做地图先下载 `blender-*.zip`。用 Blender 5.3 打开下表对应源文件。做像素地图同时打开 Tiled 的 `霜灯港.world`。做实机按 [源码构建指南](../docs/BUILDING.md) 配置自己电脑的游戏与 SMAPI 路径。
+3. 做地图先恢复 Blender 源文件。交接页若提供编号分卷，下载同一文件的全部分卷及 `blender-parts.json`、`restore_blender_parts.py`，在仓库根目录运行 `python3 /path/to/restore_blender_parts.py /path/to/downloads .`。用 Blender 5.3 打开下表对应源文件。做像素地图同时打开 Tiled 的 `霜灯港.world`。做实机按 [源码构建指南](../docs/BUILDING.md) 配置自己电脑的游戏与 SMAPI 路径。
 4. 继续官网时进入 `Projects/FrosthavnWebsite/lovable-ready`，执行 `npm ci`、`npm run dev`，部署前运行 `npm run check` 和 `npm run build`。如需宣传片网页素材，解开 `website-film-*.zip`。继续剪辑时根据子工程说明恢复 `film-raw-*`、`film-audio-*`、`film-components-*`、`film-masters-*` 或 `promo-media-*`，再按用途恢复包管理器依赖。
 
 | 用途 | 源文件 |
