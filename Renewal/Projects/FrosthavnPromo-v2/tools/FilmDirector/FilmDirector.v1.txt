@@ -1,0 +1,21 @@
+using System;
+using StardewModdingAPI;
+using StardewValley;
+public class FilmDirector:Mod {
+ int ticks; bool started;
+ public override void Entry(IModHelper h) {
+ h.Events.GameLoop.UpdateTicked+=(_,_)=>{
+  if(Game1.options!=null)Game1.options.pauseWhenOutOfFocus=false;
+  if(!started && ++ticks>180 && !Context.IsWorldReady){started=true; SaveGame.Load("FilmHarbor_827103002");Game1.activeClickableMenu=null;Monitor.Log("FILM loading disposable FilmHarbor only",LogLevel.Info);}
+  if(Context.IsWorldReady)Game1.gameTimeInterval=0;
+ };
+ h.Events.GameLoop.SaveLoaded+=(_,_)=>{Monitor.Log("FILM WORLD LOADED "+Game1.player.Name,LogLevel.Info);DelayedAction.functionAfterDelay(()=>Scene("Harbor",24,24,1200),1500);};
+ h.ConsoleCommands.Add("film_scene","Stage a real location in disposable film save",(_,a)=>{if(Context.IsWorldReady && Game1.player.Name=="FilmHarbor" && a.Length>=3)Scene(a[0],int.Parse(a[1]),int.Parse(a[2]),a.Length>3?int.Parse(a[3]):1200);});
+ }
+ void Scene(string name,int x,int y,int time){
+  Game1.activeClickableMenu=null;Game1.eventUp=false;Game1.player.CanMove=true;
+  Game1.timeOfDay=time;Game1.displayHUD=false;Game1.options.desiredBaseZoomLevel=0.75f;
+  Game1.warpFarmer(name=="BusStop"?name:"ArcticPassage_"+name,x,y,false);
+  Monitor.Log("FILM staged "+name+" at "+x+","+y+"; actual engine footage, not progression validation",LogLevel.Info);
+ }
+}

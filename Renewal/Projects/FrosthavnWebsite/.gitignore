@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.DS_Store
+*.log
+.env*
+!.env.example
+artifacts/
+lovable-ready/node_modules/
+lovable-ready/.output/
+lovable-ready/.nitro/
+lovable-ready/.wrangler/
+lovable-ready/.tanstack/

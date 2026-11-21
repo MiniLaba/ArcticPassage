@@ -1,0 +1,82 @@
+ const controls=new OrbitControls(camera,canvas);
+ controls.enableDamping=!options.reducedMotion;controls.dampingFactor=.10;
+ controls.enablePan=false;controls.rotateSpeed=.65;controls.zoomSpeed=.65;
+ controls.minDistance=18;controls.maxDistance=390;
+ controls.minPolarAngle=.15;controls.maxPolarAngle=1.28;
+ controls.touches.ONE=null;controls.touches.TWO=T.TOUCH.DOLLY_ROTATE;
+ // One finger continues scrolling the page. Two fingers explore the model.
+ canvas.style.touchAction='pan-y';
+ const allowPageScroll=e=>{if(!e.ctrlKey&&!e.metaKey)e.stopImmediatePropagation();};
+ canvas.addEventListener('wheel',allowPageScroll,{capture:true,passive:true});
+ const views={
+  bay:{p:[45,65,146],t:[6,10.5,-35]},
+  town:{p:[34,31,59],t:[-8,7,-25]},
+  harbour:{p:[46,25,57],t:[14,2,9]},
+  airport:{p:[-107,62,83],t:[-185,5,-75]},
+  camp:{p:[94,features.camp.y+22,-49],t:[69,features.camp.y+1,-83]},
+  glacier:{p:[63,features.glacier.y+26,-103],t:[24,features.glacier.y+2,-153]},
+ };
+ camera.position.set(...views.bay.p);controls.target.set(...views.bay.t);controls.update();
+ const seasonTimes={winter:0,spring:7.2,summer:15,autumn:22.5};
+ let disposed=false,visible=true,frame=0,last=0,drawAt=0,simulation=0,transition=null,cycle=false,year=0,activeView='bay',activeSeason='winter',manualSun=null,autoOrbit=!options.reducedMotion;
+ let current={snow:1,night:0,autumn:0},goal={...current};
+ function size(){const r=host.getBoundingClientRect(),w=Math.max(1,r.width),h=Math.max(1,r.height);renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();requestDraw();}
+ const resize=new ResizeObserver(size);resize.observe(host);
+ function requestDraw(){if(!frame&&!disposed&&visible&&!document.hidden)frame=requestAnimationFrame(tick);}
+ function focus(name){
+  const v=views[name]||views.bay;activeView=name in views?name:'bay';
+  autoOrbit=false;controls.autoRotate=false;
+  transition={from:camera.position.clone(),to:new T.Vector3(...v.p),fromTarget:controls.target.clone(),toTarget:new T.Vector3(...v.t),start:performance.now()};
+  if(options.reducedMotion){camera.position.copy(transition.to);controls.target.copy(transition.toTarget);transition=null;controls.update();}
+  requestDraw();
+ }
+ function setSeason(name){activeSeason=name in seasonTimes?name:'winter';cycle=false;const s=yearState(seasonTimes[activeSeason]);goal.snow=s.snow;goal.autumn=s.autumn;if(options.reducedMotion)current={...goal};requestDraw();}
+ function setNight(night){cycle=false;goal.night=night&&activeSeason!=='summer'?1:0;manualSun=night&&activeSeason==='summer'?[.15,.055,-1]:null;if(options.reducedMotion)current={...goal};requestDraw();}
+ const interact=()=>{transition=null;autoOrbit=false;controls.autoRotate=false;requestDraw();};
+ controls.addEventListener('start',interact);controls.addEventListener('change',requestDraw);
+ const contextLost=e=>{e.preventDefault();visible=false;cancelAnimationFrame(frame);frame=0;options.onError?.('context-lost');};
+ canvas.addEventListener('webglcontextlost',contextLost);
+ const visibility=()=>{if(document.hidden){cancelAnimationFrame(frame);frame=0;last=0;}else requestDraw();};document.addEventListener('visibilitychange',visibility);
+ function tick(now){
+  frame=0;if(disposed||!visible||document.hidden)return;
+  if(now-drawAt<33){requestDraw();return;}
+  const dt=last?Math.min(.1,(now-last)/1000):1/30;last=now;drawAt=now;
+  if(!options.reducedMotion)simulation+=dt;
+  let sunlight=manualSun;
+  if(cycle&&!options.reducedMotion){
+   year=(year+dt*.47)%30;const s=yearState(year);goal={snow:s.snow,autumn:s.autumn,night:s.night};sunlight=s.sunDirection;
+   const next=year<3.8?'winter':year<11?'spring':year<18.1?'summer':year<24.4?'autumn':'winter';
+   if(next!==activeSeason){activeSeason=next;options.onSeason?.(next);}
+  }
+  for(const key of ['snow','night','autumn'])current[key]=mix(current[key],goal[key],options.reducedMotion?1:1-Math.exp(-dt*3));
+  lighting(simulation,current.snow,current.night,current.autumn,.22,manualSun?.58:.2+.35*current.autumn,sunlight);
+  if(transition){
+   const q=smooth(0,options.reducedMotion?1:1250,now-transition.start);camera.position.copy(transition.from).lerp(transition.to,q);controls.target.copy(transition.fromTarget).lerp(transition.toTarget,q);
+   if(q>=1)transition=null;
+  }
+  controls.autoRotate=autoOrbit&&!transition;controls.autoRotateSpeed=.10;controls.update(dt);
+  renderer.render(scene,camera);
+  if(!options.reducedMotion||transition)requestDraw();
+ }
+ size();lighting(0,1,0,0,.22,.2);
+ // Compile with the actual camera before exposing a ready interactive canvas.
+ try{await renderer.compileAsync(scene,camera);}catch(error){dispose();throw error;}
+ renderer.render(scene,camera);requestDraw();
+ function dispose(){
+  if(disposed)return;disposed=true;cancelAnimationFrame(frame);resize.disconnect();controls.dispose();
+  canvas.removeEventListener('wheel',allowPageScroll,{capture:true});canvas.removeEventListener('webglcontextlost',contextLost);document.removeEventListener('visibilitychange',visibility);
+  const geometries=new Set(),mats=new Set(),textures=new Set();
+  scene.traverse(o=>{if(o.geometry)geometries.add(o.geometry);for(const m of (o.material?(Array.isArray(o.material)?o.material:[o.material]):[]))mats.add(m);if(o.isInstancedMesh)o.dispose();});
+  for(const m of mats){for(const v of Object.values(m))if(v?.isTexture)textures.add(v);for(const u of Object.values(m.uniforms||{}))if(u.value?.isTexture)textures.add(u.value);m.dispose();}
+  for(const t of textures)t.dispose();for(const g of geometries)g.dispose();renderer.dispose();renderer.forceContextLoss();canvas.remove();
+ }
+ return {
+  setSeason,setNight,focus,
+  setYearPlaying(value){cycle=!!value&&!options.reducedMotion;if(cycle){manualSun=null;year=seasonTimes[activeSeason]||0;autoOrbit=true;}else options.onNight?.(goal.night>.5);requestDraw();},
+  zoom(direction){transition=null;autoOrbit=false;if(direction>0)controls.dollyIn(.82);else controls.dollyOut(.82);controls.update();requestDraw();},
+  rotate(direction){transition=null;autoOrbit=false;controls.rotateLeft(direction*.24);controls.update();requestDraw();},
+  reset(){focus('bay');},
+  setVisible(value){visible=!!value;if(!visible){cancelAnimationFrame(frame);frame=0;last=0;}else requestDraw();},
+  getState(){return {seed:271026,view:activeView,season:activeSeason,night:current.night,yearPlaying:cycle,buildings:houses.length,camera:camera.position.toArray(),target:controls.target.toArray(),drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles};},
+  dispose,
+ };

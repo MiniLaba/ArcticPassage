@@ -1,0 +1,437 @@
+{
+  "title": "From a ticket to a life / 从一张机票，到一段生活",
+  "duration": 168.5,
+  "voice": "af_heart",
+  "voiceType": "synthetic English narration, warm adult female preset",
+  "speed": 0.72,
+  "engine": "Kokoro-82M ONNX",
+  "shots": [
+    {
+      "id": "ticket",
+      "file": "renders/mg-v5/ticket.mp4",
+      "sourceIn": 0,
+      "duration": 4,
+      "type": "cg",
+      "start": 0,
+      "end": 4
+    },
+    {
+      "id": "window",
+      "file": "renders/mg-v5/window.mp4",
+      "sourceIn": 0,
+      "duration": 16,
+      "type": "cg",
+      "overlap": 0.3,
+      "start": 3.7,
+      "end": 19.7,
+      "speed": 1.125
+    },
+    {
+      "id": "landing",
+      "file": "raw/gameplay/20261029-030129-flight-arrival-real.mov",
+      "sourceIn": 18,
+      "duration": 6,
+      "type": "native",
+      "overlap": 0.3,
+      "crop": "2062:1160:230:140",
+      "start": 19.4,
+      "end": 25.4
+    },
+    {
+      "id": "town",
+      "file": "raw/gameplay/20261029-025523-town-real.mov",
+      "sourceIn": 1,
+      "duration": 6,
+      "type": "native",
+      "start": 25.4,
+      "end": 31.4
+    },
+    {
+      "id": "nora",
+      "file": "raw/gameplay/20261029-140630-nora-dialogue-v3.mov",
+      "sourceIn": 2.5,
+      "duration": 4,
+      "type": "native",
+      "start": 31.4,
+      "end": 35.4
+    },
+    {
+      "id": "roan",
+      "file": "raw/gameplay/20261029-141324-roan-dialogue-v3.mov",
+      "sourceIn": 2.6,
+      "duration": 4,
+      "type": "native",
+      "start": 35.4,
+      "end": 39.4
+    },
+    {
+      "id": "harbour",
+      "file": "raw/gameplay/20261029-025431-harbor-real.mov",
+      "sourceIn": 2,
+      "duration": 5,
+      "type": "native",
+      "start": 39.4,
+      "end": 44.4
+    },
+    {
+      "id": "ice-opening",
+      "file": "raw/gameplay/20261029-140149-ice-opening-v3.mov",
+      "sourceIn": 1,
+      "duration": 6,
+      "type": "native",
+      "start": 44.4,
+      "end": 50.4
+    },
+    {
+      "id": "casting",
+      "file": "raw/gameplay/20261029-030741-fishing-shore-real.mov",
+      "sourceIn": 2,
+      "duration": 3,
+      "type": "native",
+      "start": 50.4,
+      "end": 53.4
+    },
+    {
+      "id": "native-fishing",
+      "file": "raw/gameplay/20261029-141501-fishing-native-action-v3.mov",
+      "sourceIn": 12,
+      "duration": 10,
+      "type": "native",
+      "notes": "Real nibble and BobberBar, no catch-success claim; rod staged as native training rod.",
+      "start": 53.4,
+      "end": 63.4
+    },
+    {
+      "id": "ida",
+      "file": "raw/gameplay/20261029-142942-ida-near-dialogue-v3.mov",
+      "sourceIn": 3,
+      "duration": 4,
+      "type": "native",
+      "notes": "Native Ida dialogue, no still frame hold.",
+      "start": 63.4,
+      "end": 67.4
+    },
+    {
+      "id": "market",
+      "file": "raw/gameplay/20261029-140132-market-sale-v3.mov",
+      "sourceIn": 4,
+      "duration": 7,
+      "type": "native",
+      "notes": "Native shop actually sold three preseeded polar cod. This is not the same fish as the preceding cast.",
+      "start": 67.4,
+      "end": 74.4
+    },
+    {
+      "id": "four-seasons",
+      "file": "renders/mg-v5/panorama.mp4",
+      "sourceIn": 0,
+      "duration": 24,
+      "type": "cg",
+      "overlap": 0.3,
+      "start": 74.1,
+      "end": 98.1,
+      "speed": 1.1666666666666667
+    },
+    {
+      "id": "mira",
+      "file": "raw/gameplay/20261029-141335-mira-dialogue-v3.mov",
+      "sourceIn": 2.6,
+      "duration": 4,
+      "type": "native",
+      "start": 98.1,
+      "end": 102.1
+    },
+    {
+      "id": "sled",
+      "file": "raw/gameplay/20261029-135956-sled-trip-v3.mov",
+      "sourceIn": 5.8,
+      "duration": 9,
+      "type": "native",
+      "crop": "2098:1180:212:130",
+      "notes": "Native Trip animation and actual arrival; established unlocked stage only in filming copy.",
+      "start": 102.1,
+      "end": 111.1
+    },
+    {
+      "id": "camp",
+      "file": "raw/gameplay/20261029-135144-camp-walk-v3.mov",
+      "sourceIn": 2,
+      "duration": 4,
+      "type": "native",
+      "start": 111.1,
+      "end": 115.1
+    },
+    {
+      "id": "snow-lesson",
+      "file": "raw/gameplay/20261029-135158-snow-lesson-v3.mov",
+      "sourceIn": 4.5,
+      "duration": 11,
+      "type": "native",
+      "notes": "All three courses placed and model completed via native keyboard input.",
+      "start": 115.1,
+      "end": 126.1
+    },
+    {
+      "id": "glacier",
+      "file": "raw/gameplay/20261029-141448-glacier-deck-v3.mov",
+      "sourceIn": 1,
+      "duration": 5,
+      "type": "native",
+      "start": 126.1,
+      "end": 131.1
+    },
+    {
+      "id": "levin",
+      "file": "raw/gameplay/20261029-141347-levin-dialogue-v3.mov",
+      "sourceIn": 2.6,
+      "duration": 4,
+      "type": "native",
+      "start": 131.1,
+      "end": 135.1
+    },
+    {
+      "id": "research",
+      "file": "raw/gameplay/20261029-094759-research-guide-v3.mov",
+      "sourceIn": 5,
+      "duration": 9,
+      "type": "native",
+      "start": 135.1,
+      "end": 144.1
+    },
+    {
+      "id": "community",
+      "file": "raw/gameplay/20261029-141034-community-clean-v3.mov",
+      "sourceIn": 2,
+      "duration": 4,
+      "type": "native",
+      "start": 144.1,
+      "end": 148.1
+    },
+    {
+      "id": "amma",
+      "file": "raw/gameplay/20261029-030324-guesthouse-real.mov",
+      "sourceIn": 4,
+      "duration": 5,
+      "type": "native",
+      "start": 148.1,
+      "end": 153.1
+    },
+    {
+      "id": "night",
+      "file": "raw/gameplay/20261029-030007-town-night-real.mov",
+      "sourceIn": 1,
+      "duration": 8,
+      "type": "native",
+      "start": 153.1,
+      "end": 161.1
+    },
+    {
+      "id": "outro",
+      "file": "renders/mg-v5/outro.mp4",
+      "sourceIn": 0,
+      "duration": 8,
+      "type": "cg",
+      "overlap": 0.6,
+      "start": 160.5,
+      "end": 168.5,
+      "speed": 1.1666666666666667
+    }
+  ],
+  "cues": [
+    {
+      "id": "vo-01",
+      "start": 0.3,
+      "slotEnd": 3.5,
+      "en": "Welcome aboard Moonbird Air.",
+      "zh": "欢迎搭乘月月鸟航空。",
+      "position": "bottom"
+    },
+    {
+      "id": "vo-02",
+      "start": 4.3,
+      "slotEnd": 8.2,
+      "en": "Our next stop is Frosthavn.",
+      "zh": "下一站，霜灯港。",
+      "position": "bottom"
+    },
+    {
+      "id": "vo-03",
+      "start": 9.2,
+      "slotEnd": 17.7,
+      "en": "Beyond the ice, a small harbour waits on the edge of the Arctic.",
+      "zh": "冰海尽头，一座小港静候在北极岸边。",
+      "position": "bottom"
+    },
+    {
+      "id": "vo-04",
+      "start": 25.9,
+      "slotEnd": 31.0,
+      "en": "Arrive with a ticket, and a little time to explore.",
+      "zh": "带着一张机票，也留一点探索的时间。",
+      "position": "bottom"
+    },
+    {
+      "id": "vo-05",
+      "start": 35.8,
+      "slotEnd": 43.0,
+      "en": "Meet the people who know these waters, and the lives built around them.",
+      "zh": "认识熟悉这片海的人，走近他们的生活。",
+      "position": "top"
+    },
+    {
+      "id": "vo-06",
+      "start": 44.8,
+      "slotEnd": 49.8,
+      "en": "Find a quiet place where the ice opens.",
+      "zh": "在冰层敞开的地方，停下脚步。",
+      "position": "bottom"
+    },
+    {
+      "id": "vo-07",
+      "start": 50.8,
+      "slotEnd": 53.1,
+      "en": "Cast a line.",
+      "zh": "抛出鱼线。",
+      "position": "bottom"
+    },
+    {
+      "id": "vo-08",
+      "start": 54.0,
+      "slotEnd": 60.0,
+      "en": "And learn the rhythm of the water.",
+      "zh": "慢慢熟悉，这片水域的节奏。",
+      "position": "bottom"
+    },
+    {
+      "id": "vo-09",
+      "start": 67.7,
+      "slotEnd": 74.0,
+      "en": "Trade at the harbour. Make the day's work your own.",
+      "zh": "回到港口交易，把劳作过成日常。",
+      "position": "top"
+    },
+    {
+      "id": "vo-10",
+      "start": 74.9,
+      "slotEnd": 78.0,
+      "en": "Stay a little longer.",
+      "zh": "不妨，再多住一阵。",
+      "position": "bottom"
+    },
+    {
+      "id": "vo-11",
+      "start": 78.0,
+      "slotEnd": 82.0,
+      "en": "Spring uncovers the rock beneath the snow.",
+      "zh": "春天，岩岸从融雪间显露。",
+      "position": "bottom"
+    },
+    {
+      "id": "vo-12",
+      "start": 82.4,
+      "slotEnd": 86.5,
+      "en": "In summer, sunlight stays past midnight.",
+      "zh": "夏天，阳光停留到午夜之后。",
+      "position": "bottom"
+    },
+    {
+      "id": "vo-13",
+      "start": 87.0,
+      "slotEnd": 91.4,
+      "en": "Autumn brings colour to the tundra.",
+      "zh": "秋天，为苔原染上颜色。",
+      "position": "bottom"
+    },
+    {
+      "id": "vo-14",
+      "start": 92.5,
+      "slotEnd": 97.6,
+      "en": "Then winter settles into a long blue twilight.",
+      "zh": "而冬天，沉入漫长的蓝色暮光。",
+      "position": "bottom"
+    },
+    {
+      "id": "vo-15",
+      "start": 98.5,
+      "slotEnd": 104.8,
+      "en": "Beyond the last houses, another trail is waiting.",
+      "zh": "最后一排木屋之外，还有路等你出发。",
+      "position": "top"
+    },
+    {
+      "id": "vo-16",
+      "start": 111.5,
+      "slotEnd": 115.0,
+      "en": "Follow it into the snow.",
+      "zh": "沿着它，走向雪地深处。",
+      "position": "bottom"
+    },
+    {
+      "id": "vo-17",
+      "start": 116.0,
+      "slotEnd": 122.5,
+      "en": "Learn with your hands. Build one layer at a time.",
+      "zh": "亲手尝试，把雪块一层层搭起来。",
+      "position": "top"
+    },
+    {
+      "id": "vo-18",
+      "start": 126.5,
+      "slotEnd": 131.0,
+      "en": "Pause where the landscape opens.",
+      "zh": "在天地开阔处，稍作停留。",
+      "position": "bottom"
+    },
+    {
+      "id": "vo-19",
+      "start": 131.5,
+      "slotEnd": 135.0,
+      "en": "There is always more to notice.",
+      "zh": "总有新的细节，值得留意。",
+      "position": "top"
+    },
+    {
+      "id": "vo-20",
+      "start": 136.0,
+      "slotEnd": 143.9,
+      "en": "Keep a field journal. Let small discoveries change the way you see this place.",
+      "zh": "记进野外手记，让小小发现改变眼中的风景。",
+      "position": "top"
+    },
+    {
+      "id": "vo-21",
+      "start": 144.4,
+      "slotEnd": 148.0,
+      "en": "And share the days along the way.",
+      "zh": "也和这里的人，分享途中的日子。",
+      "position": "bottom"
+    },
+    {
+      "id": "vo-22",
+      "start": 148.6,
+      "slotEnd": 153.0,
+      "en": "At day's end, a warm welcome.",
+      "zh": "一天将尽，还有温暖的问候。",
+      "position": "top"
+    },
+    {
+      "id": "vo-23",
+      "start": 154.1,
+      "slotEnd": 159.8,
+      "en": "Follow the windows home.",
+      "zh": "循着窗灯，走回熟悉的港湾。",
+      "position": "bottom"
+    },
+    {
+      "id": "vo-24",
+      "start": 160.9,
+      "slotEnd": 166.1,
+      "en": "Frosthavn. A new Arctic chapter for Stardew Valley.",
+      "zh": "霜灯港，《星露谷物语》的北极新篇。",
+      "position": "bottom"
+    }
+  ],
+  "status": "Director edit script, existing genuine video retained; MG material/transition upgrades detailed separately in DirectorTreatment.md.",
+  "edition": "V5 / The line that brings you home",
+  "description": "New physical ticket, restrained ink-line match transitions and a continuous warm-window-to-harbour camera move; native source edits, VO, subtitles and music retained."
+}

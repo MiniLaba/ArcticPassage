@@ -1,0 +1,459 @@
+[
+  {
+    "id": "vo-01",
+    "start": 0.3,
+    "slotEnd": 3.5,
+    "en": "Welcome aboard Moonbird Air.",
+    "zh": "欢迎搭乘月月鸟航空。",
+    "position": "bottom",
+    "duration": 2.5733333333333333,
+    "end": 2.8733,
+    "file": "voice/segments-final/vo-01.wav",
+    "fitsSlot": true,
+    "displayEnd": 3.1532999999999998,
+    "lines": [
+      "欢迎搭乘月月鸟航空。"
+    ],
+    "png": "voice/captions/vo-01.png",
+    "overlayX": 60,
+    "overlayY": 936
+  },
+  {
+    "id": "vo-02",
+    "start": 4.3,
+    "slotEnd": 8.2,
+    "en": "Our next stop is Frosthavn.",
+    "zh": "下一站，霜灯港。",
+    "position": "bottom",
+    "duration": 2.6413333333333333,
+    "end": 6.9413,
+    "file": "voice/segments-final/vo-02.wav",
+    "fitsSlot": true,
+    "displayEnd": 7.2213,
+    "lines": [
+      "下一站，霜灯港。"
+    ],
+    "png": "voice/captions/vo-02.png",
+    "overlayX": 60,
+    "overlayY": 936
+  },
+  {
+    "id": "vo-03",
+    "start": 9.2,
+    "slotEnd": 17.7,
+    "en": "Beyond the ice, a small harbour waits on the edge of the Arctic.",
+    "zh": "冰海尽头，一座小港静候在北极岸边。",
+    "position": "bottom",
+    "duration": 5.228666666666666,
+    "end": 14.4287,
+    "file": "voice/segments-final/vo-03.wav",
+    "fitsSlot": true,
+    "displayEnd": 14.708699999999999,
+    "lines": [
+      "冰海尽头，一座小港静候在北极岸边。"
+    ],
+    "png": "voice/captions/vo-03.png",
+    "overlayX": 60,
+    "overlayY": 936
+  },
+  {
+    "id": "vo-04",
+    "start": 25.9,
+    "slotEnd": 31.0,
+    "en": "Arrive with a ticket, and a little time to explore.",
+    "zh": "带着一张机票，也留一点探索的时间。",
+    "position": "bottom",
+    "duration": 4.216,
+    "end": 30.116,
+    "file": "voice/segments-final/vo-04.wav",
+    "fitsSlot": true,
+    "displayEnd": 30.396,
+    "lines": [
+      "带着一张机票，也留一点探索的时间。"
+    ],
+    "png": "voice/captions/vo-04.png",
+    "overlayX": 60,
+    "overlayY": 936
+  },
+  {
+    "id": "vo-05",
+    "start": 35.8,
+    "slotEnd": 43.0,
+    "en": "Meet the people who know these waters, and the lives built around them.",
+    "zh": "认识熟悉这片海的人，走近他们的生活。",
+    "position": "top",
+    "duration": 5.463333333333333,
+    "end": 41.2633,
+    "file": "voice/segments-final/vo-05.wav",
+    "fitsSlot": true,
+    "displayEnd": 41.5433,
+    "lines": [
+      "认识熟悉这片海的人，走近他们的生活。"
+    ],
+    "png": "voice/captions/vo-05.png",
+    "overlayX": 60,
+    "overlayY": 28
+  },
+  {
+    "id": "vo-06",
+    "start": 44.8,
+    "slotEnd": 49.8,
+    "en": "Find a quiet place where the ice opens.",
+    "zh": "在冰层敞开的地方，停下脚步。",
+    "position": "bottom",
+    "duration": 3.206,
+    "end": 48.006,
+    "file": "voice/segments-final/vo-06.wav",
+    "fitsSlot": true,
+    "displayEnd": 48.286,
+    "lines": [
+      "在冰层敞开的地方，停下脚步。"
+    ],
+    "png": "voice/captions/vo-06.png",
+    "overlayX": 60,
+    "overlayY": 936
+  },
+  {
+    "id": "vo-07",
+    "start": 50.8,
+    "slotEnd": 53.1,
+    "en": "Cast a line.",
+    "zh": "抛出鱼线。",
+    "position": "bottom",
+    "duration": 1.6,
+    "end": 52.4,
+    "file": "voice/segments-final/vo-07.wav",
+    "fitsSlot": true,
+    "displayEnd": 52.68,
+    "lines": [
+      "抛出鱼线。"
+    ],
+    "png": "voice/captions/vo-07.png",
+    "overlayX": 60,
+    "overlayY": 936
+  },
+  {
+    "id": "vo-08",
+    "start": 54.0,
+    "slotEnd": 60.0,
+    "en": "And learn the rhythm of the water.",
+    "zh": "慢慢熟悉，这片水域的节奏。",
+    "position": "bottom",
+    "duration": 2.4366666666666665,
+    "end": 56.4367,
+    "file": "voice/segments-final/vo-08.wav",
+    "fitsSlot": true,
+    "displayEnd": 56.7167,
+    "lines": [
+      "慢慢熟悉，这片水域的节奏。"
+    ],
+    "png": "voice/captions/vo-08.png",
+    "overlayX": 60,
+    "overlayY": 936
+  },
+  {
+    "id": "vo-09",
+    "start": 67.7,
+    "slotEnd": 74.0,
+    "en": "Trade at the harbour. Make the day's work your own.",
+    "zh": "回到港口交易，把劳作过成日常。",
+    "position": "top",
+    "duration": 3.759333333333333,
+    "end": 71.4593,
+    "file": "voice/segments-final/vo-09.wav",
+    "fitsSlot": true,
+    "displayEnd": 71.7393,
+    "lines": [
+      "回到港口交易，把劳作过成日常。"
+    ],
+    "png": "voice/captions/vo-09.png",
+    "overlayX": 60,
+    "overlayY": 28
+  },
+  {
+    "id": "vo-10",
+    "start": 74.9,
+    "slotEnd": 78.0,
+    "en": "Stay a little longer.",
+    "zh": "不妨，再多住一阵。",
+    "position": "bottom",
+    "duration": 1.768,
+    "end": 76.668,
+    "file": "voice/segments-final/vo-10.wav",
+    "fitsSlot": true,
+    "displayEnd": 76.94800000000001,
+    "lines": [
+      "不妨，再多住一阵。"
+    ],
+    "png": "voice/captions/vo-10.png",
+    "overlayX": 60,
+    "overlayY": 936
+  },
+  {
+    "id": "vo-11",
+    "start": 78.0,
+    "slotEnd": 82.0,
+    "en": "Spring uncovers the rock beneath the snow.",
+    "zh": "春天，岩岸从融雪间显露。",
+    "position": "bottom",
+    "duration": 3.5232916666666667,
+    "end": 81.5233,
+    "file": "voice/segments-final/vo-11.wav",
+    "fitsSlot": true,
+    "displayEnd": 81.80330000000001,
+    "lines": [
+      "春天，岩岸从融雪间显露。"
+    ],
+    "png": "voice/captions/vo-11.png",
+    "overlayX": 60,
+    "overlayY": 936
+  },
+  {
+    "id": "vo-12",
+    "start": 82.4,
+    "slotEnd": 86.5,
+    "en": "In summer, sunlight stays past midnight.",
+    "zh": "夏天，阳光停留到午夜之后。",
+    "position": "bottom",
+    "duration": 3.565958333333333,
+    "end": 85.966,
+    "file": "voice/segments-final/vo-12.wav",
+    "fitsSlot": true,
+    "displayEnd": 86.246,
+    "lines": [
+      "夏天，阳光停留到午夜之后。"
+    ],
+    "png": "voice/captions/vo-12.png",
+    "overlayX": 60,
+    "overlayY": 936
+  },
+  {
+    "id": "vo-13",
+    "start": 87.0,
+    "slotEnd": 91.4,
+    "en": "Autumn brings colour to the tundra.",
+    "zh": "秋天，为苔原染上颜色。",
+    "position": "bottom",
+    "duration": 2.778,
+    "end": 89.778,
+    "file": "voice/segments-final/vo-13.wav",
+    "fitsSlot": true,
+    "displayEnd": 90.058,
+    "lines": [
+      "秋天，为苔原染上颜色。"
+    ],
+    "png": "voice/captions/vo-13.png",
+    "overlayX": 60,
+    "overlayY": 936
+  },
+  {
+    "id": "vo-14",
+    "start": 92.5,
+    "slotEnd": 97.6,
+    "en": "Then winter settles into a long blue twilight.",
+    "zh": "而冬天，沉入漫长的蓝色暮光。",
+    "position": "bottom",
+    "duration": 3.8633333333333333,
+    "end": 96.3633,
+    "file": "voice/segments-final/vo-14.wav",
+    "fitsSlot": true,
+    "displayEnd": 96.6433,
+    "lines": [
+      "而冬天，沉入漫长的蓝色暮光。"
+    ],
+    "png": "voice/captions/vo-14.png",
+    "overlayX": 60,
+    "overlayY": 936
+  },
+  {
+    "id": "vo-15",
+    "start": 98.5,
+    "slotEnd": 104.8,
+    "en": "Beyond the last houses, another trail is waiting.",
+    "zh": "最后一排木屋之外，还有路等你出发。",
+    "position": "top",
+    "duration": 4.196,
+    "end": 102.696,
+    "file": "voice/segments-final/vo-15.wav",
+    "fitsSlot": true,
+    "displayEnd": 102.976,
+    "lines": [
+      "最后一排木屋之外，还有路等你出发。"
+    ],
+    "png": "voice/captions/vo-15.png",
+    "overlayX": 60,
+    "overlayY": 28
+  },
+  {
+    "id": "vo-16",
+    "start": 111.5,
+    "slotEnd": 115.0,
+    "en": "Follow it into the snow.",
+    "zh": "沿着它，走向雪地深处。",
+    "position": "bottom",
+    "duration": 2.183291666666667,
+    "end": 113.6833,
+    "file": "voice/segments-final/vo-16.wav",
+    "fitsSlot": true,
+    "displayEnd": 113.9633,
+    "lines": [
+      "沿着它，走向雪地深处。"
+    ],
+    "png": "voice/captions/vo-16.png",
+    "overlayX": 60,
+    "overlayY": 936
+  },
+  {
+    "id": "vo-17",
+    "start": 116.0,
+    "slotEnd": 122.5,
+    "en": "Learn with your hands. Build one layer at a time.",
+    "zh": "亲手尝试，把雪块一层层搭起来。",
+    "position": "top",
+    "duration": 4.132,
+    "end": 120.132,
+    "file": "voice/segments-final/vo-17.wav",
+    "fitsSlot": true,
+    "displayEnd": 120.412,
+    "lines": [
+      "亲手尝试，把雪块一层层搭起来。"
+    ],
+    "png": "voice/captions/vo-17.png",
+    "overlayX": 60,
+    "overlayY": 28
+  },
+  {
+    "id": "vo-18",
+    "start": 126.5,
+    "slotEnd": 131.0,
+    "en": "Pause where the landscape opens.",
+    "zh": "在天地开阔处，稍作停留。",
+    "position": "bottom",
+    "duration": 2.6513333333333335,
+    "end": 129.1513,
+    "file": "voice/segments-final/vo-18.wav",
+    "fitsSlot": true,
+    "displayEnd": 129.4313,
+    "lines": [
+      "在天地开阔处，稍作停留。"
+    ],
+    "png": "voice/captions/vo-18.png",
+    "overlayX": 60,
+    "overlayY": 936
+  },
+  {
+    "id": "vo-19",
+    "start": 131.5,
+    "slotEnd": 135.0,
+    "en": "There is always more to notice.",
+    "zh": "总有新的细节，值得留意。",
+    "position": "top",
+    "duration": 2.460625,
+    "end": 133.9606,
+    "file": "voice/segments-final/vo-19.wav",
+    "fitsSlot": true,
+    "displayEnd": 134.2406,
+    "lines": [
+      "总有新的细节，值得留意。"
+    ],
+    "png": "voice/captions/vo-19.png",
+    "overlayX": 60,
+    "overlayY": 28
+  },
+  {
+    "id": "vo-20",
+    "start": 136.0,
+    "slotEnd": 143.9,
+    "en": "Keep a field journal. Let small discoveries change the way you see this place.",
+    "zh": "记进野外手记，让小小发现改变眼中的风景。",
+    "position": "top",
+    "duration": 6.618,
+    "end": 142.618,
+    "file": "voice/segments-final/vo-20.wav",
+    "fitsSlot": true,
+    "displayEnd": 142.898,
+    "lines": [
+      "记进野外手记，",
+      "让小小发现改变眼中的风景。"
+    ],
+    "png": "voice/captions/vo-20.png",
+    "overlayX": 60,
+    "overlayY": 28
+  },
+  {
+    "id": "vo-21",
+    "start": 144.4,
+    "slotEnd": 148.0,
+    "en": "And share the days along the way.",
+    "zh": "也和这里的人，分享途中的日子。",
+    "position": "bottom",
+    "duration": 2.566,
+    "end": 146.966,
+    "file": "voice/segments-final/vo-21.wav",
+    "fitsSlot": true,
+    "displayEnd": 147.246,
+    "lines": [
+      "也和这里的人，分享途中的日子。"
+    ],
+    "png": "voice/captions/vo-21.png",
+    "overlayX": 60,
+    "overlayY": 936
+  },
+  {
+    "id": "vo-22",
+    "start": 148.6,
+    "slotEnd": 153.0,
+    "en": "At day's end, a warm welcome.",
+    "zh": "一天将尽，还有温暖的问候。",
+    "position": "top",
+    "duration": 2.852,
+    "end": 151.452,
+    "file": "voice/segments-final/vo-22.wav",
+    "fitsSlot": true,
+    "displayEnd": 151.732,
+    "lines": [
+      "一天将尽，还有温暖的问候。"
+    ],
+    "png": "voice/captions/vo-22.png",
+    "overlayX": 60,
+    "overlayY": 28
+  },
+  {
+    "id": "vo-23",
+    "start": 154.1,
+    "slotEnd": 159.8,
+    "en": "Follow the windows home.",
+    "zh": "循着窗灯，走回熟悉的港湾。",
+    "position": "bottom",
+    "duration": 2.1306666666666665,
+    "end": 156.2307,
+    "file": "voice/segments-final/vo-23.wav",
+    "fitsSlot": true,
+    "displayEnd": 156.5107,
+    "lines": [
+      "循着窗灯，走回熟悉的港湾。"
+    ],
+    "png": "voice/captions/vo-23.png",
+    "overlayX": 60,
+    "overlayY": 936
+  },
+  {
+    "id": "vo-24",
+    "start": 160.9,
+    "slotEnd": 166.1,
+    "en": "Frosthavn. A new Arctic chapter for Stardew Valley.",
+    "zh": "霜灯港，《星露谷物语》的北极新篇。",
+    "position": "bottom",
+    "duration": 4.866,
+    "end": 165.766,
+    "file": "voice/segments-final/vo-24.wav",
+    "fitsSlot": true,
+    "displayEnd": 166.046,
+    "lines": [
+      "霜灯港，《星露谷物语》的北极新篇。"
+    ],
+    "png": "voice/captions/vo-24.png",
+    "overlayX": 60,
+    "overlayY": 936
+  }
+]

@@ -1,0 +1,26 @@
+{
+  "title": "冰海来信 / A Letter from the Ice",
+  "warmArrangement": "霜灯归港 / Harbour Light",
+  "bpm": 68,
+  "bars": 32,
+  "meter": "4/4",
+  "loopSeconds": 112.94117647058823,
+  "sharedGain": 17.133691037716886,
+  "notes": "One authored melody in two synchronized arrangements. Mastered with shared gain so the motif stays balanced through the landing crossfade. Original MIDI; GeneralUser GS rendered instruments.",
+  "files": {
+    "ice-letter.mp3": {
+      "bytes": 1808135,
+      "seconds": 112.941179138322,
+      "rms": 0.044106197999197246,
+      "peak": 0.26708984375,
+      "loopBoundaryDifference": 9.1552734375e-05
+    },
+    "harbour-light.mp3": {
+      "bytes": 1808135,
+      "seconds": 112.941179138322,
+      "rms": 0.05504649977914911,
+      "peak": 0.294769287109375,
+      "loopBoundaryDifference": 0.0001220703125
+    }
+  }
+}

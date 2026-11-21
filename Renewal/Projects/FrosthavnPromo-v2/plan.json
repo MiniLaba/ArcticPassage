@@ -1,0 +1,911 @@
+{
+  "product": "霜灯港 / Frosthavn",
+  "status": "V9: new English welcome and faster male captain cabin announcement with original microphone/static texture; captain intentionally has no subtitles.",
+  "style": "hybrid",
+  "repo": "../ArcticPassage",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "duration": 199.7,
+  "scope": {
+    "versions": "Published 0.7.10 overall introduction",
+    "platforms": [
+      "PC single-player mod"
+    ],
+    "userConfirmed": "2026-10-28: 采用b和c的混合方案",
+    "excludes": [
+      "mobile",
+      "multiplayer",
+      "Windows in-game compatibility assurance"
+    ]
+  },
+  "sourcePolicy": {
+    "gameplay": "continuous native game video only",
+    "screenshotsAllowedInFilm": false,
+    "note": "CG geography is a conceptual miniature of Frosthavn, not an exact map stitch. Fishing shows real cast/nibble/minigame without asserting success; sold cod was separately preseeded."
+  },
+  "audioRequired": true,
+  "sfxRequired": true,
+  "musicStatus": "User selected Life in Silico / 温暖日常, 2026-10-28; latest choice supersedes Clear Skies",
+  "audio": {
+    "music": {
+      "file": "raw/music/LifeInSilico-ScottBuckley.mp3",
+      "artist": "Scott Buckley",
+      "license": "CC BY 4.0",
+      "source": "https://www.scottbuckley.com.au/library/life-in-silico/",
+      "userSelected": true,
+      "gain": 0.75,
+      "sourceIn": 10
+    },
+    "cues": [
+      {
+        "actionId": "paper-fold",
+        "at": 0,
+        "syncOffset": 1.08,
+        "role": "sfx",
+        "kind": "paper",
+        "file": "public/paper-fold-sfx.wav",
+        "gain": 0.9
+      },
+      {
+        "actionId": "touchdown",
+        "at": 0,
+        "syncOffset": 27.7,
+        "role": "sfx",
+        "kind": "landing",
+        "file": "voice/DirectorAtmosphere-v6.wav",
+        "gain": 1
+      },
+      {
+        "actionId": "fjord-air",
+        "at": 0,
+        "syncOffset": 90.5,
+        "role": "sfx",
+        "kind": "fjord",
+        "file": "voice/DirectorAtmosphere-v6.wav",
+        "gain": 1
+      },
+      {
+        "actionId": "captain-mic",
+        "at": 0,
+        "syncOffset": 10.8,
+        "role": "sfx",
+        "kind": "cabin-pa-static",
+        "file": "voice/Captain-static-v9.wav",
+        "gain": 1
+      }
+    ],
+    "cgStem": {
+      "file": "public/paper-fold-sfx.wav",
+      "gain": 0.9,
+      "containsCuesAt": [
+        1.08,
+        2.1,
+        3.35
+      ]
+    },
+    "cueInterpretation": "Paper and atmosphere are continuous stems mixed once; the separate captain static stem is also mixed once. Cues mark events inside those stems.",
+    "ducking": {
+      "enabled": true,
+      "musicReductionDb": 10.46,
+      "attack": 0.22,
+      "release": 0.65,
+      "captainMusicReductionDb": 14
+    },
+    "master": "voice/Director-master-v9.wav",
+    "voice": {
+      "file": "voice/Narration-master-v9.wav",
+      "synthetic": true,
+      "engine": "Kokoro-82M: af_heart + am_michael",
+      "language": "en",
+      "sourceText": "voice/script/voice-timing-v9.json",
+      "captain": {
+        "voice": "am_michael",
+        "start": 10.8,
+        "end": 24.407333333333334,
+        "subtitles": false,
+        "musicReductionDb": 14,
+        "treatment": "band-limited cabin PA, microphone/static texture",
+        "synthetic": true
+      }
+    }
+  },
+  "captureEvidence": "evidence/NativeCapture_20261029.md",
+  "recordingMethod": "macOS screencapture -v -V -A -R; user explicitly requested",
+  "nativeControlAuthorization": "2026-10-29: 允许，用原生脚本控制游戏",
+  "demo": false,
+  "typography": {
+    "mode": "bilingual",
+    "zhFont": "PingFang SC",
+    "enFont": "Avenir Next",
+    "zhStyle": "sans-serif"
+  },
+  "timelineNote": "Ownership splits dissolves at midpoints; exact overlapping ranges are in voice/script/story-v6.json.",
+  "nativeGameplaySeconds": 118,
+  "fullEditionEdit": "evidence/full-edition-edit.json",
+  "shots": [
+    {
+      "id": "ticket",
+      "start": 0.0,
+      "end": 3.85,
+      "type": "title",
+      "headline": "一张机票，向北",
+      "claim": false,
+      "source": [
+        "renders/mg-v6/ticket.mp4",
+        "src/mg/ticket-v5.mjs"
+      ],
+      "sourceIn": 0,
+      "renderStart": 0,
+      "renderEnd": 4,
+      "speed": 1,
+      "description": "一张机票，向北",
+      "descriptionRole": "Editorial summary; native scenes retain original in-game information and dialogue. No added feature-label panels.",
+      "plainExplanation": "Original theme animation, not in-engine game footage or proof of game mechanics.",
+      "actions": [
+        {
+          "id": "ticket-motion",
+          "at": 0,
+          "action": "Continuous original 3D geometry and camera movement.",
+          "soundRequired": false
+        },
+        {
+          "id": "paper-fold",
+          "at": 1.08,
+          "action": "paper landmark in continuous stem; ownership follows dissolve midpoint",
+          "soundRequired": true
+        }
+      ],
+      "headlineEn": "NORTHBOUND",
+      "component": "src/mg/ticket-v5.mjs"
+    },
+    {
+      "id": "window",
+      "start": 3.85,
+      "end": 31.55,
+      "type": "macro",
+      "headline": "飞往霜灯港",
+      "claim": false,
+      "source": [
+        "renders/mg-v9/window.mp4",
+        "src/mg/scene-v9.mjs"
+      ],
+      "sourceIn": 0,
+      "renderStart": 3.7,
+      "renderEnd": 31.7,
+      "speed": 1,
+      "description": "月月鸟航空飞往霜灯港，机长通过客舱广播准备着陆。",
+      "descriptionRole": "Editorial summary; native scenes retain original in-game information and dialogue. No added feature-label panels.",
+      "plainExplanation": "Original theme animation, not in-engine game footage or proof of game mechanics.",
+      "actions": [
+        {
+          "id": "window-motion",
+          "at": 0,
+          "action": "Continuous original 3D geometry and camera movement.",
+          "soundRequired": false
+        },
+        {
+          "id": "touchdown",
+          "at": 23.85,
+          "action": "landing landmark in continuous stem; ownership follows dissolve midpoint",
+          "soundRequired": true
+        },
+        {
+          "id": "captain-mic",
+          "at": 6.95,
+          "action": "Captain PA channel is keyed during the window approach; microphone/static cue, no subtitles.",
+          "soundRequired": true
+        }
+      ],
+      "headlineEn": "FLYING TO FROSTHAVN",
+      "component": "src/mg/scene-v9.mjs"
+    },
+    {
+      "id": "landing",
+      "start": 31.55,
+      "end": 37.4,
+      "type": "native-video",
+      "headline": "降落雪跑道",
+      "claim": true,
+      "source": [
+        "raw/gameplay/20261029-030129-flight-arrival-real.mov",
+        "../ArcticPassage/Code/ArcticPassage/AirTravel.cs"
+      ],
+      "sourceIn": 18,
+      "renderStart": 31.4,
+      "renderEnd": 37.4,
+      "speed": 1,
+      "description": "降落雪跑道",
+      "descriptionRole": "Editorial summary; native scenes retain original in-game information and dialogue. No added feature-label panels.",
+      "plainExplanation": "降落雪跑道，画面来自实际游戏连续录像。",
+      "actions": [
+        {
+          "id": "landing-motion",
+          "at": 0,
+          "action": "Continuous original source motion; native dialogue pauses are reading time, not held screenshots.",
+          "soundRequired": false
+        }
+      ],
+      "releaseStatus": "Installed 0.7.10; staged independent FilmHarbor save. No ordinary progression claim."
+    },
+    {
+      "id": "town",
+      "start": 37.4,
+      "end": 43.4,
+      "type": "native-video",
+      "headline": "走进冬日小镇",
+      "claim": true,
+      "source": [
+        "raw/gameplay/20261029-025523-town-real.mov"
+      ],
+      "sourceIn": 1,
+      "renderStart": 37.4,
+      "renderEnd": 43.4,
+      "speed": 1,
+      "description": "走进冬日小镇",
+      "descriptionRole": "Editorial summary; native scenes retain original in-game information and dialogue. No added feature-label panels.",
+      "plainExplanation": "走进冬日小镇，画面来自实际游戏连续录像。",
+      "actions": [
+        {
+          "id": "town-motion",
+          "at": 0,
+          "action": "Continuous original source motion; native dialogue pauses are reading time, not held screenshots.",
+          "soundRequired": false
+        }
+      ],
+      "releaseStatus": "Installed 0.7.10; staged independent FilmHarbor save. No ordinary progression claim."
+    },
+    {
+      "id": "nora",
+      "start": 43.4,
+      "end": 47.4,
+      "type": "native-video",
+      "headline": "与诺拉交谈",
+      "claim": true,
+      "source": [
+        "raw/gameplay/20261029-140630-nora-dialogue-v3.mov"
+      ],
+      "sourceIn": 2.5,
+      "renderStart": 43.4,
+      "renderEnd": 47.4,
+      "speed": 1,
+      "description": "与诺拉交谈",
+      "descriptionRole": "Editorial summary; native scenes retain original in-game information and dialogue. No added feature-label panels.",
+      "plainExplanation": "与诺拉交谈，画面来自实际游戏连续录像。",
+      "actions": [
+        {
+          "id": "nora-motion",
+          "at": 0,
+          "action": "Continuous original source motion; native dialogue pauses are reading time, not held screenshots.",
+          "soundRequired": false
+        }
+      ],
+      "releaseStatus": "Installed 0.7.10; staged independent FilmHarbor save. No ordinary progression claim."
+    },
+    {
+      "id": "roan",
+      "start": 47.4,
+      "end": 51.25,
+      "type": "native-video",
+      "headline": "与罗安交谈",
+      "claim": true,
+      "source": [
+        "raw/gameplay/20261029-141324-roan-dialogue-v3.mov"
+      ],
+      "sourceIn": 2.6,
+      "renderStart": 47.4,
+      "renderEnd": 51.4,
+      "speed": 1,
+      "description": "与罗安交谈",
+      "descriptionRole": "Editorial summary; native scenes retain original in-game information and dialogue. No added feature-label panels.",
+      "plainExplanation": "与罗安交谈，画面来自实际游戏连续录像。",
+      "actions": [
+        {
+          "id": "roan-motion",
+          "at": 0,
+          "action": "Continuous original source motion; native dialogue pauses are reading time, not held screenshots.",
+          "soundRequired": false
+        }
+      ],
+      "releaseStatus": "Installed 0.7.10; staged independent FilmHarbor save. No ordinary progression claim."
+    },
+    {
+      "id": "harbour-reveal",
+      "start": 51.25,
+      "end": 55.95,
+      "type": "macro",
+      "headline": "港湾日常",
+      "claim": false,
+      "source": [
+        "renders/mg-v6/harbour-reveal.mp4",
+        "src/mg/scene-v6.mjs"
+      ],
+      "sourceIn": 0,
+      "renderStart": 51.1,
+      "renderEnd": 56.1,
+      "speed": 1,
+      "description": "港湾日常",
+      "descriptionRole": "Editorial summary; native scenes retain original in-game information and dialogue. No added feature-label panels.",
+      "plainExplanation": "Original theme animation, not in-engine game footage or proof of game mechanics.",
+      "actions": [
+        {
+          "id": "harbour-reveal-motion",
+          "at": 0,
+          "action": "Continuous original 3D geometry and camera movement.",
+          "soundRequired": false
+        }
+      ],
+      "headlineEn": "THE WORKING HARBOUR",
+      "component": "src/mg/scene-v6.mjs"
+    },
+    {
+      "id": "harbour",
+      "start": 55.95,
+      "end": 60.8,
+      "type": "native-video",
+      "headline": "港湾日常",
+      "claim": true,
+      "source": [
+        "raw/gameplay/20261029-025431-harbor-real.mov"
+      ],
+      "sourceIn": 2,
+      "renderStart": 55.8,
+      "renderEnd": 60.8,
+      "speed": 1,
+      "description": "港湾日常",
+      "descriptionRole": "Editorial summary; native scenes retain original in-game information and dialogue. No added feature-label panels.",
+      "plainExplanation": "港湾日常，画面来自实际游戏连续录像。",
+      "actions": [
+        {
+          "id": "harbour-motion",
+          "at": 0,
+          "action": "Continuous original source motion; native dialogue pauses are reading time, not held screenshots.",
+          "soundRequired": false
+        }
+      ],
+      "releaseStatus": "Installed 0.7.10; staged independent FilmHarbor save. No ordinary progression claim."
+    },
+    {
+      "id": "ice-opening",
+      "start": 60.8,
+      "end": 66.8,
+      "type": "native-video",
+      "headline": "开启冰钓点",
+      "claim": true,
+      "source": [
+        "raw/gameplay/20261029-140149-ice-opening-v3.mov",
+        "../ArcticPassage/Code/ArcticPassage/IceFishing.cs"
+      ],
+      "sourceIn": 1,
+      "renderStart": 60.8,
+      "renderEnd": 66.8,
+      "speed": 1,
+      "description": "开启冰钓点",
+      "descriptionRole": "Editorial summary; native scenes retain original in-game information and dialogue. No added feature-label panels.",
+      "plainExplanation": "开启冰钓点，画面来自实际游戏连续录像。",
+      "actions": [
+        {
+          "id": "ice-opening-motion",
+          "at": 0,
+          "action": "Continuous original source motion; native dialogue pauses are reading time, not held screenshots.",
+          "soundRequired": false
+        }
+      ],
+      "releaseStatus": "Installed 0.7.10; staged independent FilmHarbor save. No ordinary progression claim."
+    },
+    {
+      "id": "casting",
+      "start": 66.8,
+      "end": 69.8,
+      "type": "native-video",
+      "headline": "向冰海抛竿",
+      "claim": true,
+      "source": [
+        "raw/gameplay/20261029-030741-fishing-shore-real.mov"
+      ],
+      "sourceIn": 2,
+      "renderStart": 66.8,
+      "renderEnd": 69.8,
+      "speed": 1,
+      "description": "向冰海抛竿",
+      "descriptionRole": "Editorial summary; native scenes retain original in-game information and dialogue. No added feature-label panels.",
+      "plainExplanation": "向冰海抛竿，画面来自实际游戏连续录像。",
+      "actions": [
+        {
+          "id": "casting-motion",
+          "at": 0,
+          "action": "Continuous original source motion; native dialogue pauses are reading time, not held screenshots.",
+          "soundRequired": false
+        }
+      ],
+      "releaseStatus": "Installed 0.7.10; staged independent FilmHarbor save. No ordinary progression claim."
+    },
+    {
+      "id": "native-fishing",
+      "start": 69.8,
+      "end": 79.8,
+      "type": "native-video",
+      "headline": "咬钩与原生钓鱼小游戏",
+      "claim": true,
+      "source": [
+        "raw/gameplay/20261029-141501-fishing-native-action-v3.mov",
+        "../ArcticPassage/Code/ArcticPassage/FishingTrace.cs"
+      ],
+      "sourceIn": 12,
+      "renderStart": 69.8,
+      "renderEnd": 79.8,
+      "speed": 1,
+      "description": "咬钩与原生钓鱼小游戏",
+      "descriptionRole": "Editorial summary; native scenes retain original in-game information and dialogue. No added feature-label panels.",
+      "plainExplanation": "Real nibble and BobberBar, no catch-success claim; rod staged as native training rod.",
+      "actions": [
+        {
+          "id": "native-fishing-motion",
+          "at": 0,
+          "action": "Continuous original source motion; native dialogue pauses are reading time, not held screenshots.",
+          "soundRequired": false
+        }
+      ],
+      "releaseStatus": "Installed 0.7.10; staged independent FilmHarbor save. No ordinary progression claim."
+    },
+    {
+      "id": "ida",
+      "start": 79.8,
+      "end": 83.8,
+      "type": "native-video",
+      "headline": "与艾达交谈",
+      "claim": true,
+      "source": [
+        "raw/gameplay/20261029-142942-ida-near-dialogue-v3.mov"
+      ],
+      "sourceIn": 3,
+      "renderStart": 79.8,
+      "renderEnd": 83.8,
+      "speed": 1,
+      "description": "与艾达交谈",
+      "descriptionRole": "Editorial summary; native scenes retain original in-game information and dialogue. No added feature-label panels.",
+      "plainExplanation": "Native Ida dialogue, no still frame hold.",
+      "actions": [
+        {
+          "id": "ida-motion",
+          "at": 0,
+          "action": "Continuous original source motion; native dialogue pauses are reading time, not held screenshots.",
+          "soundRequired": false
+        }
+      ],
+      "releaseStatus": "Installed 0.7.10; staged independent FilmHarbor save. No ordinary progression claim."
+    },
+    {
+      "id": "market",
+      "start": 83.8,
+      "end": 90.65,
+      "type": "native-video",
+      "headline": "在收购站出售北极鳕",
+      "claim": true,
+      "source": [
+        "raw/gameplay/20261029-140132-market-sale-v3.mov"
+      ],
+      "sourceIn": 4,
+      "renderStart": 83.8,
+      "renderEnd": 90.8,
+      "speed": 1,
+      "description": "在收购站出售北极鳕",
+      "descriptionRole": "Editorial summary; native scenes retain original in-game information and dialogue. No added feature-label panels.",
+      "plainExplanation": "Native shop actually sold three preseeded polar cod. This is not the same fish as the preceding cast.",
+      "actions": [
+        {
+          "id": "market-motion",
+          "at": 0,
+          "action": "Continuous original source motion; native dialogue pauses are reading time, not held screenshots.",
+          "soundRequired": false
+        },
+        {
+          "id": "fjord-air",
+          "at": 6.7,
+          "action": "fjord landmark in continuous stem; ownership follows dissolve midpoint",
+          "soundRequired": true
+        }
+      ],
+      "releaseStatus": "Installed 0.7.10; staged independent FilmHarbor save. No ordinary progression claim."
+    },
+    {
+      "id": "four-seasons",
+      "start": 90.65,
+      "end": 120.5,
+      "type": "macro",
+      "headline": "春融、极昼、秋色与极夜",
+      "claim": false,
+      "source": [
+        "renders/mg-v6/panorama.mp4",
+        "src/mg/scene-v6.mjs"
+      ],
+      "sourceIn": 0,
+      "renderStart": 90.5,
+      "renderEnd": 120.5,
+      "speed": 1,
+      "description": "春融、极昼、秋色与极夜",
+      "descriptionRole": "Editorial summary; native scenes retain original in-game information and dialogue. No added feature-label panels.",
+      "plainExplanation": "Original theme animation, not in-engine game footage or proof of game mechanics.",
+      "actions": [
+        {
+          "id": "four-seasons-motion",
+          "at": 0,
+          "action": "Continuous original 3D geometry and camera movement.",
+          "soundRequired": false
+        }
+      ],
+      "headlineEn": "A YEAR IN FROSTHAVN",
+      "component": "src/mg/scene-v6.mjs"
+    },
+    {
+      "id": "mira",
+      "start": 120.5,
+      "end": 124.5,
+      "type": "native-video",
+      "headline": "与米拉交谈",
+      "claim": true,
+      "source": [
+        "raw/gameplay/20261029-141335-mira-dialogue-v3.mov"
+      ],
+      "sourceIn": 2.6,
+      "renderStart": 120.5,
+      "renderEnd": 124.5,
+      "speed": 1,
+      "description": "与米拉交谈",
+      "descriptionRole": "Editorial summary; native scenes retain original in-game information and dialogue. No added feature-label panels.",
+      "plainExplanation": "与米拉交谈，画面来自实际游戏连续录像。",
+      "actions": [
+        {
+          "id": "mira-motion",
+          "at": 0,
+          "action": "Continuous original source motion; native dialogue pauses are reading time, not held screenshots.",
+          "soundRequired": false
+        }
+      ],
+      "releaseStatus": "Installed 0.7.10; staged independent FilmHarbor save. No ordinary progression claim."
+    },
+    {
+      "id": "sled",
+      "start": 124.5,
+      "end": 133.35,
+      "type": "native-video",
+      "headline": "乘犬橇前往营地",
+      "claim": true,
+      "source": [
+        "raw/gameplay/20261029-135956-sled-trip-v3.mov",
+        "../ArcticPassage/Code/ArcticPassage/SledTravel.cs"
+      ],
+      "sourceIn": 3.8,
+      "renderStart": 124.5,
+      "renderEnd": 133.5,
+      "speed": 1,
+      "description": "乘犬橇前往营地",
+      "descriptionRole": "Editorial summary; native scenes retain original in-game information and dialogue. No added feature-label panels.",
+      "plainExplanation": "原生目的地选择、启程和雪橇运动。取同一录像3.8至12.8秒，避开原先片尾连续两次地图淡黑。",
+      "actions": [
+        {
+          "id": "sled-motion",
+          "at": 0,
+          "action": "Continuous original source motion; native dialogue pauses are reading time, not held screenshots.",
+          "soundRequired": false
+        }
+      ],
+      "releaseStatus": "Installed 0.7.10; staged independent FilmHarbor save. No ordinary progression claim."
+    },
+    {
+      "id": "camp-reveal",
+      "start": 133.35,
+      "end": 138.05,
+      "type": "macro",
+      "headline": "雪屋营地",
+      "claim": false,
+      "source": [
+        "renders/mg-v6/camp-reveal.mp4",
+        "src/mg/scene-v6.mjs"
+      ],
+      "sourceIn": 0,
+      "renderStart": 133.2,
+      "renderEnd": 138.2,
+      "speed": 1,
+      "description": "雪屋营地",
+      "descriptionRole": "Editorial summary; native scenes retain original in-game information and dialogue. No added feature-label panels.",
+      "plainExplanation": "Original theme animation, not in-engine game footage or proof of game mechanics.",
+      "actions": [
+        {
+          "id": "camp-reveal-motion",
+          "at": 0,
+          "action": "Continuous original 3D geometry and camera movement.",
+          "soundRequired": false
+        }
+      ],
+      "headlineEn": "THE WINTER CAMP",
+      "component": "src/mg/scene-v6.mjs"
+    },
+    {
+      "id": "camp",
+      "start": 138.05,
+      "end": 141.9,
+      "type": "native-video",
+      "headline": "抵达冬季营地",
+      "claim": true,
+      "source": [
+        "raw/gameplay/20261029-135144-camp-walk-v3.mov"
+      ],
+      "sourceIn": 2,
+      "renderStart": 137.9,
+      "renderEnd": 141.9,
+      "speed": 1,
+      "description": "抵达冬季营地",
+      "descriptionRole": "Editorial summary; native scenes retain original in-game information and dialogue. No added feature-label panels.",
+      "plainExplanation": "抵达冬季营地，画面来自实际游戏连续录像。",
+      "actions": [
+        {
+          "id": "camp-motion",
+          "at": 0,
+          "action": "Continuous original source motion; native dialogue pauses are reading time, not held screenshots.",
+          "soundRequired": false
+        }
+      ],
+      "releaseStatus": "Installed 0.7.10; staged independent FilmHarbor save. No ordinary progression claim."
+    },
+    {
+      "id": "snow-lesson",
+      "start": 141.9,
+      "end": 152.75,
+      "type": "native-video",
+      "headline": "完成三层雪块搭接",
+      "claim": true,
+      "source": [
+        "raw/gameplay/20261029-135158-snow-lesson-v3.mov",
+        "../ArcticPassage/Code/ArcticPassage/SnowShelterLesson.cs"
+      ],
+      "sourceIn": 4.5,
+      "renderStart": 141.9,
+      "renderEnd": 152.9,
+      "speed": 1,
+      "description": "完成三层雪块搭接",
+      "descriptionRole": "Editorial summary; native scenes retain original in-game information and dialogue. No added feature-label panels.",
+      "plainExplanation": "All three courses placed and model completed via native keyboard input.",
+      "actions": [
+        {
+          "id": "snow-lesson-motion",
+          "at": 0,
+          "action": "Continuous original source motion; native dialogue pauses are reading time, not held screenshots.",
+          "soundRequired": false
+        }
+      ],
+      "releaseStatus": "Installed 0.7.10; staged independent FilmHarbor save. No ordinary progression claim."
+    },
+    {
+      "id": "glacier-reveal",
+      "start": 152.75,
+      "end": 157.45,
+      "type": "macro",
+      "headline": "冰川尽头",
+      "claim": false,
+      "source": [
+        "renders/mg-v6/glacier-reveal.mp4",
+        "src/mg/scene-v6.mjs"
+      ],
+      "sourceIn": 0,
+      "renderStart": 152.6,
+      "renderEnd": 157.6,
+      "speed": 1,
+      "description": "冰川尽头",
+      "descriptionRole": "Editorial summary; native scenes retain original in-game information and dialogue. No added feature-label panels.",
+      "plainExplanation": "Original theme animation, not in-engine game footage or proof of game mechanics.",
+      "actions": [
+        {
+          "id": "glacier-reveal-motion",
+          "at": 0,
+          "action": "Continuous original 3D geometry and camera movement.",
+          "soundRequired": false
+        }
+      ],
+      "headlineEn": "THE GLACIER LOOKOUT",
+      "component": "src/mg/scene-v6.mjs"
+    },
+    {
+      "id": "glacier",
+      "start": 157.45,
+      "end": 162.3,
+      "type": "native-video",
+      "headline": "冰川观测台",
+      "claim": true,
+      "source": [
+        "raw/gameplay/20261029-141448-glacier-deck-v3.mov"
+      ],
+      "sourceIn": 1,
+      "renderStart": 157.3,
+      "renderEnd": 162.3,
+      "speed": 1,
+      "description": "冰川观测台",
+      "descriptionRole": "Editorial summary; native scenes retain original in-game information and dialogue. No added feature-label panels.",
+      "plainExplanation": "冰川观测台，画面来自实际游戏连续录像。",
+      "actions": [
+        {
+          "id": "glacier-motion",
+          "at": 0,
+          "action": "Continuous original source motion; native dialogue pauses are reading time, not held screenshots.",
+          "soundRequired": false
+        }
+      ],
+      "releaseStatus": "Installed 0.7.10; staged independent FilmHarbor save. No ordinary progression claim."
+    },
+    {
+      "id": "levin",
+      "start": 162.3,
+      "end": 166.3,
+      "type": "native-video",
+      "headline": "与莱文交谈",
+      "claim": true,
+      "source": [
+        "raw/gameplay/20261029-141347-levin-dialogue-v3.mov"
+      ],
+      "sourceIn": 2.6,
+      "renderStart": 162.3,
+      "renderEnd": 166.3,
+      "speed": 1,
+      "description": "与莱文交谈",
+      "descriptionRole": "Editorial summary; native scenes retain original in-game information and dialogue. No added feature-label panels.",
+      "plainExplanation": "与莱文交谈，画面来自实际游戏连续录像。",
+      "actions": [
+        {
+          "id": "levin-motion",
+          "at": 0,
+          "action": "Continuous original source motion; native dialogue pauses are reading time, not held screenshots.",
+          "soundRequired": false
+        }
+      ],
+      "releaseStatus": "Installed 0.7.10; staged independent FilmHarbor save. No ordinary progression claim."
+    },
+    {
+      "id": "research",
+      "start": 166.3,
+      "end": 175.3,
+      "type": "native-video",
+      "headline": "动物、天象与科研手记",
+      "claim": true,
+      "source": [
+        "raw/gameplay/20261029-094759-research-guide-v3.mov",
+        "../ArcticPassage/Code/ArcticPassage/FieldGuide.cs"
+      ],
+      "sourceIn": 5,
+      "renderStart": 166.3,
+      "renderEnd": 175.3,
+      "speed": 1,
+      "description": "动物、天象与科研手记",
+      "descriptionRole": "Editorial summary; native scenes retain original in-game information and dialogue. No added feature-label panels.",
+      "plainExplanation": "动物、天象与科研手记，画面来自实际游戏连续录像。",
+      "actions": [
+        {
+          "id": "research-motion",
+          "at": 0,
+          "action": "Continuous original source motion; native dialogue pauses are reading time, not held screenshots.",
+          "soundRequired": false
+        }
+      ],
+      "releaseStatus": "Installed 0.7.10; staged independent FilmHarbor save. No ordinary progression claim."
+    },
+    {
+      "id": "community",
+      "start": 175.3,
+      "end": 179.3,
+      "type": "native-video",
+      "headline": "社区屋",
+      "claim": true,
+      "source": [
+        "raw/gameplay/20261029-141034-community-clean-v3.mov"
+      ],
+      "sourceIn": 2,
+      "renderStart": 175.3,
+      "renderEnd": 179.3,
+      "speed": 1,
+      "description": "社区屋",
+      "descriptionRole": "Editorial summary; native scenes retain original in-game information and dialogue. No added feature-label panels.",
+      "plainExplanation": "社区屋，画面来自实际游戏连续录像。",
+      "actions": [
+        {
+          "id": "community-motion",
+          "at": 0,
+          "action": "Continuous original source motion; native dialogue pauses are reading time, not held screenshots.",
+          "soundRequired": false
+        }
+      ],
+      "releaseStatus": "Installed 0.7.10; staged independent FilmHarbor save. No ordinary progression claim."
+    },
+    {
+      "id": "amma",
+      "start": 179.3,
+      "end": 184.3,
+      "type": "native-video",
+      "headline": "与阿玛交谈",
+      "claim": true,
+      "source": [
+        "raw/gameplay/20261029-030324-guesthouse-real.mov"
+      ],
+      "sourceIn": 4,
+      "renderStart": 179.3,
+      "renderEnd": 184.3,
+      "speed": 1,
+      "description": "与阿玛交谈",
+      "descriptionRole": "Editorial summary; native scenes retain original in-game information and dialogue. No added feature-label panels.",
+      "plainExplanation": "与阿玛交谈，画面来自实际游戏连续录像。",
+      "actions": [
+        {
+          "id": "amma-motion",
+          "at": 0,
+          "action": "Continuous original source motion; native dialogue pauses are reading time, not held screenshots.",
+          "soundRequired": false
+        }
+      ],
+      "releaseStatus": "Installed 0.7.10; staged independent FilmHarbor save. No ordinary progression claim."
+    },
+    {
+      "id": "night",
+      "start": 184.3,
+      "end": 192.0,
+      "type": "native-video",
+      "headline": "夜港归来",
+      "claim": true,
+      "source": [
+        "raw/gameplay/20261029-030007-town-night-real.mov"
+      ],
+      "sourceIn": 1,
+      "renderStart": 184.3,
+      "renderEnd": 192.3,
+      "speed": 1,
+      "description": "夜港归来",
+      "descriptionRole": "Editorial summary; native scenes retain original in-game information and dialogue. No added feature-label panels.",
+      "plainExplanation": "夜港归来，画面来自实际游戏连续录像。",
+      "actions": [
+        {
+          "id": "night-motion",
+          "at": 0,
+          "action": "Continuous original source motion; native dialogue pauses are reading time, not held screenshots.",
+          "soundRequired": false
+        }
+      ],
+      "releaseStatus": "Installed 0.7.10; staged independent FilmHarbor save. No ordinary progression claim."
+    },
+    {
+      "id": "outro",
+      "start": 192.0,
+      "end": 199.7,
+      "type": "end",
+      "headline": "长夜里，有灯等你",
+      "claim": false,
+      "source": [
+        "renders/mg-v6/outro.mp4",
+        "src/mg/scene-v6.mjs"
+      ],
+      "sourceIn": 0,
+      "renderStart": 191.7,
+      "renderEnd": 199.7,
+      "speed": 1.1666666666666667,
+      "description": "长夜里，有灯等你",
+      "descriptionRole": "Editorial summary; native scenes retain original in-game information and dialogue. No added feature-label panels.",
+      "plainExplanation": "Original theme animation, not in-engine game footage or proof of game mechanics.",
+      "actions": [
+        {
+          "id": "outro-motion",
+          "at": 0,
+          "action": "Continuous original 3D geometry and camera movement.",
+          "soundRequired": false
+        }
+      ],
+      "headlineEn": "FROSTHAVN",
+      "component": "src/mg/scene-v6.mjs"
+    }
+  ],
+  "qualityReview": "evidence/director-v9-probe.json",
+  "directorTreatment": "voice/script/DirectorTreatment.md",
+  "voiceoverScript": "voice/script/BilingualVoiceover.md",
+  "subtitleFile": "voice/Frosthavn-v9.zh-CN.srt",
+  "directorEditionEdit": "evidence/director-v9-edit.json",
+  "narrativeSource": "voice/script/story-v9.json",
+  "finalVideo": "renders/Frosthavn-飞越四季-航空广播版.mp4",
+  "lineTransitions": "evidence/v6-line-transitions.json",
+  "nativeHallmark": "evidence/gameplay-badge-v7.json",
+  "captionLayout": "voice/script/captions-v9.json"
+}
